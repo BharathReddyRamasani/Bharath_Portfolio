@@ -36,14 +36,6 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
           </div>
           <div className="flex items-center gap-3">
             <button
-              onClick={handlePrint}
-              className="bg-white/5 hover:bg-white/10 text-on-surface p-2 rounded-lg transition-colors cursor-pointer flex items-center gap-1.5 text-xs font-mono border border-white/10"
-              title="Print Resume"
-            >
-              <Printer className="w-4 h-4" />
-              <span className="hidden sm:inline">Print / Save as PDF</span>
-            </button>
-            <button
               onClick={onClose}
               className="p-1.5 rounded-lg hover:bg-white/10 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"
             >
