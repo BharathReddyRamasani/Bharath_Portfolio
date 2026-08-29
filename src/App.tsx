@@ -127,21 +127,38 @@ export default function App() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.3 }}
-              className="flex flex-wrap justify-center gap-4"
+              className="flex flex-wrap justify-center gap-3"
             >
               <a
                 href="#projects"
-                className="bg-primary hover:bg-primary-container text-on-primary font-bold px-7 py-3.5 rounded-xl flex items-center gap-2 hover:scale-105 active:scale-95 transition-all glow-teal border border-primary/10 cursor-pointer text-sm"
+                className="bg-primary hover:bg-primary-container text-on-primary font-bold px-6 py-3 rounded-xl flex items-center gap-2 hover:scale-105 active:scale-95 transition-all glow-teal border border-primary/10 cursor-pointer text-sm"
               >
                 Explore Projects
                 <ArrowDown className="w-4 h-4 animate-bounce" />
               </a>
+              
               <button
                 onClick={() => setResumeOpen(true)}
-                className="border border-outline hover:border-primary/50 text-on-surface font-bold px-7 py-3.5 rounded-xl backdrop-blur-md hover:bg-white/5 hover:text-primary transition-all cursor-pointer text-sm"
+                className="border border-outline hover:border-primary/50 text-on-surface font-bold px-6 py-3 rounded-xl backdrop-blur-md hover:bg-white/5 hover:text-primary transition-all cursor-pointer text-sm flex items-center gap-2"
               >
-                View Resume
+                <FileText className="w-4 h-4" /> Digital Resume
               </button>
+
+              <a
+                href="http://drive.google.com/file/d/1siq7BHmpvKMiIXQg2uuNlAGxOrwccjc5/view"
+                target="_blank" rel="noreferrer"
+                className="border border-outline hover:border-primary/50 text-on-surface font-bold px-6 py-3 rounded-xl backdrop-blur-md hover:bg-white/5 hover:text-primary transition-all cursor-pointer text-sm flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4 text-secondary" /> AI Resume (PDF)
+              </a>
+
+              <a
+                href="https://drive.google.com/file/d/1IvMVJPDKRZASnS4dKybUEOku8r23NOxI/view?usp=sharing"
+                target="_blank" rel="noreferrer"
+                className="border border-outline hover:border-primary/50 text-on-surface font-bold px-6 py-3 rounded-xl backdrop-blur-md hover:bg-white/5 hover:text-primary transition-all cursor-pointer text-sm flex items-center gap-2"
+              >
+                <FileText className="w-4 h-4 text-tertiary" /> SDE Resume (PDF)
+              </a>
             </motion.div>
 
             {/* Scannable Profile Cards */}
