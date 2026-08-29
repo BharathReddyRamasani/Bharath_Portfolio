@@ -148,7 +148,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
                   Profiles & Certs
                 </h3>
                 <div className="space-y-2 text-xs text-on-surface-variant leading-relaxed">
-                  <p>• <strong>LeetCode:</strong> 1600+ Rating (Top 16%)</p>
+                  <p>• <strong>LeetCode:</strong> <a href="https://leetcode.com/u/Bharathreddy_Ramasani/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">1600+ Rating (Top 16%)</a></p>
                   <p>• <strong>CodeChef:</strong> 1400+ Rating</p>
                   <p>• Oracle Cloud Infrastructure 2025: AI Foundations Associate</p>
                   <p>• Oracle Cloud Infrastructure 2025: Foundations Associate</p>

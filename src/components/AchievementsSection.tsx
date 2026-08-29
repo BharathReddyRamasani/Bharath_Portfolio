@@ -15,11 +15,11 @@ export default function AchievementsSection() {
       icon: <CodeXml className="w-6 h-6 text-secondary" />,
       title: "Top 16% Globally on LeetCode",
       category: "Competitive Programming",
-      date: "Active",
+      date: "Ongoing",
       description: "Achieved a 1600+ contest rating on LeetCode, solving 300+ algorithms and data structures problems focused on dynamic programming, graphs, and optimization.",
       badge: "Rating 1600+",
       badgeColor: "bg-secondary/10 text-secondary border-secondary/25",
-      link: "https://leetcode.com/u/BharathReddyRamasani/"
+      link: "https://leetcode.com/u/Bharathreddy_Ramasani/"
     },
     {
       icon: <Trophy className="w-6 h-6 text-tertiary" />,
