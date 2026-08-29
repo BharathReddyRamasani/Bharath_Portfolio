@@ -137,13 +137,6 @@ export default function App() {
                 <ArrowDown className="w-4 h-4 animate-bounce" />
               </a>
               
-              <button
-                onClick={() => setResumeOpen(true)}
-                className="border border-outline hover:border-primary/50 text-on-surface font-bold px-6 py-3 rounded-xl backdrop-blur-md hover:bg-white/5 hover:text-primary transition-all cursor-pointer text-sm flex items-center gap-2"
-              >
-                <FileText className="w-4 h-4" /> Digital Resume
-              </button>
-
               <a
                 href="http://drive.google.com/file/d/1siq7BHmpvKMiIXQg2uuNlAGxOrwccjc5/view"
                 target="_blank" rel="noreferrer"
