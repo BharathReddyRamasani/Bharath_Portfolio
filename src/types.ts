@@ -25,9 +25,3 @@ export interface TimelineEvent {
   highlight?: boolean;
 }
 
-export interface ChatMessage {
-  id: string;
-  role: 'user' | 'assistant';
-  text: string;
-  timestamp: string;
-}

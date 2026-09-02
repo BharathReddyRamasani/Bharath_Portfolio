@@ -60,7 +60,7 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen text-on-surface bg-bg-dark font-sans overflow-x-hidden select-none selection:bg-primary selection:text-on-primary">
+    <div className="relative min-h-screen text-on-surface bg-bg-dark font-sans overflow-x-hidden selection:bg-primary selection:text-on-primary">
       {/* Scroll Progress Bar */}
       <div 
         className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary via-secondary to-tertiary z-[9999] transition-all duration-75"
