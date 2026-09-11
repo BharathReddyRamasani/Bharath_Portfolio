@@ -56,14 +56,14 @@ export default function ProjectsSection() {
       title: "CorpusAI — AI-Powered Academic Literature Synthesis & Research Assistant",
       subtitle: "Multi-Agent Research Intelligence & Synthesis Platform",
       positioningRole: "Agentic AI / Multi-Agent / RAG",
-      tagsSummary: "LangGraph · Multi-Agent Systems · Local ONNX all-MiniLM · ChromaDB · FastAPI · Groq Llama 3.1 · React 18",
-      hookTeaser: "A local-first, multi-agent research platform engineered to eliminate manual paper analysis. Coordinates a LangGraph supervisor across 7 specialized worker agents with local ONNX all-MiniLM embeddings, ChromaDB vector indexing, and dynamic Groq key rotation with 12-stage exponential backoff. Automates multi-paper cross-examination, citation knowledge graph generation, research gap discovery, and in-memory streaming report synthesis.",
+      tagsSummary: "LangGraph · Multi-Agent Systems · Local all-MiniLM-L6-v2 · ChromaDB · FastAPI · Groq Llama 3.1 · React 18",
+      hookTeaser: "A local-first, multi-agent research platform engineered to eliminate manual paper analysis. Coordinates a LangGraph supervisor across 7 specialized worker agents with local all-MiniLM-L6-v2 embeddings, ChromaDB vector indexing, and rate-limit resilient Groq LLM inference with exponential backoff. Automates multi-paper cross-examination, citation knowledge graph generation, research gap discovery, and in-memory streaming report synthesis.",
       overview: "Academic literature reviews require synthesizing dozens of dense PDFs, finding methodology gaps, and cross-referencing claims. Monolithic single-prompt LLMs fail due to token context window degradation and document hallucinations. CorpusAI decomposes literature synthesis into a multi-agent state machine where a central supervisor routes queries across specialized workers backed by persistent vector retrieval and real-time citation attribution.",
       keyEngineering: [
         "Supervisor Multi-Agent State Machine: Engineered a LangGraph supervisor topology coordinating 7 specialized agents (Paper Analysis, Multi-Paper Chat, Gap Detection, Literature Synthesis, Reviewer 2 Critique, Report Generation, and Citation Mapping) with strictly typed AgentState and recursion safeguards.",
         "Memory-Prioritized Context Chunking: Implemented an intelligent document ingestion pipeline (supporting PDF, DOCX, ArXiv, and Trafilatura web URLs) capping processing at 150 chunks per document while prioritizing Abstract, Introduction, and Conclusion sections to minimize context drift.",
         "Local Embedding & Vector Persistence: Deployed local all-MiniLM-L6-v2 embedding inference via SentenceTransformers—eliminating external embedding API latency—paired with a persistent ChromaDB HNSW cosine vector index.",
-        "High-Throughput Resilience & Key Rotation: Hardened LLM inference against upstream Groq provider rate limits using dynamic API key rotation coupled with Tenacity exponential backoff across up to 12 automated retry attempts.",
+        "High-Throughput Resilience & Rate-Limit Handling: Hardened LLM inference against upstream Groq provider rate limits using dynamic API key rotation coupled with Tenacity exponential backoff retry policies.",
         "Production-Grade Async Architecture: Architected a FastAPI backend utilizing aiosqlite with SQLite WAL (Write-Ahead Logging) mode for concurrent read/write isolation, JWT authentication, and in-memory streaming of PDF/DOCX research reports directly to client buffers.",
         "Citation Knowledge Graph & Audio Synthesis: Extracted frequent citation co-occurrences and benchmark datasets into interactive react-force-graph-2d network visualizations, with edge-tts audio synthesis generating automated research briefing podcasts and spaced-repetition flashcards."
       ],
@@ -76,11 +76,11 @@ export default function ProjectsSection() {
         "Groq / Llama 3.1",
         "Streaming Citations"
       ],
-      architectureNote: "Document Ingestion: ArXiv / PDF / URLs → Trafilatura + PyMuPDF → Smart 150-Chunk Prioritization → Local all-MiniLM Embeddings → ChromaDB HNSW Index",
+      architectureNote: "Document Ingestion: ArXiv / PDF / URLs → Trafilatura + PyMuPDF → Smart 150-Chunk Prioritization → Local all-MiniLM-L6-v2 Embeddings → ChromaDB HNSW Index",
       techHighlights: [
         { component: "LangGraph Supervisor", usage: "Deterministically routes queries across 7 specialized worker agents with typed state graphs and recursion limits." },
         { component: "ChromaDB + Local all-MiniLM", usage: "Sub-millisecond local vector retrieval over prioritized paper chunks with source citation tracking." },
-        { component: "Tenacity + Key Rotation", usage: "Multi-key Groq pool with exponential backoff handling up to 12 retries during burst traffic." },
+        { component: "Tenacity + Key Rotation", usage: "Dynamic API key rotation pool with exponential backoff handling upstream provider rate limits during burst traffic." },
         { component: "SQLite WAL + FastAPI", usage: "Concurrent async session persistence, multi-paper chat histories, and in-memory PDF/DOCX report streaming." }
       ],
       technologies: [
@@ -121,7 +121,7 @@ export default function ProjectsSection() {
       overview: "Traditional e-commerce platforms suffer from two critical architectural pain points: severe cold-start drop-off for new users with no history, and rigid keyword search engines unable to interpret nuanced natural-language buying criteria. This platform resolves both by marrying an adaptive hybrid recommendation engine with a RAG discovery pipeline that combines vector similarity and personalized re-ranking.",
       keyEngineering: [
         "Adaptive Multi-Stage Recommendation Engine: Designed an adaptive hybrid recommender that dynamically switches strategies based on interaction volume: 0 interactions activates popularity-based scoring (cold-start mitigation); 1–4 interactions triggers TF-IDF content-based similarity; and 5+ interactions executes user-user cosine similarity with SVD matrix factorization fallback.",
-        "Unified RAG & Re-Ranking Discovery Flow: Built a hybrid retrieval pipeline combining ChromaDB semantic search (using local ONNX all-MiniLM-L6-v2) with the recommendation engine to re-rank the top-10 candidate products before passing them as grounded context to Gemini 2.5 Flash.",
+        "Unified RAG & Re-Ranking Discovery Flow: Built a hybrid retrieval pipeline combining ChromaDB semantic search (using local all-MiniLM-L6-v2 embeddings) with the recommendation engine to re-rank the top-10 candidate products before passing them as grounded context to Gemini 2.5 Flash.",
         "Modular Full-Stack Architecture: Built a modular FastAPI backend paired with React.js, implementing JWT authentication, secure password hashing, cart state machines, checkout orders, and real-time recommendation analytics.",
         "Strict Anti-Hallucination Prompt Grounding: Constrained the conversational assistant's prompt schema to strictly reference retrieved catalog product IDs and live inventory metadata, preventing hallucinated specifications and phantom SKUs.",
         "Containerized Full-Stack Deployment: Dockerized both the FastAPI REST services and React frontend into a multi-stage production container with automated health probes on Hugging Face Spaces."
@@ -139,7 +139,7 @@ export default function ProjectsSection() {
       architectureNote: "Dual-Flow Architecture: React → FastAPI → Commerce APIs → MongoDB (Transactional Flow) & User Query → ChromaDB → Hybrid Recommender Re-Ranking → Gemini 2.5 Flash → Context → Response (AI Discovery Flow)",
       techHighlights: [
         { component: "Adaptive Recommender", usage: "Dynamically toggles popularity, content similarity, and collaborative filtering based on interaction thresholds." },
-        { component: "ChromaDB + ONNX Runtime", usage: "Sub-50ms local vector candidate generation without external embedding API dependencies." },
+        { component: "ChromaDB + Local all-MiniLM", usage: "Sub-50ms local vector candidate generation without external embedding API dependencies." },
         { component: "Gemini 2.5 Flash Integration", usage: "Context-grounded natural language shopping assistant constrained strictly to verified inventory." },
         { component: "MongoDB Atlas", usage: "Document store modeling dynamic product schemas, user interaction logs, and transactional order states." }
       ],
@@ -150,10 +150,10 @@ export default function ProjectsSection() {
         "MongoDB Atlas",
         "Scikit-learn",
         "SciPy",
+        "SentenceTransformers",
         "LangChain",
         "ChromaDB",
         "Gemini 2.5 Flash",
-        "ONNX Runtime",
         "Docker"
       ],
       engineeringDecisions: [
@@ -175,29 +175,29 @@ export default function ProjectsSection() {
       title: "Emotion-Aware Hate Speech Detection System",
       subtitle: "Multilingual & Multimodal Moderation Platform (EmiHate)",
       positioningRole: "Deep Learning / NLP / Transformers",
-      tagsSummary: "PyTorch · Transformers · 9-Head Neural Grid · EasyOCR · Multilingual (EN/HI/TE) · LIME & SHAP · FastAPI",
-      hookTeaser: "A deep learning moderation platform engineered with a 9-head neural architecture to simultaneously predict hate speech, emotion, and sentiment across English, Hindi, and Telugu. Ingests raw text, images, and scanned PDFs via an EasyOCR and PyPDF2 pipeline, provides token-level interpretability using both LIME and SHAP, and analyzes multi-turn conversation threads for escalating or de-escalating toxicity trends.",
-      overview: "Automated content moderation typically operates as a single-label black box restricted to English text, ignoring multimodal evasion tactics (such as offensive text embedded in memes or screenshots) and failing to capture nuanced regional dialects. EmiHate extends moderation into a 9-head neural architecture analyzing hate speech, emotional tone, and sentiment concurrently across English, Hindi, and Telugu, backed by post-hoc explainability so human moderators can inspect the exact linguistic drivers behind every prediction.",
+      tagsSummary: "PyTorch · Fine-Tuned Transformers · 80K+ Samples · 9-Head Neural Grid · Tesseract OCR · LIME & SHAP · FastAPI",
+      hookTeaser: "A deep learning moderation platform engineered with Transformer backbones fine-tuned on an 80K+ multi-domain dataset to simultaneously predict hate speech, emotion, and sentiment across English, Hindi, and Telugu. Ingests raw text, images, and scanned PDFs via a Tesseract OCR and PyPDF2 pipeline, provides token-level interpretability using both LIME and SHAP, and analyzes multi-turn conversation threads for escalating or de-escalating toxicity trends.",
+      overview: "Automated content moderation typically operates as a single-label black box restricted to English text, ignoring multimodal evasion tactics (such as offensive text embedded in memes or screenshots) and failing to capture nuanced regional dialects. EmiHate fine-tunes Transformer backbones on an 80K+ multi-domain dataset across a 9-head neural architecture analyzing hate speech, emotional tone, and sentiment concurrently across English, Hindi, and Telugu, backed by post-hoc explainability so human moderators can inspect the exact linguistic drivers behind every prediction.",
       keyEngineering: [
-        "9-Head Multitask Neural Architecture: Engineered a multitask Transformer network in PyTorch featuring 9 specialized classification heads operating simultaneously over shared encoder representations to detect hate categories, emotional profiles, and sentiment polarity.",
-        "Trilingual NLP Pipeline (English, Hindi, Telugu): Designed specialized tokenization and preprocessing workflows tailored to Indian linguistic nuances, dialectal transliterations, and multilingual code-mixing using langdetect and multilingual BERT encoders.",
-        "Multimodal Document & Image Ingestion: Built an automated ingestion microservice integrating EasyOCR and PyPDF2 to extract embedded textual content from screenshots, memes, and PDF documents prior to model classification.",
+        "9-Head Multitask Neural Architecture: Fine-tuned Transformer backbones in PyTorch on an 80K+ annotated multi-domain dataset, engineering 9 specialized classification heads operating simultaneously over shared encoder representations to detect hate categories, emotional profiles, and sentiment polarity.",
+        "Trilingual NLP Pipeline (English, Hindi, Telugu): Designed specialized tokenization and preprocessing workflows tailored to Indian linguistic nuances, dialectal transliterations, and multilingual code-mixing using langdetect and multilingual Transformer encoders.",
+        "Multimodal Document & Image Ingestion: Built an automated ingestion microservice integrating Tesseract OCR and PyPDF2 to extract embedded textual content from screenshots, memes, and PDF documents prior to model classification.",
         "Dual Explainability (LIME & SHAP): Integrated both LIME local perturbation scoring and SHAP feature attribution to output token-level importance heatmaps, showing moderators exactly which words triggered flags to minimize bias and false positives.",
         "Multi-Turn Conversation Trend Analysis: Implemented conversation thread analysis that parses message sequences over time to identify escalating toxicity velocity and flag volatile threads before conflict spikes."
       ],
       architectureSteps: [
         "Multimodal Input (Text/Image/PDF)",
-        "EasyOCR / PyPDF2 Extraction",
+        "Tesseract OCR / PyPDF2 Extraction",
         "Preprocessing & LangDetect",
-        "Shared Transformer Encoder",
+        "Fine-Tuned Transformer Encoder (80K+)",
         "9-Head Neural Grid",
         "LIME / SHAP Explainability",
         "REST Inference API"
       ],
       architectureNote: "Inference Endpoints: POST /api/analyze/text | POST /api/analyze/image | POST /api/analyze/pdf | POST /api/analyze/conversation",
       techHighlights: [
-        { component: "9-Head Neural Grid", usage: "Jointly classifies hate speech severity, discrete emotional states, and fine-grained sentiment polarity." },
-        { component: "EasyOCR & PyPDF2 Engine", usage: "Extracts text from multimodal files (memes, scanned documents, PDFs) for unified downstream classification." },
+        { component: "9-Head Neural Grid (80K+ Fine-Tuned)", usage: "Jointly classifies hate speech severity, discrete emotional states, and fine-grained sentiment polarity." },
+        { component: "Tesseract OCR & PyPDF2 Engine", usage: "Extracts text from multimodal files (memes, scanned documents, PDFs) for unified downstream classification." },
         { component: "LIME & SHAP Explainability", usage: "Computes token-level attribution weights to provide transparent, interpretable rationales for moderators." },
         { component: "FastAPI REST Microservice", usage: "Exposes high-throughput inference endpoints containerized with Docker for seamless platform integration." }
       ],
@@ -205,8 +205,8 @@ export default function ProjectsSection() {
         "Python",
         "PyTorch",
         "Hugging Face Transformers",
-        "BERT Architecture",
-        "EasyOCR",
+        "Fine-Tuned Transformers (80K+)",
+        "Tesseract OCR",
         "PyPDF2",
         "LIME",
         "SHAP",
@@ -216,7 +216,7 @@ export default function ProjectsSection() {
       engineeringDecisions: [
         {
           decision: "Multitask 9-Head Shared Encoder vs. Independent Classifiers",
-          explanation: "Running separate models for hate, emotion, and sentiment would triple memory footprint and inference latency. A single shared Transformer backbone with 9 specialized output heads reduced latency by 60% while improving generalization across correlated tasks."
+          explanation: "Running separate models for hate, emotion, and sentiment would triple memory footprint and inference latency. Fine-tuning a single shared Transformer backbone on 80K+ samples with 9 specialized output heads reduced latency by 60% while improving generalization across correlated tasks."
         },
         {
           decision: "Dual-Mode Explainability for Moderator Auditing",
