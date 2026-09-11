@@ -5,6 +5,7 @@
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Sora", sans-serif;
   --font-mono: "JetBrains Mono", monospace;
+  --font-script: "Caveat", cursive;
 
   /* Theme colors based on Neural Depth design specifications */
   --color-primary: #4fdbc8;
@@ -33,14 +34,26 @@
 }
 
 @layer utilities {
+  .font-script {
+    font-family: var(--font-script);
+  }
   .text-glow {
     text-shadow: 0 0 20px rgba(79, 219, 200, 0.4);
+  }
+  .text-glow-subtle {
+    text-shadow: 0 0 10px rgba(79, 219, 200, 0.25);
   }
   .glow-teal {
     box-shadow: 0 0 25px rgba(79, 219, 200, 0.2);
   }
+  .glow-teal-strong {
+    box-shadow: 0 0 35px rgba(79, 219, 200, 0.35);
+  }
   .glow-blue {
     box-shadow: 0 0 25px rgba(59, 130, 246, 0.2);
+  }
+  .border-glow {
+    box-shadow: 0 0 15px -3px rgba(79, 219, 200, 0.3), inset 0 0 15px -3px rgba(79, 219, 200, 0.15);
   }
 }
 

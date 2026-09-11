@@ -33,62 +33,62 @@ export default function AchievementsSection() {
   ];
 
   return (
-    <section id="achievements" className="relative py-20 bg-surface-container-lowest/20 z-10 scroll-mt-12">
-      <div className="px-6 md:px-20 max-w-6xl mx-auto space-y-8">
+    <section id="achievements" className="relative py-8 sm:py-12 bg-surface-container-lowest/20 z-10 scroll-mt-12">
+      <div className="px-4 sm:px-6 md:px-10 max-w-6xl mx-auto space-y-4">
         
         {/* SECTION HEADER */}
         <div className="text-center">
-          <span className="font-mono text-xs uppercase text-primary tracking-[0.25em] mb-2 block font-semibold">
-            HONORS & CREDENTIALS
+          <span className="font-mono text-[10px] uppercase text-primary tracking-[0.25em] mb-1 block font-semibold">
+            HONORS &amp; CREDENTIALS
           </span>
-          <h2 className="font-display text-3xl md:text-4xl font-extrabold text-on-surface">
-            Achievements & Certifications
+          <h2 className="font-display text-xl sm:text-2xl font-extrabold text-on-surface">
+            Achievements &amp; Certifications
           </h2>
-          <p className="font-sans text-base text-on-surface-variant max-w-xl mx-auto mt-3 leading-relaxed">
+          <p className="font-sans text-[11px] sm:text-xs text-on-surface-variant max-w-xl mx-auto mt-1 leading-relaxed">
             Competitive coding milestones, industry certifications, and performance awards.
           </p>
         </div>
 
         {/* ACHIEVEMENTS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4">
           {achievements.map((item, idx) => (
             <div
               key={idx}
-              className="bg-surface-container-low/40 backdrop-blur-md border border-white/5 p-7 rounded-2xl flex flex-col justify-between hover:border-primary/30 transition-all duration-300 shadow-xl group"
+              className="bg-surface-container-low/40 backdrop-blur-md border border-white/10 p-4 sm:p-5 rounded-xl flex flex-col justify-between hover:border-primary/30 transition-all duration-300 shadow-xl group"
             >
               <div>
-                <div className="flex items-center justify-between gap-2 mb-4">
-                  <div className="w-12 h-12 rounded-xl bg-white/3 flex items-center justify-center border border-white/10 group-hover:scale-110 transition-transform">
+                <div className="flex items-center justify-between gap-2 mb-3">
+                  <div className="w-10 h-10 rounded-lg bg-white/3 flex items-center justify-center border border-white/10 group-hover:scale-105 transition-transform">
                     {item.icon}
                   </div>
-                  <span className={`font-mono text-[10px] font-bold px-3 py-1 rounded-full border ${item.badgeColor}`}>
+                  <span className={`font-mono text-[9px] font-bold px-2.5 py-0.5 rounded-full border ${item.badgeColor}`}>
                     {item.badge}
                   </span>
                 </div>
 
-                <span className="font-mono text-[10px] text-on-surface-variant uppercase tracking-wider block mb-1">
+                <span className="font-mono text-[9.5px] text-on-surface-variant uppercase tracking-wider block mb-0.5">
                   {item.category} • {item.date}
                 </span>
 
-                <h3 className="font-display text-lg font-bold text-on-surface mb-2">
+                <h3 className="font-display text-sm sm:text-base font-bold text-on-surface mb-1.5 leading-snug">
                   {item.title}
                 </h3>
 
-                <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
+                <p className="font-sans text-[11px] sm:text-xs text-on-surface-variant leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
               {item.link && (
-                <div className="mt-6 pt-4 border-t border-white/5">
+                <div className="mt-4 pt-3 border-t border-white/5">
                   <a
                     href={item.link}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-mono text-xs text-primary hover:underline inline-flex items-center gap-1.5 font-semibold"
+                    className="font-mono text-[11px] text-primary hover:underline inline-flex items-center gap-1 font-semibold"
                   >
                     View Competitive Profile
-                    <ExternalLink className="w-3.5 h-3.5" />
+                    <ExternalLink className="w-3 h-3" />
                   </a>
                 </div>
               )}
