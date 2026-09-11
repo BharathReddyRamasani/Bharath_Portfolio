@@ -91,14 +91,14 @@ export default function App() {
         {/* HERO SECTION — EXACT SINGLE SLIDE FIT (Fills 100% of the screen, navbar overlays top) */}
         <section
           id="home"
-          className="relative h-screen min-h-screen max-h-screen flex flex-col justify-between pt-16 sm:pt-18 pb-2.5 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto overflow-hidden"
+          className="relative min-h-screen lg:h-screen lg:max-h-screen flex flex-col justify-between pt-16 sm:pt-18 pb-3 sm:pb-4 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto overflow-hidden"
         >
           {/* Main Top/Middle Grid: Left Content (7 cols), Right Visual (5 cols) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center flex-1 my-auto py-0.5">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-8 items-center flex-1 my-auto py-1">
             {/* Left Content Column (7 cols) */}
-            <div className="lg:col-span-7 space-y-1.5 sm:space-y-2 text-left">
+            <div className="lg:col-span-7 space-y-2.5 sm:space-y-3 text-left">
               <div>
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-[38px] font-extrabold tracking-tight text-on-surface leading-[1.08]">
+                <h1 className="font-display text-4xl sm:text-5xl lg:text-[46px] xl:text-[54px] font-extrabold tracking-tight text-on-surface leading-[1.04]">
                   Bharath Reddy <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-emerald-300 font-black">
                     Ramasani
@@ -107,7 +107,7 @@ export default function App() {
               </div>
 
               {/* Roles */}
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-[13px] font-display font-bold text-on-surface">
+              <div className="flex flex-wrap items-center gap-2 text-xs sm:text-sm font-display font-bold text-on-surface">
                 <span className="text-cyan-300">AI / ML Engineer</span>
                 <span className="text-primary/70 font-black">•</span>
                 <span className="text-white">Software Engineer</span>
@@ -116,106 +116,106 @@ export default function App() {
               </div>
 
               {/* Positioning Description */}
-              <p className="font-sans text-xs sm:text-[13px] text-on-surface-variant leading-relaxed max-w-xl">
+              <p className="font-sans text-xs sm:text-[13.5px] text-on-surface-variant leading-relaxed max-w-xl">
                 Building production-oriented AI and software systems across Multi-Agent Systems,
                 Retrieval-Augmented Generation (RAG), Machine Learning, and scalable backend engineering.
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-2.5 pt-0.5">
+              <div className="flex flex-wrap items-center gap-3 pt-1">
                 <a
                   href="#projects"
-                  className="bg-primary text-on-primary font-display font-bold text-xs px-4 py-2 rounded-lg hover:bg-cyan-300 transition-all flex items-center gap-1.5 shadow-md shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]"
+                  className="bg-primary text-on-primary font-display font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl hover:bg-cyan-300 transition-all flex items-center gap-2 shadow-lg shadow-primary/25 hover:scale-[1.02] active:scale-[0.98]"
                 >
                   <span>View Selected Work</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
+                  <ArrowRight className="w-4 h-4" />
                 </a>
 
                 <button
                   onClick={() => setResumeOpen(true)}
-                  className="bg-surface-container-high/80 hover:bg-surface-container-highest text-on-surface border border-white/10 hover:border-primary/40 font-display font-bold text-xs px-4 py-2 rounded-lg transition-all flex items-center gap-1.5 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                  className="bg-surface-container-high/80 hover:bg-surface-container-highest text-on-surface border border-white/10 hover:border-primary/40 font-display font-bold text-xs sm:text-sm px-5 py-2.5 rounded-xl transition-all flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 >
-                  <FileText className="w-3.5 h-3.5 text-primary" />
+                  <FileText className="w-4 h-4 text-primary" />
                   <span>Digital Resume</span>
                 </button>
               </div>
 
               {/* Direct PDF Resumes */}
-              <div className="flex flex-wrap items-center gap-1.5 text-[11px] font-mono pt-0.5">
-                <span className="uppercase tracking-wider text-on-surface-variant/70 font-semibold flex items-center gap-1">
-                  <FileText className="w-3 h-3 text-primary" />
+              <div className="flex flex-wrap items-center gap-2 text-[11px] sm:text-xs font-mono pt-1">
+                <span className="uppercase tracking-wider text-on-surface-variant/70 font-semibold flex items-center gap-1.5">
+                  <FileText className="w-3.5 h-3.5 text-primary" />
                   Direct PDF Resumes:
                 </span>
                 <a
                   href="https://drive.google.com/file/d/1gTVsIZOMOwnpFQX5tOvQRn7jKDi4EtLc/view?usp=drive_link"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/25 hover:border-primary transition-all font-semibold"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/25 hover:border-primary transition-all font-semibold shadow-xs"
                 >
                   <span>AI/ML Resume</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-primary" />
+                  <ExternalLink className="w-3 h-3 text-primary" />
                 </a>
                 <span className="text-white/20">•</span>
                 <a
                   href="https://drive.google.com/file/d/13SRI9L4a9YpSkCKU9U3A2USuOFb1975g/view?usp=drive_link"
                   target="_blank"
                   rel="noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary/25 hover:border-secondary transition-all font-semibold"
+                  className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary/25 hover:border-secondary transition-all font-semibold shadow-xs"
                 >
                   <span>Software Engineering Resume</span>
-                  <ExternalLink className="w-2.5 h-2.5 text-secondary" />
+                  <ExternalLink className="w-3 h-3 text-secondary" />
                 </a>
               </div>
 
               {/* Profile Links */}
-              <div className="flex flex-wrap items-center gap-2 pt-0.5 text-[11px] font-mono">
-                <a href="https://github.com/BharathReddyRamasani" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-on-surface-variant hover:text-white transition-colors">
-                  <Github className="w-3 h-3 text-primary" />
+              <div className="flex flex-wrap items-center gap-3 pt-1 text-[11px] sm:text-xs font-mono">
+                <a href="https://github.com/BharathReddyRamasani" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors">
+                  <Github className="w-3.5 h-3.5 text-primary" />
                   <span>GitHub</span>
                 </a>
                 <span className="text-white/20">•</span>
-                <a href="https://www.linkedin.com/in/bharathreddyramasani/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-on-surface-variant hover:text-white transition-colors">
-                  <Linkedin className="w-3 h-3 text-secondary" />
+                <a href="https://www.linkedin.com/in/bharathreddyramasani/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors">
+                  <Linkedin className="w-3.5 h-3.5 text-secondary" />
                   <span>LinkedIn</span>
                 </a>
                 <span className="text-white/20">•</span>
-                <a href="https://leetcode.com/u/Bharathreddy_Ramasani/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 text-on-surface-variant hover:text-white transition-colors">
-                  <Trophy className="w-3 h-3 text-amber-400" />
+                <a href="https://leetcode.com/u/Bharathreddy_Ramasani/" target="_blank" rel="noreferrer" className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors">
+                  <Trophy className="w-3.5 h-3.5 text-amber-400" />
                   <span>LeetCode 1600+ (Top 16%)</span>
                 </a>
                 <span className="text-white/20">•</span>
-                <a href="mailto:ramasanibharathreddy2004@gmail.com" className="inline-flex items-center gap-1 text-on-surface-variant hover:text-white transition-colors">
-                  <Mail className="w-3 h-3 text-primary" />
+                <a href="mailto:ramasanibharathreddy2004@gmail.com" className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-primary" />
                   <span>Email</span>
                 </a>
               </div>
             </div>
 
-            {/* Right Visual Column (Laptop on Desk with Ambient Glow & Cursive Caption) */}
+            {/* Right Visual Column (Expanded Laptop on Desk with Ambient Glow & Cursive Caption) */}
             <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-center">
               {/* Handwritten cursive caption */}
               <div
-                className="font-script text-xl sm:text-2xl font-bold text-cyan-300 -rotate-2 select-none flex flex-col items-center lg:items-end mb-1 pr-2"
-                style={{ textShadow: "0 0 16px rgba(79, 219, 200, 0.8), 0 0 32px rgba(79, 219, 200, 0.4)" }}
+                className="font-script text-2xl sm:text-3xl lg:text-[32px] font-bold text-cyan-300 -rotate-2 select-none flex flex-col items-center lg:items-end mb-2 pr-2"
+                style={{ textShadow: "0 0 20px rgba(79, 219, 200, 0.85), 0 0 40px rgba(79, 219, 200, 0.45)" }}
               >
                 <span className="tracking-wide">Turning Ideas into Impact</span>
-                <svg className="w-32 sm:w-36 h-2 text-cyan-400" style={{ filter: "drop-shadow(0 0 6px rgba(79, 219, 200, 0.9))" }} viewBox="0 0 100 8" fill="none">
+                <svg className="w-36 sm:w-44 h-2.5 text-cyan-400" style={{ filter: "drop-shadow(0 0 8px rgba(79, 219, 200, 0.95))" }} viewBox="0 0 100 8" fill="none">
                   <path d="M2 6 Q 50 1, 98 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                 </svg>
               </div>
 
               {/* Minimalist Laptop Placed on Desk with Ambient Glow */}
-              <div className="relative group">
-                <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-cyan-400/20 to-secondary/30 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition duration-500 pointer-events-none" />
-                <div className="relative w-full max-w-[320px] sm:max-w-[350px] rounded-xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 group-hover:border-primary/60 transition-all duration-500 bg-[#070e0d]">
-                  <div className="relative overflow-hidden aspect-[16/10.5] w-full">
+              <div className="relative group w-full flex justify-center lg:justify-end">
+                <div className="absolute -inset-2 bg-gradient-to-r from-primary/35 via-cyan-400/25 to-secondary/35 rounded-3xl blur-2xl opacity-70 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+                <div className="relative w-full max-w-[380px] sm:max-w-[440px] lg:max-w-[480px] xl:max-w-[520px] rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 group-hover:border-primary/60 transition-all duration-500 bg-[#070e0d]">
+                  <div className="relative overflow-hidden aspect-[16/10] w-full">
                     <img
                       src={laptopDeskImg}
                       alt="Laptop open on desk with ideas, models, products, real impact on screen, pen, and notebook with better systems brighter tomorrow"
-                      className="w-full h-full object-cover brightness-105 contrast-110"
+                      className="w-full h-full object-cover brightness-105 contrast-110 group-hover:scale-[1.02] transition-transform duration-700"
                     />
                     {/* Subtle edge vignette */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#070e0d]/30 via-transparent to-transparent pointer-events-none" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070e0d]/40 via-transparent to-transparent pointer-events-none" />
                   </div>
                 </div>
               </div>
@@ -223,7 +223,7 @@ export default function App() {
           </div>
 
           {/* 4 CORE TECHNICAL PILLARS — Positioned cleanly at bottom of single slide */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-1.5 border-t border-white/10 shrink-0 mb-1">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 pt-2 sm:pt-3 border-t border-white/10 shrink-0 mb-1">
             {[
               {
                 tag: "Agentic AI",
@@ -258,28 +258,29 @@ export default function App() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#0e1614] border border-white/10 hover:border-primary/40 rounded-lg p-2 sm:p-2.5 transition-all duration-200 hover:-translate-y-0.5 group shadow-sm flex flex-col justify-between"
+                  className="bg-[#0e1614]/90 border border-white/10 hover:border-primary/40 rounded-xl p-3 sm:p-3.5 transition-all duration-300 hover:-translate-y-1 group shadow-md hover:shadow-primary/10 flex flex-col justify-between relative overflow-hidden"
                 >
-                  <div className="space-y-0.5">
+                  <div className="absolute top-0 right-0 w-24 h-24 bg-primary/5 rounded-full blur-xl group-hover:bg-primary/10 transition-all pointer-events-none" />
+                  <div className="space-y-1 relative z-10">
                     <div className="flex items-center justify-between">
-                      <div className="w-5 h-5 rounded bg-primary/10 border border-primary/25 flex items-center justify-center text-primary group-hover:border-primary/50 transition-colors">
-                        <IconComp className="w-3 h-3 text-primary" />
+                      <div className="w-6 h-6 sm:w-7 sm:h-7 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center text-primary group-hover:scale-110 transition-transform shadow-xs">
+                        <IconComp className="w-3.5 h-3.5 text-primary" />
                       </div>
-                      <span className="font-mono text-[8.5px] text-primary/80 bg-primary/5 border border-primary/20 px-1.5 py-0.2 rounded font-semibold">
+                      <span className="font-mono text-[9px] sm:text-[9.5px] text-cyan-300 bg-primary/10 border border-primary/25 px-2 py-0.5 rounded-full font-bold shadow-xs">
                         {pillar.tag}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="font-display text-[11.5px] font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="font-display text-xs sm:text-[13px] font-bold text-on-surface group-hover:text-cyan-300 transition-colors leading-tight">
                         {pillar.title}
                       </h3>
-                      <p className="font-mono text-[9.5px] text-secondary font-medium mt-0.5 leading-tight">
+                      <p className="font-mono text-[9.5px] sm:text-[10px] text-primary/95 font-semibold mt-0.5 leading-tight">
                         {pillar.spec}
                       </p>
                     </div>
 
-                    <p className="font-sans text-[9.5px] text-on-surface-variant/80 leading-snug line-clamp-2">
+                    <p className="font-sans text-[10px] sm:text-[10.5px] text-on-surface-variant/90 leading-snug line-clamp-2">
                       {pillar.desc}
                     </p>
                   </div>
