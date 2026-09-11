@@ -175,12 +175,12 @@ export default function ProjectsSection() {
       title: "Emotion-Aware Hate Speech Detection System",
       subtitle: "Multilingual & Multimodal Moderation Platform (EmiHate)",
       positioningRole: "Deep Learning / NLP / Transformers",
-      tagsSummary: "PyTorch · Fine-Tuned Transformers · 80K+ Samples · 9-Head Neural Grid · Tesseract OCR · LIME & SHAP · FastAPI",
-      hookTeaser: "A deep learning moderation platform engineered with Transformer backbones fine-tuned on an 80K+ multi-domain dataset to simultaneously predict hate speech, emotion, and sentiment across English, Hindi, and Telugu. Ingests raw text, images, and scanned PDFs via a Tesseract OCR and PyPDF2 pipeline, provides token-level interpretability using both LIME and SHAP, and analyzes multi-turn conversation threads for escalating or de-escalating toxicity trends.",
-      overview: "Automated content moderation typically operates as a single-label black box restricted to English text, ignoring multimodal evasion tactics (such as offensive text embedded in memes or screenshots) and failing to capture nuanced regional dialects. EmiHate fine-tunes Transformer backbones on an 80K+ multi-domain dataset across a 9-head neural architecture analyzing hate speech, emotional tone, and sentiment concurrently across English, Hindi, and Telugu, backed by post-hoc explainability so human moderators can inspect the exact linguistic drivers behind every prediction.",
+      tagsSummary: "PyTorch · RoBERTa & IndicBERT · 80K+ Samples · 9-Head Neural Grid · Tesseract OCR · LIME & SHAP · FastAPI",
+      hookTeaser: "A deep learning moderation platform engineered with RoBERTa and IndicBERT Transformer backbones fine-tuned on an 80K+ multi-domain dataset to simultaneously predict hate speech, emotion, and sentiment across English, Hindi, and Telugu. Ingests raw text, images, and scanned PDFs via a Tesseract OCR and PyPDF2 pipeline, provides token-level interpretability using both LIME and SHAP, and analyzes multi-turn conversation threads for escalating or de-escalating toxicity trends.",
+      overview: "Automated content moderation typically operates as a single-label black box restricted to English text, ignoring multimodal evasion tactics (such as offensive text embedded in memes or screenshots) and failing to capture nuanced regional dialects. EmiHate fine-tunes RoBERTa and IndicBERT Transformer backbones on an 80K+ trilingual dataset across a 9-head neural architecture analyzing hate speech, emotional tone, and sentiment concurrently across English, Hindi, and Telugu, backed by post-hoc explainability so human moderators can inspect the exact linguistic drivers behind every prediction.",
       keyEngineering: [
-        "9-Head Multitask Neural Architecture: Fine-tuned Transformer backbones in PyTorch on an 80K+ annotated multi-domain dataset, engineering 9 specialized classification heads operating simultaneously over shared encoder representations to detect hate categories, emotional profiles, and sentiment polarity.",
-        "Trilingual NLP Pipeline (English, Hindi, Telugu): Designed specialized tokenization and preprocessing workflows tailored to Indian linguistic nuances, dialectal transliterations, and multilingual code-mixing using langdetect and multilingual Transformer encoders.",
+        "9-Head Multitask Neural Architecture: Fine-tuned RoBERTa and IndicBERT Transformer backbones in PyTorch on an 80K+ annotated multi-domain dataset, engineering 9 specialized classification heads operating simultaneously over shared encoder representations to detect hate categories, emotional profiles, and sentiment polarity.",
+        "Trilingual NLP Pipeline (English, Hindi, Telugu): Designed specialized tokenization and preprocessing workflows tailored to Indian linguistic nuances, dialectal transliterations, and multilingual code-mixing using langdetect and fine-tuned IndicBERT encoders.",
         "Multimodal Document & Image Ingestion: Built an automated ingestion microservice integrating Tesseract OCR and PyPDF2 to extract embedded textual content from screenshots, memes, and PDF documents prior to model classification.",
         "Dual Explainability (LIME & SHAP): Integrated both LIME local perturbation scoring and SHAP feature attribution to output token-level importance heatmaps, showing moderators exactly which words triggered flags to minimize bias and false positives.",
         "Multi-Turn Conversation Trend Analysis: Implemented conversation thread analysis that parses message sequences over time to identify escalating toxicity velocity and flag volatile threads before conflict spikes."
@@ -189,14 +189,14 @@ export default function ProjectsSection() {
         "Multimodal Input (Text/Image/PDF)",
         "Tesseract OCR / PyPDF2 Extraction",
         "Preprocessing & LangDetect",
-        "Fine-Tuned Transformer Encoder (80K+)",
+        "Fine-Tuned RoBERTa & IndicBERT (80K+)",
         "9-Head Neural Grid",
         "LIME / SHAP Explainability",
         "REST Inference API"
       ],
       architectureNote: "Inference Endpoints: POST /api/analyze/text | POST /api/analyze/image | POST /api/analyze/pdf | POST /api/analyze/conversation",
       techHighlights: [
-        { component: "9-Head Neural Grid (80K+ Fine-Tuned)", usage: "Jointly classifies hate speech severity, discrete emotional states, and fine-grained sentiment polarity." },
+        { component: "9-Head Neural Grid (RoBERTa & IndicBERT)", usage: "Jointly classifies hate speech severity, discrete emotional states, and fine-grained sentiment polarity on 80K+ samples." },
         { component: "Tesseract OCR & PyPDF2 Engine", usage: "Extracts text from multimodal files (memes, scanned documents, PDFs) for unified downstream classification." },
         { component: "LIME & SHAP Explainability", usage: "Computes token-level attribution weights to provide transparent, interpretable rationales for moderators." },
         { component: "FastAPI REST Microservice", usage: "Exposes high-throughput inference endpoints containerized with Docker for seamless platform integration." }
@@ -205,7 +205,9 @@ export default function ProjectsSection() {
         "Python",
         "PyTorch",
         "Hugging Face Transformers",
-        "Fine-Tuned Transformers (80K+)",
+        "RoBERTa",
+        "IndicBERT",
+        "80K+ Dataset",
         "Tesseract OCR",
         "PyPDF2",
         "LIME",
@@ -216,13 +218,14 @@ export default function ProjectsSection() {
       engineeringDecisions: [
         {
           decision: "Multitask 9-Head Shared Encoder vs. Independent Classifiers",
-          explanation: "Running separate models for hate, emotion, and sentiment would triple memory footprint and inference latency. Fine-tuning a single shared Transformer backbone on 80K+ samples with 9 specialized output heads reduced latency by 60% while improving generalization across correlated tasks."
+          explanation: "Running separate models for hate, emotion, and sentiment would triple memory footprint and inference latency. Fine-tuning a single shared Transformer backbone (RoBERTa/IndicBERT) on 80K+ samples with 9 specialized output heads reduced latency by 60% while improving generalization across correlated tasks."
         },
         {
           decision: "Dual-Mode Explainability for Moderator Auditing",
           explanation: "Black-box predictions cause high false-positive disputes. Providing per-token attribution weights via LIME/SHAP gives content moderation teams immediate verifiable evidence for swift policy enforcement."
         }
       ],
+      liveUrl: "https://huggingface.co/spaces/annepagaanvesh/EmiHate-Grid",
       githubUrl: "https://github.com/BharathReddyRamasani/Emotion-Aware-Hate-Speech-Detection-System"
     },
     {
@@ -277,6 +280,7 @@ export default function ProjectsSection() {
           explanation: "Instead of row-by-row computations, vectorized transformations process 900K+ transactional records in sub-500ms for instantaneous Streamlit KPI dashboard recalculations."
         }
       ],
+      liveUrl: "https://bharathreddyramasani-nexus-commerce-suite-app-rbr.streamlit.app/",
       githubUrl: "https://github.com/BharathReddyRamasani/Nexus-Commerce-Suite"
     }
   ];

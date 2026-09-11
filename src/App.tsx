@@ -296,14 +296,14 @@ export default function App() {
         <ProjectsSection />
 
         {/* "WHAT I BUILD" / TECHNICAL FOCUS SECTION (P1.2) */}
-        <section id="what-i-build" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 border-t border-white/5 scroll-mt-16">
-          <div className="space-y-6">
+        <section id="what-i-build" className="relative py-14 sm:py-18 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 border-t border-white/5 scroll-mt-16">
+          <div className="space-y-8">
             <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-3 border-b border-white/10 pb-4">
               <div>
                 <span className="font-mono text-[10px] uppercase text-primary tracking-[0.25em] block font-semibold mb-1">
-                  ENGINEERING CAPABILITIES
+                  ENGINEERING CAPABILITIES &amp; ARCHITECTURAL SCOPE
                 </span>
-                <h2 className="font-display text-2xl font-extrabold text-on-surface">
+                <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-on-surface">
                   What I Build
                 </h2>
                 <p className="font-sans text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1 leading-relaxed">
@@ -312,90 +312,120 @@ export default function App() {
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center text-primary">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              
+              {/* 01: Autonomous Multi-Agent & RAG Systems */}
+              <div className="bg-[#0e1614] border border-white/10 hover:border-primary/40 rounded-xl p-5 sm:p-6 space-y-4 transition-all duration-300 shadow-lg group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-all pointer-events-none" />
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] font-bold text-primary tracking-widest uppercase">
+                    // 01 · AGENTIC SYSTEMS
+                  </span>
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
                     <GitBranch className="w-4 h-4" />
                   </div>
-                  <h3 className="font-display text-base font-bold text-on-surface">
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-on-surface group-hover:text-cyan-300 transition-colors">
                     Autonomous Multi-Agent &amp; RAG Systems
                   </h3>
+                  <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                    Design supervisor and worker topologies using <strong>LangGraph</strong>. Implement state machine graphs, fallback routing, and validation loops. Build hybrid retrieval pipelines combining dense semantic embeddings (ChromaDB) with metadata filtering and reciprocal rank fusion to eliminate hallucinations.
+                  </p>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                  Design supervisor and worker topologies using <strong>LangGraph</strong>. Implement state machine graphs, fallback routing, and validation loops. Build hybrid retrieval pipelines combining dense semantic embeddings (ChromaDB) with metadata filtering and reciprocal rank fusion to eliminate hallucinations.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
+                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
                   {["LangGraph", "ChromaDB", "Supervisor Pattern", "State Graphs", "Evaluation Evals", "Groq Llama 3.1"].map((tag, i) => (
-                    <span key={i} className="font-mono text-[10px] bg-primary/10 text-cyan-300 border border-primary/20 px-2 py-0.5 rounded">
+                    <span key={i} className="font-mono text-[11px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-on-surface font-medium hover:border-primary/40 hover:text-cyan-300 transition-colors">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-secondary/10 border border-secondary/25 flex items-center justify-center text-secondary">
+              {/* 02: Applied ML, NLP & Multimodal Pipelines */}
+              <div className="bg-[#0e1614] border border-white/10 hover:border-secondary/40 rounded-xl p-5 sm:p-6 space-y-4 transition-all duration-300 shadow-lg group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-full blur-3xl group-hover:bg-secondary/10 transition-all pointer-events-none" />
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] font-bold text-secondary tracking-widest uppercase">
+                    // 02 · DEEP LEARNING &amp; NLP
+                  </span>
+                  <div className="w-8 h-8 rounded-lg bg-secondary/10 border border-secondary/25 flex items-center justify-center text-secondary group-hover:scale-110 transition-transform">
                     <Layers className="w-4 h-4" />
                   </div>
-                  <h3 className="font-display text-base font-bold text-on-surface">
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-on-surface group-hover:text-emerald-300 transition-colors">
                     Applied ML, NLP &amp; Multimodal Pipelines
                   </h3>
+                  <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                    Fine-tune Transformer architectures (<strong>RoBERTa, IndicBERT</strong>) for high-precision classification. Build end-to-end multimodal pipelines with Tesseract OCR, LIME model interpretability, and tabular demand forecasting with LightGBM/Prophet processing millions of retail rows.
+                  </p>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                  Fine-tune Transformer architectures (<strong>RoBERTa, IndicBERT</strong>) for high-precision classification. Build end-to-end multimodal pipelines with Tesseract OCR, LIME model interpretability, and tabular demand forecasting with LightGBM/Prophet processing millions of retail rows.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {["PyTorch", "Hugging Face", "RoBERTa", "Tesseract OCR", "LIME Explainability", "LightGBM", "Prophet"].map((tag, i) => (
-                    <span key={i} className="font-mono text-[10px] bg-secondary/10 text-secondary border border-secondary/20 px-2 py-0.5 rounded">
+                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
+                  {["PyTorch", "Hugging Face", "RoBERTa", "IndicBERT", "Tesseract OCR", "LIME Explainability", "LightGBM", "Prophet"].map((tag, i) => (
+                    <span key={i} className="font-mono text-[11px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-on-surface font-medium hover:border-secondary/40 hover:text-emerald-300 transition-colors">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400">
+              {/* 03: Production Backend & Scalable APIs */}
+              <div className="bg-[#0e1614] border border-white/10 hover:border-emerald-500/40 rounded-xl p-5 sm:p-6 space-y-4 transition-all duration-300 shadow-lg group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-emerald-500/5 rounded-full blur-3xl group-hover:bg-emerald-500/10 transition-all pointer-events-none" />
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] font-bold text-emerald-400 tracking-widest uppercase">
+                    // 03 · BACKEND &amp; DATA SYSTEMS
+                  </span>
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
                     <Database className="w-4 h-4" />
                   </div>
-                  <h3 className="font-display text-base font-bold text-on-surface">
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-on-surface group-hover:text-emerald-300 transition-colors">
                     Production Backend &amp; Scalable APIs
                   </h3>
+                  <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                    Architect high-throughput REST APIs using <strong>FastAPI</strong> with Pydantic validation, JWT token security, and background task management. Model relational schemas with PostgreSQL and document stores with MongoDB, optimizing indexing for low-latency queries.
+                  </p>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                  Architect high-throughput REST APIs using <strong>FastAPI</strong> with Pydantic validation, JWT token security, and background task management. Model relational schemas with PostgreSQL and document stores with MongoDB, optimizing indexing for low-latency queries.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
+                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
                   {["FastAPI", "PostgreSQL", "MongoDB", "JWT Auth", "Pydantic", "RESTful Design"].map((tag, i) => (
-                    <span key={i} className="font-mono text-[10px] bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-0.5 rounded">
+                    <span key={i} className="font-mono text-[11px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-on-surface font-medium hover:border-emerald-500/40 hover:text-emerald-300 transition-colors">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
 
-              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
-                <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400">
+              {/* 04: Full-Stack Integration & Deployment */}
+              <div className="bg-[#0e1614] border border-white/10 hover:border-amber-500/40 rounded-xl p-5 sm:p-6 space-y-4 transition-all duration-300 shadow-lg group relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/5 rounded-full blur-3xl group-hover:bg-amber-500/10 transition-all pointer-events-none" />
+                <div className="flex items-center justify-between">
+                  <span className="font-mono text-[10px] font-bold text-amber-400 tracking-widest uppercase">
+                    // 04 · FULL-STACK &amp; DEPLOYMENT
+                  </span>
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
                     <Code2 className="w-4 h-4" />
                   </div>
-                  <h3 className="font-display text-base font-bold text-on-surface">
+                </div>
+                <div className="space-y-1.5">
+                  <h3 className="font-display text-base sm:text-lg font-bold text-on-surface group-hover:text-amber-300 transition-colors">
                     Full-Stack Integration &amp; Deployment
                   </h3>
+                  <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                    Build responsive, component-driven client interfaces in <strong>React.js</strong> and TypeScript. Containerize applications using Docker multi-stage builds and deploy scalable inference spaces to Hugging Face Spaces and cloud platforms with automated CI/CD.
+                  </p>
                 </div>
-                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                  Build responsive, component-driven client interfaces in <strong>React.js</strong> and TypeScript. Containerize applications using Docker multi-stage builds and deploy scalable inference spaces to Hugging Face Spaces and cloud platforms with automated CI/CD.
-                </p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
+                <div className="flex flex-wrap gap-1.5 pt-2 border-t border-white/5">
                   {["React.js", "TypeScript", "Docker", "Hugging Face Spaces", "Git CI/CD", "Streamlit"].map((tag, i) => (
-                    <span key={i} className="font-mono text-[10px] bg-amber-500/10 text-amber-300 border border-amber-500/20 px-2 py-0.5 rounded">
+                    <span key={i} className="font-mono text-[11px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-on-surface font-medium hover:border-amber-500/40 hover:text-amber-300 transition-colors">
                       {tag}
                     </span>
                   ))}
                 </div>
               </div>
+
             </div>
           </div>
         </section>
