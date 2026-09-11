@@ -1,19 +1,21 @@
 import { useState, useEffect } from "react";
 import {
-  ArrowDown,
   ArrowRight,
   Brain,
-  BarChart3,
   Network,
-  Layers,
   Database,
   Code2,
-  Sparkles,
-  Terminal,
   FileText,
-  CheckCircle2
+  Github,
+  Linkedin,
+  Mail,
+  Trophy,
+  ExternalLink,
+  Layers,
+  Cpu,
+  CheckCircle2,
+  GitBranch
 } from "lucide-react";
-import NeuralBackground from "./components/NeuralBackground";
 import Navbar from "./components/Navbar";
 import ExperienceSection from "./components/ExperienceSection";
 import ProjectsSection from "./components/ProjectsSection";
@@ -22,8 +24,6 @@ import EducationSection from "./components/EducationSection";
 import AchievementsSection from "./components/AchievementsSection";
 import ContactSection from "./components/ContactSection";
 import ResumeModal from "./components/ResumeModal";
-import { motion, AnimatePresence } from "motion/react";
-import laptopDeskImg from "./assets/laptop_desk_setup.jpg";
 
 export default function App() {
   const [resumeOpen, setResumeOpen] = useState(false);
@@ -46,7 +46,7 @@ export default function App() {
 
   // Track scroll section intersections
   useEffect(() => {
-    const sections = ["home", "experience", "projects", "skills", "education", "achievements", "contact"];
+    const sections = ["home", "projects", "experience", "what-i-build", "skills", "education", "achievements", "contact"];
     const observers = sections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -74,370 +74,376 @@ export default function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen text-on-surface bg-bg-dark font-sans overflow-x-hidden selection:bg-primary selection:text-on-primary">
+    <div className="relative min-h-screen text-on-surface bg-[#0a0f0e] font-sans overflow-x-hidden selection:bg-primary selection:text-on-primary">
       {/* Scroll Progress Bar */}
       <div
-        className="fixed top-0 left-0 h-1 bg-gradient-to-r from-primary via-secondary to-tertiary z-[9999] transition-all duration-75"
+        className="fixed top-0 left-0 h-0.5 bg-gradient-to-r from-primary via-secondary to-primary z-[9999] transition-all duration-75"
         style={{ width: `${scrollProgress}%` }}
       />
-
-      {/* Interactive Floating Canvas */}
-      <NeuralBackground />
-
-      {/* Ambient noise & blur glow effects */}
-      <div className="noise-overlay" />
-      <div className="ambient-blob-1" />
-      <div className="ambient-blob-2" />
 
       {/* Navigation Header */}
       <Navbar onOpenResume={() => setResumeOpen(true)} activeSection={activeSection} />
 
-      {/* Main Sections */}
+      {/* Main Content */}
       <main className="relative z-10">
 
-        {/* HERO SECTION - SLIDE 1 (Exact Single Slide Fit) */}
+        {/* HERO SECTION — Credibility & Proof of Work in <7 Seconds */}
         <section
           id="home"
-          className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-between pt-16 sm:pt-20 pb-3 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto overflow-hidden"
+          className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center pt-24 sm:pt-28 pb-12 px-4 sm:px-8 md:px-12 lg:px-16 max-w-6xl mx-auto"
         >
-          {/* Top Banner Accent: Tag on Left */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 mb-1.5 sm:mb-2 relative z-10 w-full">
-            {/* Top Left Tag */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 font-mono text-[11px] sm:text-xs text-primary bg-primary/10 border border-primary/25 px-3 py-1 rounded-lg tracking-widest uppercase shadow-sm"
-            >
-              <Code2 className="w-3.5 h-3.5 text-primary" />
-              <span>BUILD | LEARN | SOLVE | CREATE</span>
-            </motion.div>
-          </div>
-
-          {/* Hero Main Grid: Left Content, Right Visual Screen */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-center relative z-10">
-
-            {/* Left Content Column (7 cols) */}
-            <div className="lg:col-span-7 space-y-3 text-left">
-              {/* Display Title */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.1 }}
-                className="space-y-1.5"
-              >
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-[46px] font-extrabold tracking-tight text-on-surface leading-[1.06]">
-                  BHARATH REDDY <br />
-                  <span className="text-primary text-glow font-black">RAMASANI</span>
-                </h1>
-
-                {/* Subheading & Horizontal Cyan Bar */}
-                <div className="pt-1.5 pb-0.5 space-y-1.5">
-                  <h2 className="font-display text-sm sm:text-base font-extrabold tracking-widest text-on-surface uppercase flex items-center gap-2.5">
-                    <span className="text-cyan-300">AI/ML</span>
-                    <span className="text-primary font-black text-xs">■</span>
-                    <span className="text-white">SOFTWARE ENGINEER</span>
-                  </h2>
-                  <div className="flex items-center gap-1.5">
-                    <div className="w-16 h-0.5 bg-gradient-to-r from-primary via-cyan-400 to-transparent rounded-full glow-teal" />
-                    <div className="w-1.5 h-1.5 rounded-full bg-primary animate-ping" />
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Teaser Paragraph */}
-              <motion.p
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="font-sans text-xs sm:text-[13.5px] text-on-surface-variant max-w-xl leading-relaxed"
-              >
-                Building production-oriented AI and software systems across <span className="text-cyan-300 font-semibold">Machine Learning</span>, <span className="text-primary font-semibold">Generative AI</span>, and <span className="text-white font-semibold">scalable backend engineering</span>.
-              </motion.p>
-
-              {/* CTAs */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.25 }}
-                className="space-y-3 pt-1"
-              >
-                <div className="flex flex-wrap items-center gap-3">
-                  {/* Primary CTA Button */}
-                  <a
-                    href="#projects"
-                    className="bg-gradient-to-r from-primary/25 via-primary/15 to-transparent hover:from-primary/35 hover:to-primary/20 text-primary border-2 border-primary font-mono font-bold px-5 py-2.5 rounded-xl flex items-center gap-2 hover:scale-105 active:scale-95 transition-all shadow-[0_0_20px_rgba(79,219,200,0.25)] text-xs sm:text-sm tracking-wider uppercase cursor-pointer"
-                  >
-                    <span>EXPLORE MY PORTFOLIO</span>
-                    <ArrowRight className="w-4 h-4 text-primary" />
-                  </a>
-
-                  {/* Secondary Modal Trigger */}
-                  <button
-                    onClick={() => setResumeOpen(true)}
-                    className="bg-white/5 hover:bg-white/10 text-on-surface border border-white/20 hover:border-primary/50 px-4 py-2.5 rounded-xl transition-all hover:scale-105 active:scale-95 text-xs sm:text-sm font-semibold flex items-center gap-2 cursor-pointer backdrop-blur-md shadow-sm"
-                  >
-                    <FileText className="w-4 h-4 text-primary" />
-                    <span>View Digital Resume</span>
-                  </button>
-                </div>
-
-                {/* Smaller Direct PDF Links (Verified Google Drive URLs) */}
-                <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
-                  <span className="text-[10.5px] uppercase tracking-wider text-on-surface-variant/70 font-semibold flex items-center gap-1">
-                    <FileText className="w-3.5 h-3.5 text-primary" />
-                    PDF RESUMES:
-                  </span>
-                  <a
-                    href="https://drive.google.com/file/d/1gTVsIZOMOwnpFQX5tOvQRn7jKDi4EtLc/view?usp=drive_link"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/25 hover:border-primary transition-all text-xs font-semibold hover:scale-105"
-                  >
-                    <FileText className="w-3 h-3 text-primary" /> AI/ML Resume
-                  </a>
-                  <span className="text-white/20">•</span>
-                  <a
-                    href="https://drive.google.com/file/d/13SRI9L4a9YpSkCKU9U3A2USuOFb1975g/view?usp=drive_link"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary/25 hover:border-secondary transition-all text-xs font-semibold hover:scale-105"
-                  >
-                    <FileText className="w-3 h-3 text-secondary" /> Software Resume
-                  </a>
-                </div>
-
-                {/* PROMINENTLY HIGHLIGHTED PROGRAMMING LANGUAGES */}
-
-
-              </motion.div>
+          {/* Top Row: Availability Badge */}
+          <div className="flex flex-wrap items-center justify-between gap-3 mb-6">
+            <div className="inline-flex items-center gap-2 font-mono text-xs text-primary bg-primary/10 border border-primary/25 px-3 py-1.5 rounded-full">
+              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+              <span>Open to Opportunities • AI/ML &amp; Software Engineering</span>
             </div>
 
-            {/* Right Visual Column (Laptop on Desk with Pen & Notebook) */}
-            {/* Right Visual Column (Laptop on Desk with Pen & Notebook) */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.7, delay: 0.25 }}
-              className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-center"
-            >
-              {/* Handwritten cursive caption positioned clearly above laptop desk setup */}
-              <motion.div
-                initial={{ opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
-                className="font-script text-2xl sm:text-3xl font-bold text-cyan-300 -rotate-2 select-none flex flex-col items-center lg:items-end mb-2 pr-2"
-                style={{ textShadow: "0 0 16px rgba(79, 219, 200, 0.7), 0 0 32px rgba(79, 219, 200, 0.3)" }}
-              >
-                <span className="tracking-wide">Turning Ideas into Impact</span>
-                <svg className="w-36 sm:w-44 h-2.5 text-cyan-400" style={{ filter: "drop-shadow(0 0 6px rgba(79, 219, 200, 0.8))" }} viewBox="0 0 100 8" fill="none">
-                  <path d="M2 6 Q 50 1, 98 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
-                </svg>
-              </motion.div>
-
-              {/* Minimalist Laptop Placed on Desk with Pen & Notebook */}
-              <div className="relative w-full max-w-[430px] rounded-2xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 group hover:border-primary/60 transition-all duration-500 bg-[#070e0d]">
-                {/* Ambient Soft Mesh Glow */}
-                <div className="absolute top-0 right-0 w-40 h-40 bg-primary/15 rounded-full blur-2xl pointer-events-none group-hover:bg-primary/25 transition-all" />
-
-                {/* Desk Setup Image */}
-                <div className="relative overflow-hidden aspect-[16/10.5] w-full">
-                  <img
-                    src={laptopDeskImg}
-                    alt="Laptop open on desk with ideas, models, products, real impact on screen, pen, and notebook with better systems brighter tomorrow"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 brightness-100 contrast-105"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070e0d]/35 via-transparent to-transparent pointer-events-none" />
-                </div>
-              </div>
-            </motion.div>
-
+            <div className="hidden sm:flex items-center gap-3 font-mono text-xs text-on-surface-variant">
+              <span>Hyderabad, India</span>
+              <span className="text-white/20">•</span>
+              <span>B.Tech CSE (Data Science) 2027</span>
+            </div>
           </div>
 
-          {/* 6 DOMAIN FEATURE CARDS (Responsive & Effective Grid - AI/ML + SWE) */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.35 }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 sm:gap-2.5 mt-5 sm:mt-6 pt-3 sm:pt-4 border-t border-white/5 relative z-10"
-          >
+          {/* Main Hero Header */}
+          <div className="space-y-4 max-w-4xl">
+            <div>
+              <span className="font-mono text-xs sm:text-sm text-primary tracking-[0.2em] uppercase font-semibold block mb-2">
+                Portfolio &amp; Engineering Work
+              </span>
+              <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-on-surface leading-[1.08]">
+                Bharath Reddy <br className="hidden sm:inline" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-secondary">
+                  Ramasani
+                </span>
+              </h1>
+            </div>
+
+            {/* Role & Positioning */}
+            <div className="space-y-3 pt-1">
+              <div className="flex flex-wrap items-center gap-2 sm:gap-3 text-sm sm:text-base font-display font-bold">
+                <span className="text-cyan-300">AI / ML Engineer</span>
+                <span className="text-primary/60 font-black">•</span>
+                <span className="text-white">Software Engineer</span>
+                <span className="text-primary/60 font-black">•</span>
+                <span className="text-secondary">Agentic AI &amp; Backend Systems</span>
+              </div>
+
+              <p className="font-sans text-base sm:text-lg text-on-surface-variant leading-relaxed max-w-3xl">
+                Building production-oriented AI and software systems across Multi-Agent Systems,
+                Retrieval-Augmented Generation (RAG), Machine Learning, and scalable backend engineering.
+              </p>
+            </div>
+
+            {/* CTAs & Direct Resume Links */}
+            <div className="pt-3 space-y-3">
+              <div className="flex flex-wrap items-center gap-3">
+                <a
+                  href="#projects"
+                  className="bg-primary text-on-primary font-display font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-cyan-300 transition-all flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>View Selected Work</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+
+                <button
+                  onClick={() => setResumeOpen(true)}
+                  className="bg-surface-container-high/80 hover:bg-surface-container-highest text-on-surface border border-white/10 hover:border-primary/40 font-display font-bold text-sm px-5 py-2.5 rounded-lg transition-all flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                >
+                  <FileText className="w-4 h-4 text-primary" />
+                  <span>Digital Resume</span>
+                </button>
+              </div>
+
+              {/* Direct PDF Downloads / Verified Links */}
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono pt-1">
+                <span className="text-[11px] uppercase tracking-wider text-on-surface-variant/70 font-semibold flex items-center gap-1.5">
+                  <FileText className="w-3.5 h-3.5 text-primary" />
+                  Direct PDF Resumes:
+                </span>
+                <a
+                  href="https://drive.google.com/file/d/1gTVsIZOMOwnpFQX5tOvQRn7jKDi4EtLc/view?usp=drive_link"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/25 hover:border-primary transition-all font-semibold"
+                >
+                  <span>AI/ML Resume</span>
+                  <ExternalLink className="w-3 h-3 text-primary" />
+                </a>
+                <span className="text-white/20">•</span>
+                <a
+                  href="https://drive.google.com/file/d/13SRI9L4a9YpSkCKU9U3A2USuOFb1975g/view?usp=drive_link"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary/25 hover:border-secondary transition-all font-semibold"
+                >
+                  <span>Software Engineering Resume</span>
+                  <ExternalLink className="w-3 h-3 text-secondary" />
+                </a>
+              </div>
+
+              {/* Verified Profile Links */}
+              <div className="flex flex-wrap items-center gap-3 pt-2 text-xs font-mono">
+                <a
+                  href="https://github.com/BharathReddyRamasani"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors"
+                >
+                  <Github className="w-3.5 h-3.5 text-primary" />
+                  <span>GitHub</span>
+                </a>
+                <span className="text-white/20">•</span>
+                <a
+                  href="https://www.linkedin.com/in/bharathreddyramasani/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors"
+                >
+                  <Linkedin className="w-3.5 h-3.5 text-secondary" />
+                  <span>LinkedIn</span>
+                </a>
+                <span className="text-white/20">•</span>
+                <a
+                  href="https://leetcode.com/u/Bharathreddy_Ramasani/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors"
+                >
+                  <Trophy className="w-3.5 h-3.5 text-amber-400" />
+                  <span>LeetCode 1600+ (Top 16%)</span>
+                </a>
+                <span className="text-white/20">•</span>
+                <a
+                  href="mailto:ramasanibharathreddy2004@gmail.com"
+                  className="inline-flex items-center gap-1.5 text-on-surface-variant hover:text-white transition-colors"
+                >
+                  <Mail className="w-3.5 h-3.5 text-primary" />
+                  <span>Email</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* 4 CORE TECHNICAL PILLARS — Replaces generic domain cards */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-10 pt-6 border-t border-white/10">
             {[
-              { title: "Generative AI", icon: Brain, subtitle: "RAG & LLMs" },
-              { title: "ML & Deep Learning", icon: BarChart3, subtitle: "Pipelines & Neural Nets" },
-              { title: "Agentic & Multi-Agent AI", icon: Network, subtitle: "LangGraph Workflows" },
-              { title: "Software Engineering", icon: Layers, subtitle: "System Architecture" },
-              { title: "Backend & APIs", icon: Database, subtitle: "FastAPI, REST & JWT" },
-              { title: "Full-Stack Dev", icon: Code2, subtitle: "React & Architecture" },
-            ].map((card, idx) => {
-              const IconComp = card.icon;
+              {
+                title: "Multi-Agent Systems",
+                spec: "LangGraph 7-Agent Architecture",
+                desc: "Supervisor routing, state graphs, research synthesis, tool execution",
+                icon: Network,
+                tag: "Agentic AI"
+              },
+              {
+                title: "Production RAG & LLMs",
+                spec: "Vector Search & Evaluation",
+                desc: "ChromaDB, hybrid retrieval, hallucination reduction, faithfulness eval",
+                icon: Brain,
+                tag: "GenAI"
+              },
+              {
+                title: "ML & Deep Learning",
+                spec: "PyTorch & Transformers",
+                desc: "RoBERTa fine-tuning, IndicBERT, multimodal OCR, sales forecasting",
+                icon: Cpu,
+                tag: "Core ML"
+              },
+              {
+                title: "Backend & Scalable APIs",
+                spec: "FastAPI, PostgreSQL & Docker",
+                desc: "JWT authentication, REST services, MongoDB, containerized deployments",
+                icon: Database,
+                tag: "Software Eng"
+              }
+            ].map((pillar, idx) => {
+              const IconComp = pillar.icon;
               return (
                 <div
                   key={idx}
-                  className="bg-[#091513]/85 backdrop-blur-md border border-primary/20 hover:border-primary/60 rounded-xl p-2.5 flex flex-col items-center text-center gap-1.5 transition-all duration-300 hover:-translate-y-0.5 group shadow-md shadow-black/40"
+                  className="bg-[#0e1614] border border-white/10 hover:border-primary/40 rounded-xl p-4 transition-all duration-300 hover:-translate-y-0.5 group shadow-sm flex flex-col justify-between"
                 >
-                  {/* Icon with Glowing Outline */}
-                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:scale-105 group-hover:border-primary group-hover:shadow-[0_0_10px_rgba(79,219,200,0.3)] transition-all">
-                    <IconComp className="w-4 h-4 text-primary" />
-                  </div>
-                  <div className="space-y-0">
-                    <h3 className="font-display text-[11px] sm:text-xs font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
-                      {card.title}
-                    </h3>
-                    <p className="font-mono text-[8.5px] sm:text-[9px] text-on-surface-variant/70 truncate">
-                      {card.subtitle}
+                  <div className="space-y-2">
+                    <div className="flex items-center justify-between">
+                      <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center text-primary group-hover:border-primary/50 transition-colors">
+                        <IconComp className="w-4 h-4 text-primary" />
+                      </div>
+                      <span className="font-mono text-[10px] text-primary/80 bg-primary/5 border border-primary/20 px-2 py-0.5 rounded">
+                        {pillar.tag}
+                      </span>
+                    </div>
+
+                    <div>
+                      <h3 className="font-display text-sm font-bold text-on-surface group-hover:text-primary transition-colors">
+                        {pillar.title}
+                      </h3>
+                      <p className="font-mono text-[11px] text-secondary font-medium mt-0.5">
+                        {pillar.spec}
+                      </p>
+                    </div>
+
+                    <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
+                      {pillar.desc}
                     </p>
                   </div>
                 </div>
               );
             })}
-          </motion.div>
-        </section>
-
-        {/* ABOUT ME & FOCUS - SLIDE 2 (Dedicated Single Slide Fit) */}
-        <section id="about" className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center py-8 sm:py-12 px-4 sm:px-8 md:px-12 max-w-7xl mx-auto z-10 border-t border-white/5 scroll-mt-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
-
-            {/* Left Column: Recruiter Narrative (6 cols) */}
-            <div className="lg:col-span-6 space-y-3">
-              <span className="font-mono text-[11px] uppercase text-primary tracking-[0.25em] block font-semibold">
-                ENGINEERING PROFILE
-              </span>
-              <h2 className="font-display text-xl sm:text-2xl font-bold text-on-surface">
-                About Me
-              </h2>
-              <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                I'm a Computer Science (Data Science) undergraduate focused on building intelligent software systems. My work spans machine learning, deep learning, Generative AI, RAG, multi-agent systems, and backend engineering. I enjoy taking systems from model development and experimentation through APIs, databases, deployment, and user-facing applications.
-              </p>
-
-              {/* Core CS Credentials Card */}
-              <div className="bg-surface-container-low/40 border border-white/10 p-3 sm:p-3.5 rounded-xl backdrop-blur-md flex items-center justify-between gap-3">
-                <div>
-                  <span className="font-mono text-[9px] text-secondary font-bold uppercase tracking-wider block">
-                    Competitive Programming
-                  </span>
-                  <span className="font-display text-xs sm:text-sm font-bold text-on-surface">
-                    LeetCode Contest Rating: 1600+
-                  </span>
-                  <span className="font-mono text-[10px] text-emerald-400 block mt-0.5">
-                    Top 16% Globally • 300+ Problems Solved
-                  </span>
-                </div>
-                <a
-                  href="https://leetcode.com/u/Bharathreddy_Ramasani/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="font-mono text-xs text-primary hover:underline border border-primary/25 bg-primary/10 px-2.5 py-1 rounded-lg shrink-0 font-semibold"
-                >
-                  Profile →
-                </a>
-              </div>
-            </div>
-
-            {/* Right Column: Areas of Focus Grid (6 cols) */}
-            <div className="lg:col-span-6 bg-surface-container-low/40 border border-white/10 p-4 sm:p-5 rounded-xl backdrop-blur-md space-y-3">
-              <div className="flex items-center justify-between border-b border-white/10 pb-2">
-                <h3 className="font-display text-[11px] font-bold text-primary uppercase tracking-wider flex items-center gap-1.5">
-                  <Sparkles className="w-3.5 h-3.5 text-primary" />
-                  AREAS OF FOCUS
-                </h3>
-                <span className="font-mono text-[9px] text-on-surface-variant/70">
-                  Applied Engineering
-                </span>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 font-mono text-[11px]">
-                <div className="flex items-center gap-2 text-on-surface bg-black/20 p-2 rounded-lg border border-white/5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Machine Learning &amp; Features</span>
-                </div>
-                <div className="flex items-center gap-2 text-on-surface bg-black/20 p-2 rounded-lg border border-white/5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Deep Learning &amp; NLP</span>
-                </div>
-                <div className="flex items-center gap-2 text-on-surface bg-black/20 p-2 rounded-lg border border-white/5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Generative AI &amp; LLM Evals</span>
-                </div>
-                <div className="flex items-center gap-2 text-on-surface bg-black/20 p-2 rounded-lg border border-white/5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>RAG &amp; Multi-Agent Systems</span>
-                </div>
-                <div className="flex items-center gap-2 text-on-surface bg-black/20 p-2 rounded-lg border border-white/5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Backend &amp; Software Engineering</span>
-                </div>
-                <div className="flex items-center gap-2 text-on-surface bg-black/20 p-2 rounded-lg border border-white/5">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-                  <span>Full-Stack Systems</span>
-                </div>
-              </div>
-            </div>
-
           </div>
         </section>
+
+        {/* SELECTED WORK SECTION — Flagship & Supporting Projects */}
+        <ProjectsSection />
 
         {/* WORK EXPERIENCE SECTION */}
         <ExperienceSection />
 
-        {/* FEATURED PROJECTS SECTION */}
-        <ProjectsSection />
+        {/* "WHAT I BUILD" / TECHNICAL FOCUS SECTION (P1.2) */}
+        <section id="what-i-build" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 border-t border-white/5 scroll-mt-16">
+          <div className="space-y-6">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-3 border-b border-white/10 pb-4">
+              <div>
+                <span className="font-mono text-[10px] uppercase text-primary tracking-[0.25em] block font-semibold mb-1">
+                  ENGINEERING CAPABILITIES
+                </span>
+                <h2 className="font-display text-2xl font-extrabold text-on-surface">
+                  What I Build
+                </h2>
+                <p className="font-sans text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1 leading-relaxed">
+                  Clear engineering scope across model architectures, autonomous agent workflows, and full-stack software systems.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/25 flex items-center justify-center text-primary">
+                    <GitBranch className="w-4 h-4" />
+                  </div>
+                  <h3 className="font-display text-base font-bold text-on-surface">
+                    Autonomous Multi-Agent &amp; RAG Systems
+                  </h3>
+                </div>
+                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  Design supervisor and worker topologies using <strong>LangGraph</strong>. Implement state machine graphs, fallback routing, and validation loops. Build hybrid retrieval pipelines combining dense semantic embeddings (ChromaDB) with metadata filtering and reciprocal rank fusion to eliminate hallucinations.
+                </p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {["LangGraph", "ChromaDB", "Supervisor Pattern", "State Graphs", "Evaluation Evals", "Groq Llama 3.1"].map((tag, i) => (
+                    <span key={i} className="font-mono text-[10px] bg-primary/10 text-cyan-300 border border-primary/20 px-2 py-0.5 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-secondary/10 border border-secondary/25 flex items-center justify-center text-secondary">
+                    <Layers className="w-4 h-4" />
+                  </div>
+                  <h3 className="font-display text-base font-bold text-on-surface">
+                    Applied ML, NLP &amp; Multimodal Pipelines
+                  </h3>
+                </div>
+                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  Fine-tune Transformer architectures (<strong>RoBERTa, IndicBERT</strong>) for high-precision classification. Build end-to-end multimodal pipelines with Tesseract OCR, LIME model interpretability, and tabular demand forecasting with LightGBM/Prophet processing millions of retail rows.
+                </p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {["PyTorch", "Hugging Face", "RoBERTa", "Tesseract OCR", "LIME Explainability", "LightGBM", "Prophet"].map((tag, i) => (
+                    <span key={i} className="font-mono text-[10px] bg-secondary/10 text-secondary border border-secondary/20 px-2 py-0.5 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-emerald-500/10 border border-emerald-500/25 flex items-center justify-center text-emerald-400">
+                    <Database className="w-4 h-4" />
+                  </div>
+                  <h3 className="font-display text-base font-bold text-on-surface">
+                    Production Backend &amp; Scalable APIs
+                  </h3>
+                </div>
+                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  Architect high-throughput REST APIs using <strong>FastAPI</strong> with Pydantic validation, JWT token security, and background task management. Model relational schemas with PostgreSQL and document stores with MongoDB, optimizing indexing for low-latency queries.
+                </p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {["FastAPI", "PostgreSQL", "MongoDB", "JWT Auth", "Pydantic", "RESTful Design"].map((tag, i) => (
+                    <span key={i} className="font-mono text-[10px] bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 px-2 py-0.5 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+
+              <div className="bg-[#0e1614] border border-white/10 p-5 rounded-xl space-y-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-8 h-8 rounded-lg bg-amber-500/10 border border-amber-500/25 flex items-center justify-center text-amber-400">
+                    <Code2 className="w-4 h-4" />
+                  </div>
+                  <h3 className="font-display text-base font-bold text-on-surface">
+                    Full-Stack Integration &amp; Deployment
+                  </h3>
+                </div>
+                <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                  Build responsive, component-driven client interfaces in <strong>React.js</strong> and TypeScript. Containerize applications using Docker multi-stage builds and deploy scalable inference spaces to Hugging Face Spaces and cloud platforms with automated CI/CD.
+                </p>
+                <div className="flex flex-wrap gap-1.5 pt-1">
+                  {["React.js", "TypeScript", "Docker", "Hugging Face Spaces", "Git CI/CD", "Streamlit"].map((tag, i) => (
+                    <span key={i} className="font-mono text-[10px] bg-amber-500/10 text-amber-300 border border-amber-500/20 px-2 py-0.5 rounded">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {/* TECHNICAL SKILLS SECTION */}
         <SkillsSection />
 
-        {/* EDUCATION SECTION */}
-        <EducationSection />
-
-        {/* ACHIEVEMENTS & CERTIFICATIONS SECTION */}
+        {/* ACHIEVEMENTS SECTION */}
         <AchievementsSection />
 
-        {/* SECURE COMM-CHANNEL (CONTACT) */}
+        {/* EDUCATION SECTION (CVR College) */}
+        <EducationSection />
+
+        {/* CONTACT SECTION */}
         <ContactSection />
+
       </main>
 
       {/* FOOTER */}
-      <footer className="relative z-10 w-full py-12 bg-surface-container-lowest/40 backdrop-blur-lg border-t border-white/5 mt-16">
-        <div className="flex flex-col md:flex-row justify-between items-center px-6 md:px-20 gap-8 max-w-7xl mx-auto">
-          {/* Brand */}
-          <div className="font-mono text-primary flex items-center gap-1.5 font-bold text-sm tracking-widest">
-            <Terminal className="w-4.5 h-4.5 text-primary" />
-            <span>RBR</span>
-          </div>
-
-          {/* Tagline & Copyright */}
-          <div className="font-mono text-[11px] text-on-surface-variant/80 text-center space-y-1.5">
-            <p className="text-primary font-semibold">Open to AI/ML, Software Engineering, Backend, and Data-driven opportunities.</p>
-            <p className="text-on-surface-variant/60">Building production-oriented AI and software systems • © 2026 Bharath Reddy Ramasani</p>
-          </div>
-
-          {/* Index links */}
-          <div className="flex flex-wrap justify-center gap-6">
-            <a
-              href="https://www.linkedin.com/in/bharathreddyramasani/"
-              target="_blank"
-              rel="noreferrer"
-              className="text-on-surface-variant/80 hover:text-primary transition-all hover:-translate-y-0.5 text-xs font-mono"
-            >
+      <footer className="relative z-10 border-t border-white/10 py-8 px-4 text-center font-mono text-xs text-on-surface-variant/70 bg-[#070b0a]">
+        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+          <p>© {new Date().getFullYear()} Bharath Reddy Ramasani. Built with React, TypeScript &amp; Tailwind CSS.</p>
+          <div className="flex items-center gap-4">
+            <a href="https://github.com/BharathReddyRamasani" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              GitHub
+            </a>
+            <span>•</span>
+            <a href="https://www.linkedin.com/in/bharathreddyramasani/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
               LinkedIn
             </a>
-            <a
-              href="https://github.com/BharathReddyRamasani"
-              target="_blank"
-              rel="noreferrer"
-              className="text-on-surface-variant/80 hover:text-primary transition-all hover:-translate-y-0.5 text-xs font-mono"
-            >
-              GitHub
+            <span>•</span>
+            <a href="https://leetcode.com/u/Bharathreddy_Ramasani/" target="_blank" rel="noreferrer" className="hover:text-primary transition-colors">
+              LeetCode
+            </a>
+            <span>•</span>
+            <a href="mailto:ramasanibharathreddy2004@gmail.com" className="hover:text-primary transition-colors">
+              Email
             </a>
           </div>
         </div>
       </footer>
 
-      {/* DIGITAL RESUME PREVIEW MODAL */}
-      <AnimatePresence>
-        {resumeOpen && (
-          <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
-        )}
-      </AnimatePresence>
+      {/* RESUME MODAL */}
+      <ResumeModal isOpen={resumeOpen} onClose={() => setResumeOpen(false)} />
     </div>
   );
 }

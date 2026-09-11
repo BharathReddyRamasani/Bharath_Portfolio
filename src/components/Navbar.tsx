@@ -11,11 +11,12 @@ export default function Navbar({ onOpenResume, activeSection }: NavbarProps) {
 
   const navItems = [
     { label: "Home", href: "#home", id: "home" },
+    { label: "Selected Work", href: "#projects", id: "projects" },
     { label: "Experience", href: "#experience", id: "experience" },
-    { label: "Projects", href: "#projects", id: "projects" },
+    { label: "Capabilities", href: "#what-i-build", id: "what-i-build" },
     { label: "Skills", href: "#skills", id: "skills" },
-    { label: "Education", href: "#education", id: "education" },
     { label: "Achievements", href: "#achievements", id: "achievements" },
+    { label: "Education", href: "#education", id: "education" },
     { label: "Contact", href: "#contact", id: "contact" },
   ];
 

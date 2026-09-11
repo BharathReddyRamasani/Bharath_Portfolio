@@ -2,77 +2,86 @@ import { Briefcase, ExternalLink, ArrowRight, CheckCircle2 } from "lucide-react"
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="relative min-h-[calc(100vh-4rem)] flex flex-col justify-center py-8 sm:py-12 bg-surface-container-lowest/20 z-10 scroll-mt-16">
-      {/* WORK EXPERIENCE - SLIDE 3 (Dedicated Single Slide Fit) */}
-      <div className="px-4 sm:px-6 md:px-10 max-w-5xl mx-auto space-y-4 w-full">
+    <section id="experience" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-16">
+      <div className="space-y-6">
         
         {/* SECTION HEADER */}
-        <div className="text-center">
-          <span className="font-mono text-[10px] uppercase text-primary tracking-[0.25em] mb-1 block font-semibold">
-            INDUSTRY EXPERIENCE
-          </span>
-          <h2 className="font-display text-xl sm:text-2xl font-extrabold text-on-surface">
-            Work Experience
-          </h2>
-          <p className="font-sans text-[11px] sm:text-xs text-on-surface-variant max-w-xl mx-auto mt-1 leading-relaxed">
-            Hands-on software engineering, machine learning pipelines, and production AI system development.
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-3 border-b border-white/10 pb-4">
+          <div>
+            <span className="font-mono text-[10px] uppercase text-primary tracking-[0.25em] block font-semibold mb-1">
+              PROFESSIONAL WORK
+            </span>
+            <h2 className="font-display text-2xl font-extrabold text-on-surface">
+              Work Experience
+            </h2>
+            <p className="font-sans text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1 leading-relaxed">
+              Production software engineering, machine learning pipelines, and applied AI systems.
+            </p>
+          </div>
         </div>
 
         {/* WORK EXPERIENCE CARD */}
-        <div className="bg-surface-container-low/40 backdrop-blur-md border border-white/10 p-4 sm:p-5 md:p-6 rounded-xl hover:border-primary/40 transition-all duration-300 shadow-xl relative overflow-hidden group">
-          {/* Top Glow Accent */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl pointer-events-none group-hover:bg-primary/10 transition-all"></div>
-
+        <div className="bg-[#0e1614] border border-white/10 hover:border-primary/40 p-5 sm:p-6 rounded-xl transition-all duration-300 shadow-xl relative overflow-hidden group">
           {/* Role & Company Header */}
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5 mb-3.5 relative z-10">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2.5 mb-4 relative z-10">
             <div>
-              <span className="font-mono text-[10px] text-primary mb-0.5 block font-semibold tracking-wider uppercase">
-                May 2026 – Jul 2026 • 2 Mos
-              </span>
+              <div className="flex flex-wrap items-center gap-2 mb-1">
+                <span className="font-mono text-xs text-primary font-semibold tracking-wider uppercase">
+                  May 2026 – Jul 2026 &bull; 2 Months
+                </span>
+                <span className="text-white/20">&bull;</span>
+                <span className="font-mono text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2.5 py-0.5 rounded-full font-semibold">
+                  Celebal Excellence Internship Distinction
+                </span>
+              </div>
               <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface">
                 Data Science Intern
               </h3>
-              <p className="font-sans text-xs sm:text-sm text-secondary font-medium flex flex-wrap items-center gap-2 mt-0.5">
+              <p className="font-sans text-sm text-secondary font-medium mt-0.5">
                 Celebal Technologies
-                <span className="inline-block text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded-full font-mono">
-                  Celebal Excellence Internship 2026
-                </span>
               </p>
             </div>
-            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/25 shrink-0 glow-teal">
-              <Briefcase className="w-5 h-5 text-primary" />
+            <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center border border-primary/25 shrink-0 text-primary">
+              <Briefcase className="w-5 h-5" />
             </div>
           </div>
 
-          {/* Bullet points */}
-          <ul className="space-y-2 mb-4 text-xs sm:text-[13px] text-on-surface-variant leading-relaxed relative z-10">
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-              <span>Developed an AI-powered Retail Demand Forecasting &amp; Analytics Platform analyzing <strong>9 Lakh+ historical retail transaction rows across 10 stores and 50 products per store (representing 500 store-product SKUs)</strong> using Python, LightGBM, FastAPI, Streamlit, PostgreSQL, and Docker.</span>
+          {/* Bullet points: Action + Technical Work + Result */}
+          <ul className="space-y-2.5 mb-5 text-xs sm:text-sm text-on-surface-variant leading-relaxed relative z-10">
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <span>
+                <strong>Engineered AI Retail Forecasting Platform:</strong> Processed and analyzed <strong className="text-on-surface">9 Lakh+ historical retail transaction rows across 10 stores and 500 store-product SKUs</strong> using Python, LightGBM, FastAPI, PostgreSQL, and Docker.
+              </span>
             </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-              <span>Engineered an end-to-end production-oriented ML pipeline covering data cleaning, lag and rolling feature engineering, hyperparameter tuning, recursive multi-horizon forecasting, and FastAPI REST endpoints for real-time model inference.</span>
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <span>
+                <strong>End-to-End ML Pipeline Architecture:</strong> Formulated lag and rolling window features, trained multi-horizon recursive forecast models, and built asynchronous FastAPI endpoints delivering low-latency inference for store managers.
+              </span>
             </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-              <span>Integrated a RAG-powered analytical layer using LangChain, NVIDIA NIM APIs, Llama 3.1, NVIDIA embeddings, and ChromaDB vector search to enable natural-language business queries and automated forecast explanations.</span>
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <span>
+                <strong>RAG Analytical Layer:</strong> Integrated LangChain, NVIDIA NIM APIs, Llama 3.1, and ChromaDB vector search to enable natural-language business queries and automated forecast explanations.
+              </span>
             </li>
-            <li className="flex items-start gap-2">
-              <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-              <span>Containerized the application with Docker and presented the deployed system with interactive Streamlit dashboards, achieving the Celebal Excellence Internship distinction.</span>
+            <li className="flex items-start gap-2.5">
+              <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+              <span>
+                <strong>Containerization &amp; Distinction:</strong> Packaged complete service stack with Docker and presented the deployed system with interactive Streamlit dashboards, earning the <strong className="text-emerald-400">Celebal Excellence Internship Award</strong>.
+              </span>
             </li>
           </ul>
 
-          {/* Canonical Tech Stack Pill Bar */}
-          <div className="mb-4 pt-1 relative z-10">
-            <span className="font-mono text-[9px] text-on-surface-variant/70 uppercase tracking-widest block mb-1.5 font-bold">
-              Canonical Technology Stack
+          {/* Technologies Used Pill Bar */}
+          <div className="mb-5 pt-2 border-t border-white/5 relative z-10">
+            <span className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-widest block mb-2 font-semibold">
+              Technologies Used
             </span>
-            <div className="flex flex-wrap gap-1">
+            <div className="flex flex-wrap gap-1.5">
               {["Python", "LightGBM", "FastAPI", "PostgreSQL", "Streamlit", "LangChain", "NVIDIA NIM", "Llama 3.1", "ChromaDB", "Docker"].map((tech, tIdx) => (
-                <span key={tIdx} className="font-mono text-[10px] bg-white/5 border border-white/10 px-2 py-0.5 rounded-md text-on-surface">
+                <span key={tIdx} className="font-mono text-[11px] bg-white/5 border border-white/10 px-2.5 py-0.5 rounded-md text-on-surface">
                   {tech}
                 </span>
               ))}
@@ -81,27 +90,27 @@ export default function ExperienceSection() {
 
           {/* Project Link Box / Redirect Button */}
           <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3 relative z-10">
-            <div className="flex items-center gap-1.5 text-[11px] font-mono text-on-surface-variant">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
-              <span>Internship Project: AI Retail Demand Forecasting & Analytics</span>
+            <div className="flex items-center gap-2 text-xs font-mono text-on-surface-variant">
+              <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
+              <span>Internship Deliverable: Retail Demand Forecasting &amp; Analytics Platform</span>
             </div>
 
             <div className="flex flex-wrap gap-2">
               <a
                 href="#projects"
-                className="bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 px-3 py-1.5 rounded-lg text-[11px] font-bold font-mono flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
+                className="bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/30 px-3 py-1.5 rounded-lg text-xs font-semibold font-mono flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
               >
-                View Project in Portfolio
-                <ArrowRight className="w-3 h-3" />
+                <span>View Project in Portfolio</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </a>
               <a
                 href="https://github.com/BharathReddyRamasani/Multi-Series-Forecasting-celebal-project.git"
                 target="_blank"
                 rel="noreferrer"
-                className="bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 px-3 py-1.5 rounded-lg text-[11px] font-bold font-mono flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
+                className="bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 px-3 py-1.5 rounded-lg text-xs font-semibold font-mono flex items-center gap-1.5 transition-all hover:scale-105 active:scale-95"
               >
-                <ExternalLink className="w-3 h-3 text-primary" />
-                GitHub Repository
+                <ExternalLink className="w-3.5 h-3.5 text-primary" />
+                <span>GitHub Repository</span>
               </a>
             </div>
           </div>

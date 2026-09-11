@@ -29,15 +29,42 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         className="bg-surface-container-low/95 border border-white/10 rounded-2xl w-full max-w-4xl h-[90vh] flex flex-col shadow-2xl relative z-10 overflow-hidden"
       >
         {/* Controls Header */}
-        <div className="flex justify-between items-center px-6 py-4 border-b border-white/5 bg-surface-container/60">
+        <div className="flex flex-wrap justify-between items-center px-6 py-3.5 border-b border-white/10 bg-surface-container/80 gap-3">
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-primary animate-pulse"></span>
-            <span className="font-mono text-xs text-on-surface-variant font-bold tracking-wider">DIGITAL_RESUME_V1.1</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-400"></span>
+            <span className="font-mono text-xs text-on-surface font-bold tracking-wider">Verified Digital Resume</span>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2">
+            <a
+              href="https://drive.google.com/file/d/1gTVsIZOMOwnpFQX5tOvQRn7jKDi4EtLc/view?usp=drive_link"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/25 text-xs font-mono font-semibold transition-colors"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>AI/ML PDF</span>
+            </a>
+            <a
+              href="https://drive.google.com/file/d/13SRI9L4a9YpSkCKU9U3A2USuOFb1975g/view?usp=drive_link"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-secondary/10 hover:bg-secondary/20 text-secondary border border-secondary/25 text-xs font-mono font-semibold transition-colors"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>SDE PDF</span>
+            </a>
+            <button
+              onClick={handlePrint}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 text-xs font-mono font-semibold transition-colors cursor-pointer"
+              title="Print Resume"
+            >
+              <Printer className="w-3.5 h-3.5 text-primary" />
+              <span>Print</span>
+            </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg hover:bg-white/10 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg hover:bg-white/10 text-on-surface-variant hover:text-on-surface transition-colors cursor-pointer ml-1"
+              title="Close"
             >
               <X className="w-5 h-5" />
             </button>
