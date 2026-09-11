@@ -91,7 +91,7 @@ export default function App() {
         {/* HERO SECTION — EXACT SINGLE SLIDE FIT (Fills 100% of the screen, navbar overlays top) */}
         <section
           id="home"
-          className="relative h-screen min-h-[600px] flex flex-col justify-between pt-16 sm:pt-20 pb-3 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto overflow-hidden"
+          className="relative h-screen min-h-screen max-h-screen flex flex-col justify-between pt-16 sm:pt-18 pb-2.5 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto overflow-hidden"
         >
           {/* Main Top/Middle Grid: Left Content (7 cols), Right Visual (5 cols) */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center flex-1 my-auto py-0.5">
@@ -100,7 +100,7 @@ export default function App() {
               <div>
                 <h1 className="font-display text-3xl sm:text-4xl lg:text-[38px] font-extrabold tracking-tight text-on-surface leading-[1.08]">
                   Bharath Reddy <br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-secondary font-black">
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-emerald-300 font-black">
                     Ramasani
                   </span>
                 </h1>
@@ -191,7 +191,7 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right Visual Column (Laptop on Desk with Clean Native Image Display & Cursive Caption) */}
+            {/* Right Visual Column (Laptop on Desk with Ambient Glow & Cursive Caption) */}
             <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-center">
               {/* Handwritten cursive caption */}
               <div
@@ -204,16 +204,19 @@ export default function App() {
                 </svg>
               </div>
 
-              {/* Minimalist Laptop Placed on Desk with Pen & Notebook (Crisp native image without duplicate text overlays) */}
-              <div className="relative w-full max-w-[320px] sm:max-w-[350px] rounded-xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 group hover:border-primary/60 transition-all duration-500 bg-[#070e0d]">
-                <div className="relative overflow-hidden aspect-[16/10.5] w-full">
-                  <img
-                    src={laptopDeskImg}
-                    alt="Laptop open on desk with ideas, models, products, real impact on screen, pen, and notebook with better systems brighter tomorrow"
-                    className="w-full h-full object-cover brightness-105 contrast-110"
-                  />
-                  {/* Subtle edge vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070e0d]/30 via-transparent to-transparent pointer-events-none" />
+              {/* Minimalist Laptop Placed on Desk with Ambient Glow */}
+              <div className="relative group">
+                <div className="absolute -inset-1 bg-gradient-to-r from-primary/30 via-cyan-400/20 to-secondary/30 rounded-2xl blur-xl opacity-60 group-hover:opacity-100 transition duration-500 pointer-events-none" />
+                <div className="relative w-full max-w-[320px] sm:max-w-[350px] rounded-xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 group-hover:border-primary/60 transition-all duration-500 bg-[#070e0d]">
+                  <div className="relative overflow-hidden aspect-[16/10.5] w-full">
+                    <img
+                      src={laptopDeskImg}
+                      alt="Laptop open on desk with ideas, models, products, real impact on screen, pen, and notebook with better systems brighter tomorrow"
+                      className="w-full h-full object-cover brightness-105 contrast-110"
+                    />
+                    {/* Subtle edge vignette */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#070e0d]/30 via-transparent to-transparent pointer-events-none" />
+                  </div>
                 </div>
               </div>
             </div>

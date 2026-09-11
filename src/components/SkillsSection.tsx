@@ -73,12 +73,7 @@ export default function SkillsSection() {
     },
   ];
 
-  const languages = [
-    { name: "Python", color: "border-primary/40 text-cyan-300 bg-primary/10" },
-    { name: "Java", color: "border-secondary/40 text-secondary bg-secondary/10" },
-    { name: "JavaScript", color: "border-amber-400/40 text-amber-300 bg-amber-400/10" },
-    { name: "SQL", color: "border-emerald-400/40 text-emerald-300 bg-emerald-400/10" }
-  ];
+  const languages = ["Python", "Java", "JavaScript", "SQL"];
 
   return (
     <section id="skills" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-16">
@@ -99,7 +94,7 @@ export default function SkillsSection() {
           </div>
         </div>
 
-        {/* PROGRAMMING LANGUAGES — Clean badges */}
+        {/* PROGRAMMING LANGUAGES — Uniform, cohesive styling */}
         <div className="bg-[#0e1614] border border-white/10 p-4 sm:p-5 rounded-xl space-y-3">
           <div className="flex items-center justify-between border-b border-white/10 pb-2">
             <div className="flex items-center gap-2">
@@ -113,13 +108,13 @@ export default function SkillsSection() {
             </span>
           </div>
 
-          <div className="flex flex-wrap items-center gap-3 pt-1">
+          <div className="flex flex-wrap items-center gap-2.5 pt-1">
             {languages.map((lang, idx) => (
               <span
                 key={idx}
-                className={`font-mono text-xs sm:text-sm font-bold px-4 py-2 rounded-lg border ${lang.color} shadow-sm`}
+                className="font-mono text-xs sm:text-sm font-semibold px-4 py-2 rounded-lg bg-white/5 border border-white/10 text-on-surface hover:border-primary/50 hover:text-cyan-300 hover:bg-primary/5 transition-all shadow-sm"
               >
-                {lang.name}
+                {lang}
               </span>
             ))}
           </div>

@@ -2,13 +2,12 @@ import {
   Briefcase,
   ExternalLink,
   CheckCircle2,
-  FileText,
   Award
 } from "lucide-react";
 
 export default function ExperienceSection() {
   return (
-    <section id="experience" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-16">
+    <section id="experience" className="relative pt-16 pb-12 sm:pt-20 sm:pb-16 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-20">
       <div className="space-y-6">
         
         {/* SECTION HEADER */}
@@ -69,33 +68,6 @@ export default function ExperienceSection() {
             <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
               Architected and deployed a production multi-series retail demand forecasting platform predicting SKU-level demand across <strong>10 stores &times; 50 products (500 SKUs, 900K+ records)</strong> using a joint LightGBM gradient-boosted engine and recursive autoregressive inference. Integrated an asynchronous FastAPI backend and a LangChain + ChromaDB RAG layer enabling natural-language querying and automated forecast driver explanations.
             </p>
-          </div>
-
-          {/* Compact Verified Impact Metrics Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-black/40 border border-white/10 rounded-xl p-3 sm:p-4 text-center">
-            <div className="bg-white/3 border border-white/5 p-2.5 rounded-lg space-y-0.5">
-              <span className="font-mono text-[10px] text-on-surface-variant block">Forecast Error</span>
-              <span className="font-display text-lg sm:text-xl font-black text-primary block">7.37% MAPE</span>
-              <span className="font-mono text-[9px] text-on-surface-variant/70 block">179.6K held-out test</span>
-            </div>
-
-            <div className="bg-white/3 border border-white/5 p-2.5 rounded-lg space-y-0.5">
-              <span className="font-mono text-[10px] text-on-surface-variant block">Variance Explained</span>
-              <span className="font-display text-lg sm:text-xl font-black text-emerald-400 block">0.974 R²</span>
-              <span className="font-mono text-[9px] text-on-surface-variant/70 block">Joint network fit</span>
-            </div>
-
-            <div className="bg-white/3 border border-white/5 p-2.5 rounded-lg space-y-0.5">
-              <span className="font-mono text-[10px] text-on-surface-variant block">Scale Processed</span>
-              <span className="font-display text-lg sm:text-xl font-black text-secondary block">900K+ Rows</span>
-              <span className="font-mono text-[9px] text-on-surface-variant/70 block">500 Store-SKUs</span>
-            </div>
-
-            <div className="bg-white/3 border border-white/5 p-2.5 rounded-lg space-y-0.5">
-              <span className="font-mono text-[10px] text-on-surface-variant block">Feature Space</span>
-              <span className="font-display text-lg sm:text-xl font-black text-amber-300 block">34 Features</span>
-              <span className="font-mono text-[9px] text-on-surface-variant/70 block">Lags, cyclical, promos</span>
-            </div>
           </div>
 
           {/* 4 Crisp Core Engineering Deliverables */}
@@ -168,21 +140,10 @@ export default function ExperienceSection() {
 
             <div className="flex flex-wrap gap-2.5">
               <a
-                href="https://github.com/BharathReddyRamasani/Multi-Series-Forecasting-celebal-project/blob/main/Retail_Forecasting_Platform_Documentation.docx"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 text-xs font-semibold font-mono transition-all hover:scale-105"
-              >
-                <FileText className="w-3.5 h-3.5 text-secondary" />
-                <span>Documentation (Docx)</span>
-                <ExternalLink className="w-3 h-3 text-on-surface-variant" />
-              </a>
-
-              <a
                 href="https://github.com/BharathReddyRamasani/Multi-Series-Forecasting-celebal-project"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/30 text-xs font-semibold font-mono transition-all hover:scale-105"
+                className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/30 text-xs font-semibold font-mono transition-all hover:scale-105"
               >
                 <ExternalLink className="w-3.5 h-3.5 text-primary" />
                 <span>GitHub Repository</span>
