@@ -7,30 +7,30 @@
   --font-mono: "JetBrains Mono", monospace;
   --font-script: "Caveat", cursive;
 
-  /* Theme colors based on Neural Depth design specifications */
-  --color-primary: #4fdbc8;
-  --color-on-primary: #003731;
-  --color-primary-container: #14b8a6;
-  --color-on-primary-container: #00423b;
+  /* Light Editorial Theme specifications (#F4F5F7, white cards, crimson accent) */
+  --color-primary: #e11d48;
+  --color-on-primary: #ffffff;
+  --color-primary-container: #ffe4e6;
+  --color-on-primary-container: #9f1239;
   
-  --color-secondary: #adc6ff;
-  --color-on-secondary: #002e6a;
-  --color-secondary-container: #0566d9;
+  --color-secondary: #2563eb;
+  --color-on-secondary: #ffffff;
+  --color-secondary-container: #dbeafe;
   
-  --color-tertiary: #ffb59e;
-  --color-on-tertiary: #5e1800;
+  --color-tertiary: #d97706;
+  --color-on-tertiary: #ffffff;
   
-  --color-bg-dark: #0e1513;
-  --color-surface-dark: #0e1513;
-  --color-surface-container: #1a211f;
-  --color-surface-container-high: #252b2a;
-  --color-surface-container-highest: #2f3634;
-  --color-surface-container-lowest: #090f0e;
+  --color-bg-dark: #f4f5f7;
+  --color-surface-dark: #ffffff;
+  --color-surface-container: #ffffff;
+  --color-surface-container-high: #f1f5f9;
+  --color-surface-container-highest: #e2e8f0;
+  --color-surface-container-lowest: #f8fafc;
   
-  --color-on-surface: #dde4e1;
-  --color-on-surface-variant: #bbcac6;
-  --color-outline: #859490;
-  --color-outline-variant: #3c4947;
+  --color-on-surface: #0f172a;
+  --color-on-surface-variant: #475569;
+  --color-outline: #cbd5e1;
+  --color-outline-variant: #e2e8f0;
 }
 
 @layer utilities {
@@ -38,13 +38,13 @@
     font-family: var(--font-script);
   }
   .text-glow {
-    text-shadow: 0 0 20px rgba(79, 219, 200, 0.4);
+    text-shadow: 0 0 20px rgba(225, 29, 72, 0.35);
   }
   .text-glow-subtle {
-    text-shadow: 0 0 10px rgba(79, 219, 200, 0.25);
+    text-shadow: 0 0 10px rgba(225, 29, 72, 0.2);
   }
   .glow-teal {
-    box-shadow: 0 0 20px rgba(79, 219, 200, 0.15);
+    box-shadow: 0 0 20px rgba(225, 29, 72, 0.12);
   }
 }
 
@@ -53,21 +53,21 @@
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #0e1513;
+  background: #f4f5f7;
 }
 ::-webkit-scrollbar-thumb {
-  background: #252b2a;
+  background: #cbd5e1;
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #4fdbc8;
+  background: #e11d48;
 }
 
 /* Base resets */
 html {
   scroll-behavior: smooth;
-  background-color: #0e1513;
-  color: #dde4e1;
+  background-color: #f4f5f7;
+  color: #0f172a;
 }
 
 /* Reduced motion support */

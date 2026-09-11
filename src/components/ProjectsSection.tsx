@@ -87,7 +87,7 @@ export default function ProjectsSection() {
         "Python",
         "FastAPI",
         "React 18",
-        "TypeScript",
+        "JavaScript",
         "LangGraph",
         "LangChain",
         "ChromaDB",
@@ -286,21 +286,60 @@ export default function ProjectsSection() {
   ];
 
   return (
-    <section id="projects" className="relative pt-16 pb-12 sm:pt-20 sm:pb-16 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-20">
-      <div className="space-y-6">
+    <section id="projects" className="relative pt-16 pb-12 sm:pt-20 sm:pb-16 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-20 overflow-hidden">
+      
+      {/* WATERMARK BACKGROUND TYPOGRAPHY */}
+      <div className="absolute top-10 right-0 pointer-events-none select-none font-display font-black text-8xl sm:text-9xl text-slate-900/[0.03] tracking-tighter uppercase z-0">
+        PROOF OF WORK
+      </div>
 
-        {/* SECTION HEADER */}
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-3 border-b border-white/10 pb-4">
-          <div>
-            <span className="font-mono text-[10px] uppercase text-primary tracking-[0.25em] block font-semibold mb-1">
-              ENGINEERING EVIDENCE &amp; EVALUATION
+      <div className="relative z-10 space-y-6">
+
+        {/* SECTION HEADER & DIRECTIONAL CHARACTER BANNER */}
+        <div className="bg-white border border-slate-200/90 rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col md:flex-row justify-between items-center gap-6">
+          <div className="space-y-2 max-w-2xl text-left">
+            <span className="font-mono text-[10px] uppercase text-rose-600 tracking-[0.25em] block font-semibold">
+              03. PROJECTS • VERIFIED PROOF-OF-WORK &amp; DEEP CASE STUDIES
             </span>
-            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-on-surface">
+            <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-slate-900">
               Featured Projects
             </h2>
-            <p className="font-sans text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1 leading-relaxed">
-              Production-oriented AI and software systems demonstrating multi-agent orchestration, adaptive hybrid recommendations, multimodal NLP, and enterprise transactional analytics.
+            <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
+              Production-oriented AI and software systems demonstrating multi-agent orchestration, adaptive hybrid recommendations, multimodal NLP, and enterprise transactional analytics. All live links and open-source codebases verified.
             </p>
+          </div>
+
+          {/* Directional Character Avatar Pointing Toward Project Cards */}
+          <div className="relative shrink-0 flex items-center justify-center">
+            <div className="relative w-28 h-28 sm:w-32 sm:h-32 rounded-2xl p-1 bg-gradient-to-tr from-rose-500/20 via-blue-500/10 to-transparent border border-slate-200 overflow-hidden shadow-sm group hover:scale-105 transition-transform">
+              <img
+                src="/assets/projects-pointing.jpg"
+                alt="Bharath pointing toward project showcase cards"
+                className="w-full h-full object-contain filter drop-shadow-xs"
+              />
+              <div className="absolute bottom-1 right-1 bg-white/95 border border-slate-200 px-1.5 py-0.5 rounded text-[9px] font-mono font-bold text-rose-600 shadow-2xs">
+                Explore ↓
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* STREAMING-PLATFORM FAST TICKER BANNER */}
+        <div className="bg-slate-50 border border-slate-200/90 rounded-xl px-4 py-2.5 overflow-hidden shadow-2xs">
+          <div className="flex items-center gap-3">
+            <span className="flex items-center gap-1.5 font-mono text-[10.5px] uppercase font-bold text-rose-600 shrink-0 bg-rose-50 border border-rose-200 px-2 py-0.5 rounded">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-500 animate-ping" />
+              LIVE TICKER:
+            </span>
+            <div className="whitespace-nowrap overflow-hidden text-xs font-mono text-slate-700 flex items-center gap-4">
+              <span>🚀 CorpusAI (7-Agent Supervisor RAG on HF Spaces)</span>
+              <span className="text-slate-300">•</span>
+              <span>⚡ Conversational Commerce (Hybrid Recommender + LangChain RAG)</span>
+              <span className="text-slate-300">•</span>
+              <span>🎯 EmiHate Grid (RoBERTa &amp; IndicBERT Multilingual Detection)</span>
+              <span className="text-slate-300">•</span>
+              <span>📊 Nexus Commerce Suite (Streamlit &amp; PostgreSQL Analytics)</span>
+            </div>
           </div>
         </div>
 
@@ -312,39 +351,39 @@ export default function ProjectsSection() {
             return (
               <div
                 key={project.id}
-                className="bg-[#0e1614] rounded-xl border border-white/10 hover:border-primary/40 transition-all duration-300 shadow-lg overflow-hidden"
+                className="bg-white rounded-2xl border border-slate-200/90 hover:border-rose-300 transition-all duration-300 shadow-sm hover:shadow-md overflow-hidden"
               >
                 {/* ━━━━━━━━ COMPACT PROJECT CARD (Always Visible) ━━━━━━━━ */}
                 <div className="p-5 sm:p-6 space-y-3.5">
                   {/* Top Row: Index + Complete Title + Positioning Role Label */}
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-white/5 pb-3">
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-slate-100 pb-3">
                     <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-xs font-bold text-primary">
+                        <span className="font-mono text-xs font-bold text-rose-600">
                           {project.index} &mdash;
                         </span>
-                        <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface">
+                        <h3 className="font-display text-lg sm:text-xl font-bold text-slate-900">
                           {project.title}
                         </h3>
                       </div>
-                      <p className="font-sans text-xs text-secondary font-medium">
+                      <p className="font-sans text-xs text-rose-700 font-semibold">
                         {project.subtitle}
                       </p>
                     </div>
 
                     {/* Distinct Positioning Role Label */}
-                    <span className="inline-flex items-center font-mono text-[11px] font-bold px-3 py-1 rounded-full bg-primary/10 text-cyan-300 border border-primary/25 shadow-sm shrink-0">
+                    <span className="inline-flex items-center font-mono text-[11px] font-bold px-3 py-1 rounded-full bg-rose-50 text-rose-700 border border-rose-200 shadow-2xs shrink-0">
                       {project.positioningRole}
                     </span>
                   </div>
 
                   {/* Tags Summary */}
-                  <div className="font-mono text-[11px] text-on-surface-variant/80 tracking-wide font-medium">
+                  <div className="font-mono text-[11px] text-slate-500 tracking-wide font-medium">
                     {project.tagsSummary}
                   </div>
 
                   {/* Compelling 2-4 Line Hook Teaser Description */}
-                  <p className="font-sans text-xs sm:text-[13.5px] text-on-surface-variant leading-relaxed">
+                  <p className="font-sans text-xs sm:text-[13.5px] text-slate-600 leading-relaxed">
                     {project.hookTeaser}
                   </p>
 
@@ -352,7 +391,7 @@ export default function ProjectsSection() {
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
                     <button
                       onClick={() => toggleProject(project.id)}
-                      className="inline-flex items-center gap-1.5 text-xs font-bold font-display text-primary hover:text-cyan-300 transition-colors cursor-pointer group"
+                      className="inline-flex items-center gap-1.5 text-xs font-bold font-display text-rose-600 hover:text-rose-700 transition-colors cursor-pointer group"
                     >
                       <span>{isExpanded ? "Collapse Technical Case Study" : "View Project Details →"}</span>
                       {isExpanded ? (
@@ -368,7 +407,7 @@ export default function ProjectsSection() {
                           href={project.liveUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/25 text-xs font-mono font-semibold transition-all hover:scale-105"
+                          className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 text-xs font-mono font-semibold transition-all hover:scale-105 shadow-2xs"
                         >
                           <span>Live Demo</span>
                           <ExternalLink className="w-3 h-3" />
@@ -379,9 +418,9 @@ export default function ProjectsSection() {
                         href={project.githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 text-xs font-mono font-semibold transition-all hover:scale-105"
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 text-xs font-mono font-semibold transition-all hover:scale-105 shadow-2xs"
                       >
-                        <Github className="w-3 h-3 text-primary" />
+                        <Github className="w-3 h-3 text-rose-600" />
                         <span>GitHub</span>
                       </a>
                     </div>
@@ -390,15 +429,15 @@ export default function ProjectsSection() {
 
                 {/* ━━━━━━━━ DEEP DIVE EXPANSION (Exact Recommended Hierarchy) ━━━━━━━━ */}
                 {isExpanded && (
-                  <div className="border-t border-white/10 bg-[#0a100f] p-5 sm:p-7 space-y-6 animate-fadeIn">
+                  <div className="border-t border-slate-200 bg-slate-50/70 p-5 sm:p-7 space-y-6 animate-fadeIn">
                     
                     {/* Top Action Bar in Deep Dive */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
+                    <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-200">
                       <div>
-                        <span className="font-mono text-[10px] text-primary uppercase tracking-widest font-bold block mb-0.5">
+                        <span className="font-mono text-[10px] text-rose-600 uppercase tracking-widest font-bold block mb-0.5">
                           Technical Case Study
                         </span>
-                        <h4 className="font-display text-base sm:text-lg font-bold text-on-surface">
+                        <h4 className="font-display text-base sm:text-lg font-bold text-slate-900">
                           {project.title}
                         </h4>
                       </div>
@@ -409,7 +448,7 @@ export default function ProjectsSection() {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-bold transition-all hover:scale-105 shadow-sm"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 text-xs font-mono font-bold transition-all hover:scale-105 shadow-xs"
                           >
                             <span>Live Demo</span>
                             <ExternalLink className="w-3.5 h-3.5" />
@@ -420,9 +459,9 @@ export default function ProjectsSection() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/30 text-xs font-mono font-bold transition-all hover:scale-105 shadow-sm"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-mono font-bold transition-all hover:scale-105 shadow-xs"
                         >
-                          <Github className="w-3.5 h-3.5 text-primary" />
+                          <Github className="w-3.5 h-3.5 text-rose-600" />
                           <span>View GitHub</span>
                         </a>
                       </div>
@@ -430,29 +469,29 @@ export default function ProjectsSection() {
 
                     {/* 1. OVERVIEW */}
                     <div className="space-y-2">
-                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-rose-600 font-bold">
                         Overview
                       </h5>
-                      <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                      <p className="font-sans text-xs sm:text-sm text-slate-600 leading-relaxed">
                         {project.overview}
                       </p>
                     </div>
 
                     {/* 2. KEY ENGINEERING */}
-                    <div className="space-y-2.5 pt-2 border-t border-white/5">
-                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold">
+                    <div className="space-y-2.5 pt-2 border-t border-slate-200">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-rose-600 font-bold">
                         Key Engineering
                       </h5>
-                      <ul className="space-y-2.5 text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                      <ul className="space-y-2.5 text-xs sm:text-sm text-slate-600 leading-relaxed">
                         {project.keyEngineering.map((item, kIdx) => {
                           const [boldPrefix, ...restOfText] = item.split(":");
                           return (
                             <li key={kIdx} className="flex items-start gap-2.5">
-                              <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                              <CheckCircle2 className="w-4 h-4 text-rose-600 shrink-0 mt-0.5" />
                               <span>
                                 {restOfText.length > 0 ? (
                                   <>
-                                    <strong className="text-on-surface">{boldPrefix.trim()}:</strong>
+                                    <strong className="text-slate-900">{boldPrefix.trim()}:</strong>
                                     {restOfText.join(":")}
                                   </>
                                 ) : (
@@ -466,28 +505,28 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* 3. SYSTEM ARCHITECTURE */}
-                    <div className="space-y-2.5 pt-2 border-t border-white/5">
-                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-secondary font-bold flex items-center gap-1.5">
+                    <div className="space-y-2.5 pt-2 border-t border-slate-200">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-blue-600 font-bold flex items-center gap-1.5">
                         <Workflow className="w-3.5 h-3.5" />
                         <span>System Architecture</span>
                       </h5>
 
                       {/* Interactive Pipeline Steps */}
-                      <div className="bg-[#050b0a] border border-white/10 rounded-xl p-3 sm:p-4 overflow-x-auto">
+                      <div className="bg-white border border-slate-200 rounded-xl p-3 sm:p-4 overflow-x-auto shadow-xs">
                         <div className="flex items-center gap-2 min-w-max">
                           {project.architectureSteps.map((step, sIdx) => (
                             <div key={sIdx} className="flex items-center gap-2">
-                              <span className="font-mono text-xs font-bold px-3 py-1.5 rounded-lg bg-surface-container-high/80 border border-white/10 text-cyan-200 shadow-sm">
+                              <span className="font-mono text-xs font-bold px-3 py-1.5 rounded-lg bg-slate-50 border border-slate-200 text-slate-800 shadow-2xs">
                                 {step}
                               </span>
                               {sIdx < project.architectureSteps.length - 1 && (
-                                <span className="text-primary font-black text-sm">→</span>
+                                <span className="text-rose-600 font-black text-sm">→</span>
                               )}
                             </div>
                           ))}
                         </div>
                         {project.architectureNote && (
-                          <p className="font-mono text-[10.5px] text-on-surface-variant/70 mt-2.5 pt-2 border-t border-white/5">
+                          <p className="font-mono text-[10.5px] text-slate-500 mt-2.5 pt-2 border-t border-slate-100">
                             {project.architectureNote}
                           </p>
                         )}
@@ -495,20 +534,20 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* 4. TECHNICAL HIGHLIGHTS */}
-                    <div className="space-y-2.5 pt-2 border-t border-white/5">
-                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold">
+                    <div className="space-y-2.5 pt-2 border-t border-slate-200">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-rose-600 font-bold">
                         Technical Highlights
                       </h5>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                         {project.techHighlights.map((th, thIdx) => (
                           <div
                             key={thIdx}
-                            className="bg-[#070e0d] border border-white/10 p-3 rounded-lg space-y-1"
+                            className="bg-white border border-slate-200 p-3.5 rounded-xl space-y-1 shadow-2xs"
                           >
-                            <span className="font-mono text-xs font-bold text-cyan-300 block">
+                            <span className="font-mono text-xs font-bold text-slate-900 block">
                               {th.component}
                             </span>
-                            <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
+                            <p className="font-sans text-xs text-slate-600 leading-relaxed">
                               {th.usage}
                             </p>
                           </div>
@@ -517,15 +556,15 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* 5. TECH STACK */}
-                    <div className="space-y-2 pt-2 border-t border-white/5">
-                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant/80 font-bold">
+                    <div className="space-y-2 pt-2 border-t border-slate-200">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-slate-500 font-bold">
                         Tech Stack
                       </h5>
                       <div className="flex flex-wrap gap-1.5">
                         {project.technologies.map((tech, tIdx) => (
                           <span
                             key={tIdx}
-                            className="font-mono text-[11px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-on-surface font-medium hover:border-primary/40 hover:text-cyan-300 transition-colors"
+                            className="font-mono text-[11px] bg-white border border-slate-200 px-2.5 py-1 rounded-md text-slate-700 font-medium hover:border-rose-300 hover:text-rose-600 transition-colors shadow-2xs"
                           >
                             {tech}
                           </span>
@@ -534,20 +573,20 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* 6. CHALLENGES / ENGINEERING DECISIONS */}
-                    <div className="space-y-2.5 pt-2 border-t border-white/5">
-                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-emerald-400 font-bold">
+                    <div className="space-y-2.5 pt-2 border-t border-slate-200">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-emerald-700 font-bold">
                         Challenges / Engineering Decisions
                       </h5>
                       <div className="space-y-2.5">
                         {project.engineeringDecisions.map((ed, edIdx) => (
                           <div
                             key={edIdx}
-                            className="bg-[#070e0d] border border-white/10 p-3.5 rounded-lg space-y-1"
+                            className="bg-white border border-slate-200 p-3.5 rounded-xl space-y-1 shadow-2xs"
                           >
-                            <span className="font-mono text-xs font-bold text-on-surface block">
+                            <span className="font-mono text-xs font-bold text-slate-900 block">
                               {ed.decision}
                             </span>
-                            <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
+                            <p className="font-sans text-xs text-slate-600 leading-relaxed">
                               {ed.explanation}
                             </p>
                           </div>
@@ -556,9 +595,9 @@ export default function ProjectsSection() {
                     </div>
 
                     {/* 7. FOOTER ACTION BAR */}
-                    <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
-                      <div className="flex items-center gap-2 text-xs font-mono text-on-surface-variant">
-                        <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                    <div className="pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                      <div className="flex items-center gap-2 text-xs font-mono text-slate-500">
+                        <span className="w-2 h-2 rounded-full bg-emerald-500" />
                         <span>Verified Project Codebase &amp; Architecture</span>
                       </div>
 
@@ -568,7 +607,7 @@ export default function ProjectsSection() {
                             href={project.liveUrl}
                             target="_blank"
                             rel="noreferrer"
-                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-bold transition-all hover:scale-105"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-50 hover:bg-emerald-100 text-emerald-700 border border-emerald-300 text-xs font-mono font-bold transition-all hover:scale-105 shadow-xs"
                           >
                             <span>Live Demo</span>
                             <ExternalLink className="w-3.5 h-3.5" />
@@ -579,9 +618,9 @@ export default function ProjectsSection() {
                           href={project.githubUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/30 text-xs font-mono font-bold transition-all hover:scale-105"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-xs font-mono font-bold transition-all hover:scale-105 shadow-xs"
                         >
-                          <Github className="w-3.5 h-3.5 text-primary" />
+                          <Github className="w-3.5 h-3.5 text-rose-600" />
                           <span>View GitHub</span>
                         </a>
                       </div>
