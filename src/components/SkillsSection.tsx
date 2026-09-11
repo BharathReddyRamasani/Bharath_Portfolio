@@ -1,4 +1,4 @@
-import { Brain, Sparkles, Code, Database, Wrench, Terminal } from "lucide-react";
+import { Brain, Sparkles, Code, Database, Wrench, Terminal, Layers } from "lucide-react";
 
 interface SkillCategory {
   title: string;
@@ -10,34 +10,57 @@ interface SkillCategory {
 export default function SkillsSection() {
   const skillCategories: SkillCategory[] = [
     {
-      title: "Generative AI & Agentic Systems",
-      badge: "RAG & Agents",
+      title: "AI, Machine Learning & GenAI",
+      badge: "Models, Agents & Evals",
       icon: Sparkles,
-      skills: ["LangGraph", "LangChain", "LLMs (Llama 3.1, Gemini)", "Multi-Agent Architectures", "ChromaDB (Vector DB)", "Semantic Retrieval", "Ragas Evals (Faithfulness, MRR)"],
+      skills: [
+        "Multi-Agent Systems",
+        "LLM Evals",
+        "LangGraph",
+        "LangChain",
+        "LLMs",
+        "RAG",
+        "Transformers",
+        "PyTorch",
+        "Scikit-learn",
+        "Deep Learning",
+        "NLP",
+        "Feature Engineering",
+        "Time-Series Forecasting",
+        "Pandas",
+        "NumPy"
+      ],
     },
     {
-      title: "AI & Machine Learning",
-      badge: "Core ML & DL",
-      icon: Brain,
-      skills: ["PyTorch", "Hugging Face Transformers", "Scikit-learn", "LightGBM", "RoBERTa & IndicBERT", "Tesseract OCR", "LIME (Explainable AI)", "Model Fine-Tuning"],
-    },
-    {
-      title: "Backend & Systems",
-      badge: "APIs & Services",
+      title: "Software & Backend Development",
+      badge: "APIs & Web Architecture",
       icon: Code,
-      skills: ["FastAPI", "RESTful APIs", "Pydantic", "JWT Authentication", "Asynchronous Programming", "Microservice Design", "System Trade-offs"],
+      skills: [
+        "FastAPI",
+        "Node.js",
+        "Express.js",
+        "React.js",
+        "REST APIs",
+        "JWT Authentication",
+        "MVC Architecture",
+        "HTML",
+        "CSS"
+      ],
     },
     {
-      title: "Databases & Storage",
-      badge: "SQL & NoSQL",
+      title: "Databases & Tools",
+      badge: "Storage & DevOps",
       icon: Database,
-      skills: ["PostgreSQL", "MongoDB", "SQLite", "Vector Stores (ChromaDB)", "Database Indexing", "ACID Transactions", "Data Modeling"],
-    },
-    {
-      title: "DevOps & Infrastructure",
-      badge: "Deployment & CI",
-      icon: Wrench,
-      skills: ["Docker (Multi-Stage)", "Hugging Face Spaces", "Git & GitHub", "Streamlit", "Postman", "Linux Shell"],
+      skills: [
+        "MongoDB",
+        "PostgreSQL",
+        "ChromaDB",
+        "Docker",
+        "Git",
+        "GitHub",
+        "Postman",
+        "Streamlit"
+      ],
     },
   ];
 
@@ -62,18 +85,18 @@ export default function SkillsSection() {
               Technical Skills
             </h2>
             <p className="font-sans text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1 leading-relaxed">
-              Categorized technologies and tools applied in production-oriented projects and research pipelines.
+              Core programming languages, AI/ML models, agentic workflows, backend architecture, and database systems.
             </p>
           </div>
         </div>
 
-        {/* CORE PROGRAMMING LANGUAGES SHOWCASE — Only languages, no extra descriptions */}
+        {/* PROGRAMMING LANGUAGES — Clean badges without descriptions */}
         <div className="bg-[#0e1614] border border-white/10 p-4 sm:p-5 rounded-xl space-y-3">
           <div className="flex items-center justify-between border-b border-white/10 pb-2">
             <div className="flex items-center gap-2">
               <Terminal className="w-4 h-4 text-primary" />
               <h3 className="font-display text-sm font-bold text-on-surface">
-                Core Programming Languages
+                Programming Languages
               </h3>
             </div>
             <span className="font-mono text-[10px] text-primary bg-primary/10 border border-primary/25 px-2 py-0.5 rounded">
@@ -93,21 +116,21 @@ export default function SkillsSection() {
           </div>
         </div>
 
-        {/* 5 CATEGORIZED SKILL GROUPS (No self-ratings or progress bars) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3.5">
+        {/* 3 COMPREHENSIVE CATEGORIES (AI/ML/GenAI, Software & Backend, Databases & Tools) */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
           {skillCategories.map((cat, idx) => {
             const IconComp = cat.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#0e1614] border border-white/10 hover:border-primary/30 p-4 rounded-xl flex flex-col justify-between transition-all duration-300 space-y-3"
+                className="bg-[#0e1614] border border-white/10 hover:border-primary/30 p-5 rounded-xl flex flex-col justify-between transition-all duration-300 space-y-3"
               >
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   <div className="flex items-center justify-between">
                     <div className="w-8 h-8 rounded-lg bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
                       <IconComp className="w-4 h-4" />
                     </div>
-                    <span className="font-mono text-[10px] text-on-surface-variant/70 uppercase">
+                    <span className="font-mono text-[10px] text-on-surface-variant/70 uppercase font-semibold">
                       {cat.badge}
                     </span>
                   </div>
@@ -120,7 +143,7 @@ export default function SkillsSection() {
                     {cat.skills.map((skill, sIdx) => (
                       <span
                         key={sIdx}
-                        className="font-mono text-[11px] px-2 py-0.5 rounded bg-white/5 border border-white/10 text-on-surface"
+                        className="font-mono text-[11px] px-2.5 py-1 rounded bg-white/5 border border-white/10 text-on-surface font-medium hover:border-primary/40 hover:text-cyan-300 transition-colors"
                       >
                         {skill}
                       </span>
@@ -128,9 +151,9 @@ export default function SkillsSection() {
                   </div>
                 </div>
 
-                <div className="pt-2 border-t border-white/5 flex items-center gap-1.5 font-mono text-[10px] text-on-surface-variant/60">
+                <div className="pt-2.5 border-t border-white/5 flex items-center gap-1.5 font-mono text-[10px] text-on-surface-variant/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                  <span>Applied in Engineering Systems</span>
+                  <span>Applied in Production Systems</span>
                 </div>
               </div>
             );
