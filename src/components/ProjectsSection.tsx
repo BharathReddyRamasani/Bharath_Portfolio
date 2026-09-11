@@ -38,9 +38,7 @@ interface ProjectData {
 }
 
 export default function ProjectsSection() {
-  const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({
-    "corpus-ai": true // First flagship project open by default for immediate technical proof
-  });
+  const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({});
 
   const toggleProject = (id: string) => {
     setExpandedProjects((prev) => ({
