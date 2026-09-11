@@ -51,7 +51,6 @@ interface ProjectData {
 }
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState<"ALL" | "RAG" | "ML" | "SYSTEMS">("ALL");
   const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({
     "corpus-ai": true // Default open for immediate technical inspection
   });
@@ -259,14 +258,6 @@ export default function ProjectsSection() {
     }
   ];
 
-  // Filtering
-  const filteredProjects = projects.filter((p) => {
-    if (activeFilter === "RAG") return p.tags.includes("LangGraph") || p.tags.includes("ChromaDB");
-    if (activeFilter === "ML") return p.tags.includes("PyTorch") || p.tags.includes("LightGBM");
-    if (activeFilter === "SYSTEMS") return p.tags.includes("FastAPI") || p.tags.includes("PostgreSQL");
-    return true;
-  });
-
   return (
     <section id="projects" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-16">
       <div className="space-y-6">
@@ -284,55 +275,11 @@ export default function ProjectsSection() {
               Production-oriented AI and software systems demonstrating multi-agent orchestration, hybrid recommendations, multimodal NLP, and enterprise transactional analytics.
             </p>
           </div>
-
-          {/* Quick Filter Buttons */}
-          <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs">
-            <button
-              onClick={() => setActiveFilter("ALL")}
-              className={`px-3 py-1 rounded-md transition-all cursor-pointer ${
-                activeFilter === "ALL"
-                  ? "bg-primary text-on-primary font-bold shadow-sm"
-                  : "bg-surface-container-high/60 text-on-surface-variant hover:text-white"
-              }`}
-            >
-              All (4)
-            </button>
-            <button
-              onClick={() => setActiveFilter("RAG")}
-              className={`px-3 py-1 rounded-md transition-all cursor-pointer ${
-                activeFilter === "RAG"
-                  ? "bg-primary text-on-primary font-bold shadow-sm"
-                  : "bg-surface-container-high/60 text-on-surface-variant hover:text-white"
-              }`}
-            >
-              Multi-Agent &amp; RAG
-            </button>
-            <button
-              onClick={() => setActiveFilter("ML")}
-              className={`px-3 py-1 rounded-md transition-all cursor-pointer ${
-                activeFilter === "ML"
-                  ? "bg-primary text-on-primary font-bold shadow-sm"
-                  : "bg-surface-container-high/60 text-on-surface-variant hover:text-white"
-              }`}
-            >
-              NLP &amp; Machine Learning
-            </button>
-            <button
-              onClick={() => setActiveFilter("SYSTEMS")}
-              className={`px-3 py-1 rounded-md transition-all cursor-pointer ${
-                activeFilter === "SYSTEMS"
-                  ? "bg-primary text-on-primary font-bold shadow-sm"
-                  : "bg-surface-container-high/60 text-on-surface-variant hover:text-white"
-              }`}
-            >
-              Full-Stack &amp; Systems
-            </button>
-          </div>
         </div>
 
         {/* PROJECTS LIST — All projects are equal level with verified benchmarks */}
         <div className="space-y-6">
-          {filteredProjects.map((project) => {
+          {projects.map((project) => {
             const isExpanded = !!expandedProjects[project.id];
 
             return (

@@ -1,4 +1,4 @@
-import { Brain, Sparkles, Code, Database, Wrench, Terminal, Layers } from "lucide-react";
+import { Brain, Sparkles, Code, Database, Terminal } from "lucide-react";
 
 interface SkillCategory {
   title: string;
@@ -10,7 +10,22 @@ interface SkillCategory {
 export default function SkillsSection() {
   const skillCategories: SkillCategory[] = [
     {
-      title: "AI, Machine Learning & GenAI",
+      title: "Data Science & Machine Learning",
+      badge: "Data Science & ML",
+      icon: Brain,
+      skills: [
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "PyTorch",
+        "Deep Learning",
+        "Feature Engineering",
+        "Time-Series Forecasting",
+        "ML Pipelines"
+      ],
+    },
+    {
+      title: "Generative AI & NLP",
       badge: "Models, Agents & Evals",
       icon: Sparkles,
       skills: [
@@ -21,14 +36,8 @@ export default function SkillsSection() {
         "LLMs",
         "RAG",
         "Transformers",
-        "PyTorch",
-        "Scikit-learn",
-        "Deep Learning",
         "NLP",
-        "Feature Engineering",
-        "Time-Series Forecasting",
-        "Pandas",
-        "NumPy"
+        "Agentic AI"
       ],
     },
     {
@@ -90,7 +99,7 @@ export default function SkillsSection() {
           </div>
         </div>
 
-        {/* PROGRAMMING LANGUAGES — Clean badges without descriptions */}
+        {/* PROGRAMMING LANGUAGES — Clean badges */}
         <div className="bg-[#0e1614] border border-white/10 p-4 sm:p-5 rounded-xl space-y-3">
           <div className="flex items-center justify-between border-b border-white/10 pb-2">
             <div className="flex items-center gap-2">
@@ -116,14 +125,14 @@ export default function SkillsSection() {
           </div>
         </div>
 
-        {/* 3 COMPREHENSIVE CATEGORIES (AI/ML/GenAI, Software & Backend, Databases & Tools) */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
+        {/* 4 TECHNICAL SECTIONS: Data Science & ML, Generative AI & NLP, Software & Backend, Databases & Tools */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {skillCategories.map((cat, idx) => {
             const IconComp = cat.icon;
             return (
               <div
                 key={idx}
-                className="bg-[#0e1614] border border-white/10 hover:border-primary/30 p-5 rounded-xl flex flex-col justify-between transition-all duration-300 space-y-3"
+                className="bg-[#0e1614] border border-white/10 hover:border-primary/30 p-4 sm:p-5 rounded-xl flex flex-col justify-between transition-all duration-300 space-y-3 shadow-md"
               >
                 <div className="space-y-2.5">
                   <div className="flex items-center justify-between">

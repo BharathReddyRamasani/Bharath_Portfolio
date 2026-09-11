@@ -88,17 +88,17 @@ export default function App() {
       {/* Main Content */}
       <main className="relative z-10">
 
-        {/* HERO SECTION — EXACT SINGLE SLIDE FIT */}
+        {/* HERO SECTION — EXACT SINGLE SLIDE FIT (Fills 100% of the screen, navbar overlays top) */}
         <section
           id="home"
-          className="relative min-h-[calc(100vh-4.5rem)] lg:h-[calc(100vh-4.5rem)] flex flex-col justify-between pt-20 sm:pt-22 pb-2.5 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto overflow-hidden"
+          className="relative h-screen min-h-[600px] flex flex-col justify-between pt-16 sm:pt-20 pb-3 px-4 sm:px-8 md:px-12 lg:px-16 max-w-7xl mx-auto overflow-hidden"
         >
           {/* Main Top/Middle Grid: Left Content (7 cols), Right Visual (5 cols) */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-6 items-center flex-1 my-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 lg:gap-6 items-center flex-1 my-auto py-0.5">
             {/* Left Content Column (7 cols) */}
-            <div className="lg:col-span-7 space-y-2.5 sm:space-y-3 text-left">
+            <div className="lg:col-span-7 space-y-1.5 sm:space-y-2 text-left">
               <div>
-                <h1 className="font-display text-3xl sm:text-4xl lg:text-[42px] font-extrabold tracking-tight text-on-surface leading-[1.08]">
+                <h1 className="font-display text-3xl sm:text-4xl lg:text-[38px] font-extrabold tracking-tight text-on-surface leading-[1.08]">
                   Bharath Reddy <br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary via-cyan-300 to-secondary font-black">
                     Ramasani
@@ -107,7 +107,7 @@ export default function App() {
               </div>
 
               {/* Roles */}
-              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-sm font-display font-bold text-on-surface">
+              <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs sm:text-[13px] font-display font-bold text-on-surface">
                 <span className="text-cyan-300">AI / ML Engineer</span>
                 <span className="text-primary/70 font-black">•</span>
                 <span className="text-white">Software Engineer</span>
@@ -122,7 +122,7 @@ export default function App() {
               </p>
 
               {/* CTAs */}
-              <div className="flex flex-wrap items-center gap-2.5 pt-1">
+              <div className="flex flex-wrap items-center gap-2.5 pt-0.5">
                 <a
                   href="#projects"
                   className="bg-primary text-on-primary font-display font-bold text-xs px-4 py-2 rounded-lg hover:bg-cyan-300 transition-all flex items-center gap-1.5 shadow-md shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]"
@@ -191,59 +191,36 @@ export default function App() {
               </div>
             </div>
 
-            {/* Right Visual Column (Laptop on Desk with Highlighted Content & Caption) */}
+            {/* Right Visual Column (Laptop on Desk with Clean Native Image Display & Cursive Caption) */}
             <div className="lg:col-span-5 relative flex flex-col items-center lg:items-end justify-center">
               {/* Handwritten cursive caption */}
               <div
-                className="font-script text-2xl sm:text-3xl font-bold text-cyan-300 -rotate-2 select-none flex flex-col items-center lg:items-end mb-1.5 pr-2"
+                className="font-script text-xl sm:text-2xl font-bold text-cyan-300 -rotate-2 select-none flex flex-col items-center lg:items-end mb-1 pr-2"
                 style={{ textShadow: "0 0 16px rgba(79, 219, 200, 0.8), 0 0 32px rgba(79, 219, 200, 0.4)" }}
               >
                 <span className="tracking-wide">Turning Ideas into Impact</span>
-                <svg className="w-36 sm:w-44 h-2.5 text-cyan-400" style={{ filter: "drop-shadow(0 0 6px rgba(79, 219, 200, 0.9))" }} viewBox="0 0 100 8" fill="none">
+                <svg className="w-32 sm:w-36 h-2 text-cyan-400" style={{ filter: "drop-shadow(0 0 6px rgba(79, 219, 200, 0.9))" }} viewBox="0 0 100 8" fill="none">
                   <path d="M2 6 Q 50 1, 98 4" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
                 </svg>
               </div>
 
-              {/* Minimalist Laptop Placed on Desk with Pen & Notebook */}
-              <div className="relative w-full max-w-[380px] sm:max-w-[410px] rounded-xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 group hover:border-primary/60 transition-all duration-500 bg-[#070e0d]">
-                {/* Image Container */}
+              {/* Minimalist Laptop Placed on Desk with Pen & Notebook (Crisp native image without duplicate text overlays) */}
+              <div className="relative w-full max-w-[320px] sm:max-w-[350px] rounded-xl overflow-hidden border border-primary/30 shadow-2xl shadow-primary/20 group hover:border-primary/60 transition-all duration-500 bg-[#070e0d]">
                 <div className="relative overflow-hidden aspect-[16/10.5] w-full">
                   <img
                     src={laptopDeskImg}
                     alt="Laptop open on desk with ideas, models, products, real impact on screen, pen, and notebook with better systems brighter tomorrow"
                     className="w-full h-full object-cover brightness-105 contrast-110"
                   />
-                  
-                  {/* Highlight overlay on Laptop Screen: IDEAS, MODELS, PRODUCTS, REAL IMPACT */}
-                  <div className="absolute top-[37%] left-[54%] -translate-x-1/2 -translate-y-1/2 text-center pointer-events-none select-none z-10 w-[38%]">
-                    <div className="font-mono text-[9px] sm:text-[10.5px] font-bold text-cyan-300 tracking-wider leading-tight drop-shadow-[0_0_8px_rgba(79,219,200,0.9)] space-y-0.5">
-                      <div className="text-cyan-200">IDEAS</div>
-                      <div className="text-cyan-300">MODELS</div>
-                      <div className="text-cyan-300">PRODUCTS</div>
-                      <div className="text-white font-black">REAL IMPACT</div>
-                      <div className="w-6 h-0.5 bg-cyan-400 mx-auto mt-0.5 rounded-full shadow-[0_0_6px_rgba(79,219,200,1)]"></div>
-                    </div>
-                  </div>
-
-                  {/* Highlight overlay on Diary / Notebook: BETTER SYSTEMS BRIGHTER TOMORROW */}
-                  <div className="absolute bottom-[10%] right-[16%] rotate-[-10deg] text-center pointer-events-none select-none z-10 w-[30%]">
-                    <div className="font-mono text-[7.5px] sm:text-[8.5px] font-bold text-cyan-200/95 tracking-widest uppercase leading-tight drop-shadow-[0_0_6px_rgba(79,219,200,0.8)] space-y-0.5">
-                      <div>BETTER</div>
-                      <div>SYSTEMS</div>
-                      <div>BRIGHTER</div>
-                      <div>TOMORROW</div>
-                    </div>
-                  </div>
-
                   {/* Subtle edge vignette */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#070e0d]/40 via-transparent to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#070e0d]/30 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
             </div>
           </div>
 
           {/* 4 CORE TECHNICAL PILLARS — Positioned cleanly at bottom of single slide */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 pt-2 border-t border-white/10 shrink-0">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-2 pt-1.5 border-t border-white/10 shrink-0 mb-1">
             {[
               {
                 tag: "Agentic AI",
@@ -278,28 +255,28 @@ export default function App() {
               return (
                 <div
                   key={idx}
-                  className="bg-[#0e1614] border border-white/10 hover:border-primary/40 rounded-lg p-2.5 transition-all duration-200 hover:-translate-y-0.5 group shadow-sm flex flex-col justify-between"
+                  className="bg-[#0e1614] border border-white/10 hover:border-primary/40 rounded-lg p-2 sm:p-2.5 transition-all duration-200 hover:-translate-y-0.5 group shadow-sm flex flex-col justify-between"
                 >
-                  <div className="space-y-1">
+                  <div className="space-y-0.5">
                     <div className="flex items-center justify-between">
-                      <div className="w-6 h-6 rounded bg-primary/10 border border-primary/25 flex items-center justify-center text-primary group-hover:border-primary/50 transition-colors">
-                        <IconComp className="w-3.5 h-3.5 text-primary" />
+                      <div className="w-5 h-5 rounded bg-primary/10 border border-primary/25 flex items-center justify-center text-primary group-hover:border-primary/50 transition-colors">
+                        <IconComp className="w-3 h-3 text-primary" />
                       </div>
-                      <span className="font-mono text-[9px] text-primary/80 bg-primary/5 border border-primary/20 px-1.5 py-0.2 rounded font-semibold">
+                      <span className="font-mono text-[8.5px] text-primary/80 bg-primary/5 border border-primary/20 px-1.5 py-0.2 rounded font-semibold">
                         {pillar.tag}
                       </span>
                     </div>
 
                     <div>
-                      <h3 className="font-display text-xs font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
+                      <h3 className="font-display text-[11.5px] font-bold text-on-surface group-hover:text-primary transition-colors leading-tight">
                         {pillar.title}
                       </h3>
-                      <p className="font-mono text-[10px] text-secondary font-medium mt-0.5 leading-tight">
+                      <p className="font-mono text-[9.5px] text-secondary font-medium mt-0.5 leading-tight">
                         {pillar.spec}
                       </p>
                     </div>
 
-                    <p className="font-sans text-[10px] text-on-surface-variant/80 leading-snug line-clamp-2">
+                    <p className="font-sans text-[9.5px] text-on-surface-variant/80 leading-snug line-clamp-2">
                       {pillar.desc}
                     </p>
                   </div>
