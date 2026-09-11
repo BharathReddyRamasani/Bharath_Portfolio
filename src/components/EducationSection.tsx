@@ -56,7 +56,7 @@ export default function EducationSection() {
               </div>
               <div>
                 <span className="text-[10px] font-mono text-on-surface-variant/80 block uppercase tracking-wider">Focus Areas</span>
-                <span className="text-sm font-bold text-on-surface">AI, Machine Learning &amp; Data Systems</span>
+                <span className="text-sm font-bold text-on-surface">AI, Machine Learning &amp; Data Science</span>
               </div>
             </div>
           </div>

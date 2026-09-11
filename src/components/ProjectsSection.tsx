@@ -33,8 +33,7 @@ interface TradeOff {
 interface ProjectData {
   id: string;
   title: string;
-  roleBadge: string;
-  roleType: "flagship-a" | "flagship-b" | "supporting";
+  domainBadge: string;
   shortSummary: string;
   keyMetrics: { label: string; value: string; subtext: string }[];
   tags: string[];
@@ -52,9 +51,9 @@ interface ProjectData {
 }
 
 export default function ProjectsSection() {
-  const [activeFilter, setActiveFilter] = useState<"ALL" | "FLAGSHIP" | "AI_ML" | "FULLSTACK">("ALL");
+  const [activeFilter, setActiveFilter] = useState<"ALL" | "RAG" | "ML" | "SYSTEMS">("ALL");
   const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({
-    "corpus-ai": true // Default expanded for instant recruiter verification
+    "corpus-ai": true // Default open for immediate technical inspection
   });
 
   const toggleProject = (id: string) => {
@@ -67,9 +66,8 @@ export default function ProjectsSection() {
   const projects: ProjectData[] = [
     {
       id: "corpus-ai",
-      title: "CorpusAI — Multi-Agent AI Research Assistant for Literature Synthesis",
-      roleBadge: "Flagship A • Agentic AI & RAG",
-      roleType: "flagship-a",
+      title: "CorpusAI — An AI-Powered Literature Synthesis for Researchers",
+      domainBadge: "Multi-Agent Systems & RAG",
       shortSummary: "Supervisor multi-agent LangGraph platform coordinating 7 specialized AI agents for academic paper analysis, semantic retrieval, research gap detection, and literature synthesis.",
       keyMetrics: [
         { label: "Recall@5", value: "89.1%", subtext: "ChromaDB + all-MiniLM-L6-v2" },
@@ -81,7 +79,7 @@ export default function ProjectsSection() {
         "Engineered an Agentic RAG pipeline with ChromaDB and all-MiniLM-L6-v2 embeddings achieving 89.1% Recall@5 and 0.81 MRR with source-level citation attribution.",
         "Built modular FastAPI REST backend with JWT authentication, OCR document extraction, and persistent SQLite session storage deployed via Docker on Hugging Face Spaces."
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/CorpusAI-An-AI-Powered-Literature-Synthesis-for-Researchers.git",
+      githubUrl: "https://github.com/BharathReddyRamasani/CorpusAI-An-AI-Powered-Literature-Synthesis-for-Researchers",
       liveUrl: "https://huggingface.co/spaces/Bharath2769/ai-research-assistant",
       problem: "Academic literature reviews require synthesizing dozens of dense PDFs, finding research gaps, and cross-referencing claims. Monolithic single-prompt LLMs fail from limited context windows, document hallucinations, and lack of specialized reasoning delegation.",
       solution: "Decomposed the synthesis workflow into a LangGraph supervisor-worker state machine. A central supervisor deterministically routes user queries across 7 specialist agents, drawing from a persistent ChromaDB vector store and returning citation-grounded synthesis via Groq Llama 3.1.",
@@ -120,9 +118,8 @@ export default function ProjectsSection() {
     },
     {
       id: "ai-commerce",
-      title: "AI-Commerce — Autonomous Conversational Commerce & Recommendation Platform",
-      roleBadge: "Flagship B • Full-Stack Engineering & ML",
-      roleType: "flagship-b",
+      title: "AI-Powered Conversational Commerce Platform",
+      domainBadge: "Full-Stack E-Commerce & ML",
       shortSummary: "Production-oriented full-stack e-commerce system pairing a hybrid recommendation engine (collaborative, content, popularity) with a conversational RAG shopping assistant grounded in MongoDB.",
       keyMetrics: [
         { label: "NDCG@10", value: "0.84", subtext: "Ranking relevance vs 0.62 baseline" },
@@ -134,7 +131,7 @@ export default function ProjectsSection() {
         "Built a conversational RAG shopping assistant using LangChain, ChromaDB catalog embeddings, and Gemini LLM for natural-language product discovery (94.1% groundedness).",
         "Architected modular full-stack application with FastAPI REST routers, MongoDB document store, React.js UI, and sub-45ms order and cart transaction latency."
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/AI-Powered-Conversational-Commerce-Platform.git",
+      githubUrl: "https://github.com/BharathReddyRamasani/AI-Powered-Conversational-Commerce-Platform",
       liveUrl: "https://huggingface.co/spaces/Bharath2769/AI-Powered-Conversational-Commerce-Platform",
       problem: "E-commerce shoppers face keyword-search failure for descriptive needs (e.g., 'lightweight water-resistant jacket under $80') while typical chatbots hallucinate products or fail to reflect real inventory stock and cart status.",
       solution: "Built a dual-tier architecture: an algorithmic recommendation engine that personalizes product feeds, paired with a conversational RAG shopping assistant that pulls matching items from ChromaDB and Gemini LLM with real-time stock validation in MongoDB.",
@@ -168,9 +165,8 @@ export default function ProjectsSection() {
     },
     {
       id: "hate-speech",
-      title: "Emotion-Aware Multimodal Hate Speech Detection System",
-      roleBadge: "Supporting Project • NLP & Deep Learning",
-      roleType: "supporting",
+      title: "Emotion-Aware Hate Speech Detection System",
+      domainBadge: "NLP & Deep Learning",
       shortSummary: "Multilingual, multimodal NLP system detecting hate speech across text, image memes, PDFs, and scanned flyers using fine-tuned Transformer models (RoBERTa, IndicBERT) with LIME explainability.",
       keyMetrics: [
         { label: "Macro F1", value: "88.4%", subtext: "80K+ Multilingual dataset" },
@@ -182,7 +178,7 @@ export default function ProjectsSection() {
         "Engineered a multimodal text extraction pipeline using Tesseract OCR to process text within image memes, PDFs, and scanned flyers (94.2% character accuracy).",
         "Integrated LIME (Local Interpretable Model-agnostic Explanations) to generate token-level attribution heatmaps explaining classification decisions."
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/Emotion-Aware-Hate-Speech-Detection-System.git",
+      githubUrl: "https://github.com/BharathReddyRamasani/Emotion-Aware-Hate-Speech-Detection-System",
       liveUrl: "https://huggingface.co/spaces/annepagaanvesh/EmiHate-Grid",
       problem: "Online harmful content frequently evades keyword blacklists by appearing inside image memes, screenshots, and cross-lingual scripts (Indic languages). Furthermore, black-box AI moderators fail to provide transparent evidence for moderation appeals.",
       solution: "Engineered an end-to-end multimodal classification pipeline with Tesseract OCR, fine-tuned RoBERTa and IndicBERT Transformer models in PyTorch, and integrated LIME explainability for token-level transparency.",
@@ -216,9 +212,8 @@ export default function ProjectsSection() {
     },
     {
       id: "nexus-commerce",
-      title: "Nexus Commerce Suite — Enterprise Retail Analytics & Forecasting",
-      roleBadge: "Supporting Project • Data Science & SDE",
-      roleType: "supporting",
+      title: "Nexus Commerce Suite",
+      domainBadge: "Enterprise Retail Analytics",
       shortSummary: "Enterprise retail operations and analytics suite processing 900,000+ historical transaction rows across 500 SKUs with Pareto ABC classification, RFM segmentation, and sales forecasting.",
       keyMetrics: [
         { label: "Dataset Scale", value: "900K+ Rows", subtext: "10 stores × 500 SKUs" },
@@ -230,7 +225,7 @@ export default function ProjectsSection() {
         "Implemented quantitative algorithms including ABC Inventory Analysis (80/15/5 Pareto principle) and RFM Customer Segmentation.",
         "Engineered predictive sales forecasting pipelines and an interactive Streamlit operations dashboard processing 900,000+ transaction rows."
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/Nexus-Commerce-Suite.git",
+      githubUrl: "https://github.com/BharathReddyRamasani/Nexus-Commerce-Suite",
       liveUrl: "https://bharathreddyramasani-nexus-commerce-suite-app-rbr.streamlit.app/",
       problem: "Midsize retail operations often rely on fragmented spreadsheets without transactional validation, lacking visibility into high-revenue inventory (Pareto distribution) and demand trends to prevent stockouts.",
       solution: "Engineered a PostgreSQL-backed data platform with an analytical computing layer built using vectorized Pandas/NumPy and an interactive Streamlit dashboard for real-time demand forecasting.",
@@ -266,9 +261,9 @@ export default function ProjectsSection() {
 
   // Filtering
   const filteredProjects = projects.filter((p) => {
-    if (activeFilter === "FLAGSHIP") return p.roleType.startsWith("flagship");
-    if (activeFilter === "AI_ML") return p.tags.includes("LangGraph") || p.tags.includes("PyTorch");
-    if (activeFilter === "FULLSTACK") return p.tags.includes("FastAPI") || p.tags.includes("React.js");
+    if (activeFilter === "RAG") return p.tags.includes("LangGraph") || p.tags.includes("ChromaDB");
+    if (activeFilter === "ML") return p.tags.includes("PyTorch") || p.tags.includes("LightGBM");
+    if (activeFilter === "SYSTEMS") return p.tags.includes("FastAPI") || p.tags.includes("PostgreSQL");
     return true;
   });
 
@@ -283,10 +278,10 @@ export default function ProjectsSection() {
               ENGINEERING EVIDENCE &amp; EVALUATION
             </span>
             <h2 className="font-display text-2xl sm:text-3xl font-extrabold text-on-surface">
-              Selected Work
+              Featured Projects
             </h2>
             <p className="font-sans text-xs sm:text-sm text-on-surface-variant max-w-2xl mt-1 leading-relaxed">
-              Two flagship engineering systems demonstrating Multi-Agent orchestration and full-stack ML, followed by supporting deep learning and analytics systems.
+              Production-oriented AI and software systems demonstrating multi-agent orchestration, hybrid recommendations, multimodal NLP, and enterprise transactional analytics.
             </p>
           </div>
 
@@ -303,52 +298,47 @@ export default function ProjectsSection() {
               All (4)
             </button>
             <button
-              onClick={() => setActiveFilter("FLAGSHIP")}
+              onClick={() => setActiveFilter("RAG")}
               className={`px-3 py-1 rounded-md transition-all cursor-pointer ${
-                activeFilter === "FLAGSHIP"
+                activeFilter === "RAG"
                   ? "bg-primary text-on-primary font-bold shadow-sm"
                   : "bg-surface-container-high/60 text-on-surface-variant hover:text-white"
               }`}
             >
-              Flagships (2)
+              Multi-Agent &amp; RAG
             </button>
             <button
-              onClick={() => setActiveFilter("AI_ML")}
+              onClick={() => setActiveFilter("ML")}
               className={`px-3 py-1 rounded-md transition-all cursor-pointer ${
-                activeFilter === "AI_ML"
+                activeFilter === "ML"
                   ? "bg-primary text-on-primary font-bold shadow-sm"
                   : "bg-surface-container-high/60 text-on-surface-variant hover:text-white"
               }`}
             >
-              Agentic / ML
+              NLP &amp; Machine Learning
             </button>
             <button
-              onClick={() => setActiveFilter("FULLSTACK")}
+              onClick={() => setActiveFilter("SYSTEMS")}
               className={`px-3 py-1 rounded-md transition-all cursor-pointer ${
-                activeFilter === "FULLSTACK"
+                activeFilter === "SYSTEMS"
                   ? "bg-primary text-on-primary font-bold shadow-sm"
                   : "bg-surface-container-high/60 text-on-surface-variant hover:text-white"
               }`}
             >
-              Full-Stack &amp; APIs
+              Full-Stack &amp; Systems
             </button>
           </div>
         </div>
 
-        {/* PROJECTS LIST */}
+        {/* PROJECTS LIST — All projects are equal level with verified benchmarks */}
         <div className="space-y-6">
           {filteredProjects.map((project) => {
             const isExpanded = !!expandedProjects[project.id];
-            const isFlagship = project.roleType.startsWith("flagship");
 
             return (
               <div
                 key={project.id}
-                className={`bg-[#0e1614] rounded-xl border transition-all duration-300 shadow-lg ${
-                  isFlagship
-                    ? "border-primary/30 hover:border-primary/60"
-                    : "border-white/10 hover:border-white/25"
-                }`}
+                className="bg-[#0e1614] rounded-xl border border-white/10 hover:border-primary/40 transition-all duration-300 shadow-lg"
               >
                 {/* PROJECT CARD HEADER & SUMMARY */}
                 <div className="p-5 sm:p-6 space-y-4">
@@ -356,20 +346,12 @@ export default function ProjectsSection() {
                   <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
                     <div className="space-y-1">
                       <div className="flex flex-wrap items-center gap-2">
-                        <span
-                          className={`font-mono text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider border ${
-                            isFlagship
-                              ? "bg-primary/10 text-cyan-300 border-primary/30"
-                              : "bg-secondary/10 text-secondary border-secondary/25"
-                          }`}
-                        >
-                          {project.roleBadge}
+                        <span className="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider border bg-primary/10 text-cyan-300 border-primary/30">
+                          {project.domainBadge}
                         </span>
-                        {isFlagship && (
-                          <span className="font-mono text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded">
-                            Verified Benchmarks
-                          </span>
-                        )}
+                        <span className="font-mono text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded">
+                          Verified Benchmarks
+                        </span>
                       </div>
                       <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface leading-snug">
                         {project.title}
@@ -417,7 +399,7 @@ export default function ProjectsSection() {
                       </ul>
                     </div>
 
-                    {/* 2 Strongest Metrics Box (Static, No Flashy Counters) */}
+                    {/* 2 Strongest Metrics Box */}
                     <div className="lg:col-span-4 bg-black/40 border border-white/10 rounded-xl p-3 sm:p-4 space-y-3">
                       <span className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-wider block font-semibold">
                         Key Measured Results
@@ -543,7 +525,7 @@ export default function ProjectsSection() {
                       </div>
                     </div>
 
-                    {/* 6. Technical Deep Dive (Agentic State / Algorithm / ML Details) */}
+                    {/* 6. Technical Deep Dive */}
                     <div className="space-y-2">
                       <span className="font-mono text-[10px] uppercase text-primary tracking-wider font-bold block">
                         06 • {project.deepDiveTitle}
@@ -619,7 +601,7 @@ export default function ProjectsSection() {
   );
 }
 
-// CLEAN CSS-RENDERED ARCHITECTURE DIAGRAMS (Replaces raw ASCII art)
+// CLEAN CSS-RENDERED ARCHITECTURE DIAGRAMS
 function ArchitectureDiagram({ type }: { type: string }) {
   if (type === "corpus-ai") {
     return (

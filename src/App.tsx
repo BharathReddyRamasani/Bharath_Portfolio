@@ -46,7 +46,7 @@ export default function App() {
 
   // Track scroll section intersections
   useEffect(() => {
-    const sections = ["home", "projects", "experience", "what-i-build", "skills", "education", "achievements", "contact"];
+    const sections = ["home", "experience", "projects", "what-i-build", "skills", "achievements", "education", "contact"];
     const observers = sections.map((id) => {
       const el = document.getElementById(id);
       if (!el) return null;
@@ -140,11 +140,18 @@ export default function App() {
             <div className="pt-3 space-y-3">
               <div className="flex flex-wrap items-center gap-3">
                 <a
-                  href="#projects"
+                  href="#experience"
                   className="bg-primary text-on-primary font-display font-bold text-sm px-5 py-2.5 rounded-lg hover:bg-cyan-300 transition-all flex items-center gap-2 shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98]"
                 >
-                  <span>View Selected Work</span>
+                  <span>View Experience</span>
                   <ArrowRight className="w-4 h-4" />
+                </a>
+
+                <a
+                  href="#projects"
+                  className="bg-surface-container-high/80 hover:bg-surface-container-highest text-on-surface border border-white/10 hover:border-primary/40 font-display font-bold text-sm px-5 py-2.5 rounded-lg transition-all flex items-center gap-2 hover:scale-[1.02] active:scale-[0.98]"
+                >
+                  <span>View Projects</span>
                 </a>
 
                 <button
@@ -293,11 +300,11 @@ export default function App() {
           </div>
         </section>
 
-        {/* SELECTED WORK SECTION — Flagship & Supporting Projects */}
-        <ProjectsSection />
-
         {/* WORK EXPERIENCE SECTION */}
         <ExperienceSection />
+
+        {/* PROJECTS SECTION */}
+        <ProjectsSection />
 
         {/* "WHAT I BUILD" / TECHNICAL FOCUS SECTION (P1.2) */}
         <section id="what-i-build" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 border-t border-white/5 scroll-mt-16">

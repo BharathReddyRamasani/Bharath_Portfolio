@@ -1,4 +1,4 @@
-import { Brain, Sparkles, Code, Database, Wrench, Terminal, Layers } from "lucide-react";
+import { Brain, Sparkles, Code, Database, Wrench, Terminal } from "lucide-react";
 
 interface SkillCategory {
   title: string;
@@ -42,30 +42,10 @@ export default function SkillsSection() {
   ];
 
   const languages = [
-    {
-      name: "Python",
-      role: "Flagship / Core Engineering",
-      usage: "AI/ML, LangGraph, FastAPI, PyTorch, LightGBM, Pandas",
-      color: "border-primary/40 text-cyan-300 bg-primary/10"
-    },
-    {
-      name: "Java",
-      role: "Algorithms & OOP",
-      usage: "Data Structures, Competitive Programming, OOP Design Patterns",
-      color: "border-secondary/40 text-secondary bg-secondary/10"
-    },
-    {
-      name: "JavaScript",
-      role: "Frontend & Full-Stack",
-      usage: "React.js, TypeScript, REST Integration, Responsive Interfaces",
-      color: "border-amber-400/40 text-amber-300 bg-amber-400/10"
-    },
-    {
-      name: "SQL",
-      role: "Relational Modeling",
-      usage: "PostgreSQL, Normalized Schemas, Complex Joins, Aggregations",
-      color: "border-emerald-400/40 text-emerald-300 bg-emerald-400/10"
-    }
+    { name: "Python", color: "border-primary/40 text-cyan-300 bg-primary/10" },
+    { name: "Java", color: "border-secondary/40 text-secondary bg-secondary/10" },
+    { name: "JavaScript", color: "border-amber-400/40 text-amber-300 bg-amber-400/10" },
+    { name: "SQL", color: "border-emerald-400/40 text-emerald-300 bg-emerald-400/10" }
   ];
 
   return (
@@ -87,7 +67,7 @@ export default function SkillsSection() {
           </div>
         </div>
 
-        {/* CORE PROGRAMMING LANGUAGES SHOWCASE */}
+        {/* CORE PROGRAMMING LANGUAGES SHOWCASE — Only languages, no extra descriptions */}
         <div className="bg-[#0e1614] border border-white/10 p-4 sm:p-5 rounded-xl space-y-3">
           <div className="flex items-center justify-between border-b border-white/10 pb-2">
             <div className="flex items-center gap-2">
@@ -101,25 +81,14 @@ export default function SkillsSection() {
             </span>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
+          <div className="flex flex-wrap items-center gap-3 pt-1">
             {languages.map((lang, idx) => (
-              <div
+              <span
                 key={idx}
-                className="bg-black/30 border border-white/10 hover:border-primary/40 p-3 rounded-lg transition-all space-y-1"
+                className={`font-mono text-xs sm:text-sm font-bold px-4 py-2 rounded-lg border ${lang.color} shadow-sm`}
               >
-                <div className="flex items-center justify-between">
-                  <span className={`font-mono text-xs font-bold px-2 py-0.5 rounded border ${lang.color}`}>
-                    {lang.name}
-                  </span>
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
-                </div>
-                <p className="font-mono text-[11px] text-on-surface font-semibold pt-1">
-                  {lang.role}
-                </p>
-                <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
-                  {lang.usage}
-                </p>
-              </div>
+                {lang.name}
+              </span>
             ))}
           </div>
         </div>
@@ -161,7 +130,7 @@ export default function SkillsSection() {
 
                 <div className="pt-2 border-t border-white/5 flex items-center gap-1.5 font-mono text-[10px] text-on-surface-variant/60">
                   <span className="w-1.5 h-1.5 rounded-full bg-primary/60" />
-                  <span>Applied in Flagship &amp; Supporting Systems</span>
+                  <span>Applied in Engineering Systems</span>
                 </div>
               </div>
             );
