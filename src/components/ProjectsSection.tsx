@@ -1,58 +1,50 @@
 import { useState } from "react";
 import {
-  Cpu,
   ChevronDown,
   ChevronUp,
   Github,
-  Globe,
-  Layers,
-  Terminal,
-  Database,
-  GitBranch,
   CheckCircle2,
   ExternalLink,
-  ShieldCheck,
-  BarChart3,
-  Sparkles,
   Workflow,
-  ArrowRight
+  ArrowRight,
+  Layers,
+  Sparkles,
+  Database,
+  Cpu
 } from "lucide-react";
 
-interface BenchmarkMetric {
-  metric: string;
-  baseline: string;
-  measured: string;
-  impact: string;
+interface TechHighlight {
+  component: string;
+  usage: string;
 }
 
-interface TradeOff {
+interface EngineeringDecision {
   decision: string;
-  tradeoff: string;
+  explanation: string;
 }
 
 interface ProjectData {
   id: string;
+  index: string;
   title: string;
-  domainBadge: string;
+  subtitle: string;
+  positioningRole: string;
+  tagsSummary: string;
   shortSummary: string;
-  keyMetrics: { label: string; value: string; subtext: string }[];
-  tags: string[];
-  keyBullets: string[];
+  overview: string;
+  keyEngineering: string[];
+  architectureSteps: string[];
+  architectureNote?: string;
+  techHighlights: TechHighlight[];
+  technologies: string[];
+  engineeringDecisions: EngineeringDecision[];
+  liveUrl?: string;
   githubUrl: string;
-  liveUrl: string;
-  problem: string;
-  solution: string;
-  diagramType: "corpus-ai" | "ai-commerce" | "hate-speech" | "nexus-commerce";
-  tradeoffs: TradeOff[];
-  benchmarks: BenchmarkMetric[];
-  deepDiveTitle: string;
-  deepDiveItems: { label: string; detail: string }[];
-  limitations: { limitation: string; roadmap: string };
 }
 
 export default function ProjectsSection() {
   const [expandedProjects, setExpandedProjects] = useState<Record<string, boolean>>({
-    "corpus-ai": true // Default open for immediate technical inspection
+    "corpus-ai": true // First project open by default for immediate technical proof
   });
 
   const toggleProject = (id: string) => {
@@ -65,201 +57,230 @@ export default function ProjectsSection() {
   const projects: ProjectData[] = [
     {
       id: "corpus-ai",
-      title: "CorpusAI — An AI-Powered Literature Synthesis for Researchers",
-      domainBadge: "Multi-Agent Systems & RAG",
-      shortSummary: "Supervisor multi-agent LangGraph platform coordinating 7 specialized AI agents for academic paper analysis, semantic retrieval, research gap detection, and literature synthesis.",
-      keyMetrics: [
-        { label: "Recall@5", value: "89.1%", subtext: "ChromaDB + all-MiniLM-L6-v2" },
-        { label: "Faithfulness", value: "92.4%", subtext: "Zero hallucination groundedness" }
+      index: "01",
+      title: "CorpusAI — Multi-Agent AI Research Assistant",
+      subtitle: "Multi-Agent AI Research Assistant",
+      positioningRole: "Agentic AI / Multi-Agent / RAG",
+      tagsSummary: "Agentic AI · RAG · LLMs · Multi-Agent Systems · Backend",
+      shortSummary: "A multi-agent AI research platform designed to help researchers analyze papers, perform semantic search, compare research works, identify research gaps, synthesize literature, and generate research reports.",
+      overview: "CorpusAI combines Retrieval-Augmented Generation, multi-agent orchestration, semantic search, and LLM-based reasoning into a single research workflow. Users can upload research papers and interact with them through conversational queries while specialized agents handle different research tasks.",
+      keyEngineering: [
+        "Built a full-stack research platform using FastAPI and React.js with REST APIs and JWT-based authentication.",
+        "Designed an Agentic RAG pipeline using LangGraph, LangChain, ChromaDB, and Llama 3.1 for document processing, semantic retrieval, and context-aware generation.",
+        "Implemented a supervisor-based multi-agent architecture coordinating 7 specialized agents for research analysis, paper comparison, research-gap detection, literature synthesis, and report generation.",
+        "Integrated document processing and OCR workflows for extracting information from research documents.",
+        "Containerized the application using Docker and deployed the system on Hugging Face Spaces with persistent storage."
       ],
-      tags: ["Python", "LangGraph", "LangChain", "FastAPI", "ChromaDB", "Docker", "Llama 3.1", "React.js"],
-      keyBullets: [
-        "Architected a LangGraph supervisor multi-agent system coordinating 7 specialized agents (Paper Analysis, Multi-Paper Chat, Gap Detection, Literature Synthesis, Report Gen).",
-        "Engineered an Agentic RAG pipeline with ChromaDB and all-MiniLM-L6-v2 embeddings achieving 89.1% Recall@5 and 0.81 MRR with source-level citation attribution.",
-        "Built modular FastAPI REST backend with JWT authentication, OCR document extraction, and persistent SQLite session storage deployed via Docker on Hugging Face Spaces."
+      architectureSteps: [
+        "React",
+        "FastAPI",
+        "LangGraph Supervisor",
+        "Specialized Agents",
+        "RAG / ChromaDB",
+        "LLM",
+        "Response"
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/CorpusAI-An-AI-Powered-Literature-Synthesis-for-Researchers",
-      liveUrl: "https://huggingface.co/spaces/Bharath2769/ai-research-assistant",
-      problem: "Academic literature reviews require synthesizing dozens of dense PDFs, finding research gaps, and cross-referencing claims. Monolithic single-prompt LLMs fail from limited context windows, document hallucinations, and lack of specialized reasoning delegation.",
-      solution: "Decomposed the synthesis workflow into a LangGraph supervisor-worker state machine. A central supervisor deterministically routes user queries across 7 specialist agents, drawing from a persistent ChromaDB vector store and returning citation-grounded synthesis via Groq Llama 3.1.",
-      diagramType: "corpus-ai",
-      tradeoffs: [
+      techHighlights: [
+        { component: "LangGraph Supervisor", usage: "Deterministically routes queries across 7 specialized worker agents with typed state graphs and recursion limits." },
+        { component: "ChromaDB Vector Store", usage: "Indexes chunked academic literature using all-MiniLM-L6-v2 embeddings for sub-millisecond semantic retrieval." },
+        { component: "Groq / Llama 3.1", usage: "High-speed LLM inference for grounded claim synthesis, cross-paper comparison, and research-gap detection." },
+        { component: "FastAPI REST Engine", usage: "Asynchronous backend managing secure JWT user sessions, OCR document extraction, and conversation histories." }
+      ],
+      technologies: [
+        "Python",
+        "FastAPI",
+        "React.js",
+        "LangGraph",
+        "LangChain",
+        "ChromaDB",
+        "Groq / Llama 3.1",
+        "RAG",
+        "Docker",
+        "JWT"
+      ],
+      engineeringDecisions: [
         {
-          decision: "ChromaDB (Vector DB) + SQLite (Relational) Dual Storage",
-          tradeoff: "ChromaDB delivers sub-millisecond approximate nearest neighbor (ANN) vector searches on 384-d embeddings, while SQLite guarantees strict ACID compliance for user sessions, chat histories, and metadata."
+          decision: "Supervisor Topology vs. Autonomous Chain",
+          explanation: "Sequential chains accumulate context drift and fail catastrophically if any intermediate step errors out. The central supervisor pattern isolates worker execution scope with automated fallback edges and strict recursion safeguards."
         },
         {
-          decision: "Agentic RAG vs Model Fine-Tuning",
-          tradeoff: "Fine-tuning cannot cite exact source pages in newly published literature. Agentic RAG allows zero-downtime document uploads with verifiable page-level citation tracing and 92.4% faithfulness."
-        },
-        {
-          decision: "Supervisor Topology vs Autonomous Sequential Chain",
-          tradeoff: "Sequential chains accumulate context drift and fail catastrophically if any intermediate agent errors out. The supervisor pattern isolates each agent's execution scope with automated fallback edges."
+          decision: "ChromaDB (Vector) + SQLite (Relational) Dual Storage",
+          explanation: "ChromaDB provides fast approximate nearest neighbor (ANN) vector searches on document chunks, while SQLite guarantees strict ACID compliance for user sessions, chat histories, and research report metadata."
         }
       ],
-      benchmarks: [
-        { metric: "Recall@5", baseline: "72.4%", measured: "89.1%", impact: "+16.7% relevant context captured in top-5 chunks" },
-        { metric: "Mean Reciprocal Rank (MRR)", baseline: "0.61", measured: "0.81", impact: "First relevant source positioned near top of prompt context" },
-        { metric: "Faithfulness (Ragas Eval)", baseline: "79.5%", measured: "92.4%", impact: "Generated claims directly backed by underlying document citations" },
-        { metric: "End-to-End Latency", baseline: "4.6s", measured: "2.1s", impact: "Parallelized graph execution cuts overall synthesis latency by 54%" },
-        { metric: "Loop Termination Safeguard", baseline: "N/A", measured: "100%", impact: "Hard recursion_limit=15 strictly prevents infinite agent tool calls" }
-      ],
-      deepDiveTitle: "Agentic Architecture & State Management",
-      deepDiveItems: [
-        { label: "Graph State Typing", detail: "State is strictly typed using LangGraph's AgentState with custom operator reducers for append-only conversational messages and overwrite semantics for routing directives." },
-        { label: "Fault Recovery", detail: "If a worker encounters OCR artifacts or unparseable tables, it emits a structured error node back to the supervisor to trigger relaxed semantic retrieval or targeted clarification." },
-        { label: "Memory Isolation", detail: "Conversational history is preserved in SQLite sessions, vector embeddings reside immutably in ChromaDB, and task state remains ephemeral for graph runtime." }
-      ],
-      limitations: {
-        limitation: "Multi-column academic PDF layouts and dense scientific tables occasionally lose structural hierarchy during standard sentence chunking.",
-        roadmap: "Integrating vision-language document models (ColPali / LayoutLMv3) for layout-aware bounding box parsing and hybrid dense-sparse (BM25 + vector) retrieval."
-      }
+      liveUrl: "https://huggingface.co/spaces/Bharath2769/ai-research-assistant",
+      githubUrl: "https://github.com/BharathReddyRamasani/CorpusAI-An-AI-Powered-Literature-Synthesis-for-Researchers"
     },
     {
       id: "ai-commerce",
+      index: "02",
       title: "AI-Powered Conversational Commerce Platform",
-      domainBadge: "Full-Stack E-Commerce & ML",
-      shortSummary: "Production-oriented full-stack e-commerce system pairing a hybrid recommendation engine (collaborative, content, popularity) with a conversational RAG shopping assistant grounded in MongoDB.",
-      keyMetrics: [
-        { label: "NDCG@10", value: "0.84", subtext: "Ranking relevance vs 0.62 baseline" },
-        { label: "Groundedness", value: "94.1%", subtext: "Zero catalog hallucination" }
+      subtitle: "Full-Stack E-Commerce & Conversational Assistant",
+      positioningRole: "Full-Stack / Recommendation / GenAI",
+      tagsSummary: "Full-Stack · Recommendation Systems · RAG · Conversational AI",
+      shortSummary: "A full-stack e-commerce platform combining personalized recommendation systems, semantic product discovery, and conversational AI to create an intelligent shopping experience.",
+      overview: "The platform combines conventional e-commerce functionality with recommendation algorithms and Retrieval-Augmented Generation. Users can browse products, manage carts and orders, receive personalized recommendations, and interact with an AI assistant for product discovery.",
+      keyEngineering: [
+        "Architected a modular full-stack commerce platform using FastAPI, React.js, MongoDB, and REST APIs with authentication, product catalog, cart, and order-management workflows.",
+        "Developed a hybrid recommendation engine combining collaborative filtering, content-based similarity, and popularity-based recommendations using weighted interaction scoring.",
+        "Built a RAG-powered product discovery system using LangChain, ChromaDB, and Gemini LLM for semantic search and context-aware conversational shopping.",
+        "Integrated AI services with the backend to connect product retrieval, recommendation logic, and conversational responses.",
+        "Containerized and deployed the application using Docker and Hugging Face Spaces."
       ],
-      tags: ["Python", "FastAPI", "MongoDB", "React.js", "ChromaDB", "LangChain", "Gemini LLM", "Docker", "REST APIs"],
-      keyBullets: [
-        "Designed and implemented a hybrid recommendation engine combining collaborative, content-based similarity, and popularity scoring (0.84 NDCG@10).",
-        "Built a conversational RAG shopping assistant using LangChain, ChromaDB catalog embeddings, and Gemini LLM for natural-language product discovery (94.1% groundedness).",
-        "Architected modular full-stack application with FastAPI REST routers, MongoDB document store, React.js UI, and sub-45ms order and cart transaction latency."
+      architectureSteps: [
+        "React",
+        "FastAPI",
+        "Commerce APIs",
+        "MongoDB",
+        "RAG Pipeline",
+        "ChromaDB",
+        "Gemini",
+        "Product Context",
+        "Response"
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/AI-Powered-Conversational-Commerce-Platform",
-      liveUrl: "https://huggingface.co/spaces/Bharath2769/AI-Powered-Conversational-Commerce-Platform",
-      problem: "E-commerce shoppers face keyword-search failure for descriptive needs (e.g., 'lightweight water-resistant jacket under $80') while typical chatbots hallucinate products or fail to reflect real inventory stock and cart status.",
-      solution: "Built a dual-tier architecture: an algorithmic recommendation engine that personalizes product feeds, paired with a conversational RAG shopping assistant that pulls matching items from ChromaDB and Gemini LLM with real-time stock validation in MongoDB.",
-      diagramType: "ai-commerce",
-      tradeoffs: [
+      architectureNote: "Dual-Flow Architecture: React → FastAPI → Commerce APIs → MongoDB (Transactional Flow) & User Query → RAG Pipeline → ChromaDB → Gemini → Context → Response (AI Discovery Flow)",
+      techHighlights: [
+        { component: "Hybrid Recommender", usage: "Blends collaborative filtering, TF-IDF content similarity, and popularity metrics to overcome user and product cold-start." },
+        { component: "ChromaDB + LangChain", usage: "Indexes catalog metadata and vector embeddings to support semantic product search and natural-language matching." },
+        { component: "Gemini LLM", usage: "Conversational shopping assistant strictly constrained to retrieved catalog context to eliminate out-of-catalog hallucinations." },
+        { component: "MongoDB Document Store", usage: "Flexible document modeling for dynamic product catalogs, nested variant attributes, carts, and order lifecycles." }
+      ],
+      technologies: [
+        "Python",
+        "FastAPI",
+        "React.js",
+        "MongoDB",
+        "LangChain",
+        "ChromaDB",
+        "RAG",
+        "Gemini",
+        "REST APIs",
+        "Docker"
+      ],
+      engineeringDecisions: [
         {
-          decision: "Hybrid Recommendation (Collaborative + Content + Popularity) vs Pure Collaborative Filtering",
-          tradeoff: "Pure collaborative filtering suffers from severe cold-start with new inventory. Blending content metadata similarity with interaction weights maintains high recommendation relevance from day one."
+          decision: "Hybrid Recommendation Scoring vs. Pure Collaborative Filtering",
+          explanation: "Pure collaborative filtering fails for new users and freshly listed SKUs (cold-start problem). The hybrid engine applies weighted interaction scoring combining catalog attributes, user click history, and category popularity."
         },
         {
-          decision: "Dual Database: MongoDB (Document) + ChromaDB (Vector)",
-          tradeoff: "MongoDB stores high-frequency transactional data (users, shopping carts, orders) with ACID documents, while ChromaDB handles dense vector embeddings for conceptual product discovery."
+          decision: "Strictly Grounded RAG Shopping Assistant",
+          explanation: "Standard conversational models hallucinate nonexistent products or pricing. The assistant retrieves verifiable catalog items from ChromaDB and passes them as explicit system context to Gemini before generating recommendations."
         }
       ],
-      benchmarks: [
-        { metric: "NDCG@10 (Ranking Quality)", baseline: "0.62", measured: "0.84", impact: "+0.22 improvement over popularity baseline" },
-        { metric: "Top-5 Precision", baseline: "68.0%", measured: "86.4%", impact: "High relevance on personalized recommendations" },
-        { metric: "Catalog Groundedness", baseline: "76.0%", measured: "94.1%", impact: "Zero hallucinated SKUs or out-of-spec claims" },
-        { metric: "Cart & Checkout P95 Latency", baseline: "110ms", measured: "45ms", impact: "FastAPI async endpoints with indexed MongoDB queries" }
-      ],
-      deepDiveTitle: "Full-Stack System Design & Grounding",
-      deepDiveItems: [
-        { label: "Catalog Vectorization", detail: "Product attributes (category, brand, materials, price range) are vectorized into ChromaDB collections for high-precision semantic lookup." },
-        { label: "Real-Time Stock Checking", detail: "Prior to presenting conversational suggestions, the FastAPI service queries MongoDB inventory to ensure out-of-stock items are omitted." },
-        { label: "Stateful Cart Management", detail: "The shopping assistant has direct tool-calling endpoints to inspect the active cart and apply discount coupons securely." }
-      ],
-      limitations: {
-        limitation: "Vector search over catalog embeddings requires post-query filtering to check dynamic real-time inventory stock levels.",
-        roadmap: "Integrating Redis-backed real-time inventory caches directly into pre-retrieval vector metadata filters to eliminate out-of-stock suggestions before LLM generation."
-      }
+      liveUrl: "https://huggingface.co/spaces/Bharath2769/AI-Powered-Conversational-Commerce-Platform",
+      githubUrl: "https://github.com/BharathReddyRamasani/AI-Powered-Conversational-Commerce-Platform"
     },
     {
       id: "hate-speech",
+      index: "03",
       title: "Emotion-Aware Hate Speech Detection System",
-      domainBadge: "NLP & Deep Learning",
-      shortSummary: "Multilingual, multimodal NLP system detecting hate speech across text, image memes, PDFs, and scanned flyers using fine-tuned Transformer models (RoBERTa, IndicBERT) with LIME explainability.",
-      keyMetrics: [
-        { label: "Macro F1", value: "88.4%", subtext: "80K+ Multilingual dataset" },
-        { label: "OCR Accuracy", value: "94.2%", subtext: "Tesseract image meme extraction" }
+      subtitle: "Multilingual & Multimodal Moderation Platform",
+      positioningRole: "Deep Learning / NLP / Transformers",
+      tagsSummary: "Deep Learning · NLP · Transformers · Multimodal AI · Explainable AI",
+      shortSummary: "A multilingual and multimodal AI system for detecting hate speech from text and document-based inputs, combining Transformer-based classification, OCR, and explainable AI.",
+      overview: "The system extends traditional text classification into a multimodal moderation workflow, allowing users to analyze text, images, PDFs, and documents. OCR-based extraction converts visual/document content into text before multilingual classification.",
+      keyEngineering: [
+        "Developed a multimodal hate-speech detection pipeline supporting text, images, PDFs, and documents through OCR-based text extraction and multilingual processing.",
+        "Fine-tuned RoBERTa and IndicBERT Transformer models using PyTorch for multilingual hate-speech classification.",
+        "Built preprocessing and inference workflows for handling diverse linguistic inputs and document-derived text.",
+        "Integrated LIME-based explainability to provide interpretable insights into model classification decisions.",
+        "Developed REST APIs using FastAPI and containerized the application with Docker for deployment on Hugging Face Spaces."
       ],
-      tags: ["Python", "PyTorch", "Transformers", "RoBERTa", "IndicBERT", "FastAPI", "Tesseract OCR", "LIME XAI", "Docker"],
-      keyBullets: [
-        "Fine-tuned multilingual Transformer models (RoBERTa and IndicBERT) using PyTorch on 80,000+ verified samples (88.4% Macro F1).",
-        "Engineered a multimodal text extraction pipeline using Tesseract OCR to process text within image memes, PDFs, and scanned flyers (94.2% character accuracy).",
-        "Integrated LIME (Local Interpretable Model-agnostic Explanations) to generate token-level attribution heatmaps explaining classification decisions."
+      architectureSteps: [
+        "Text / Image / PDF",
+        "OCR Extraction",
+        "Preprocessing",
+        "Transformer Model",
+        "Classification",
+        "LIME Explanation"
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/Emotion-Aware-Hate-Speech-Detection-System",
-      liveUrl: "https://huggingface.co/spaces/annepagaanvesh/EmiHate-Grid",
-      problem: "Online harmful content frequently evades keyword blacklists by appearing inside image memes, screenshots, and cross-lingual scripts (Indic languages). Furthermore, black-box AI moderators fail to provide transparent evidence for moderation appeals.",
-      solution: "Engineered an end-to-end multimodal classification pipeline with Tesseract OCR, fine-tuned RoBERTa and IndicBERT Transformer models in PyTorch, and integrated LIME explainability for token-level transparency.",
-      diagramType: "hate-speech",
-      tradeoffs: [
+      techHighlights: [
+        { component: "RoBERTa & IndicBERT", usage: "Fine-tuned transformer models specialized for multilingual hate speech, slang, and code-mixed Indian language text." },
+        { component: "Tesseract OCR Engine", usage: "Extracts textual content from uploaded memes, screenshots, scanned PDFs, and document images prior to classification." },
+        { component: "LIME (Explainable AI)", usage: "Computes local token attribution scores highlighting the exact words and phrases that triggered the model prediction." },
+        { component: "FastAPI Microservice", usage: "Containerized REST API providing sub-150ms inference endpoints for automated content moderation workflows." }
+      ],
+      technologies: [
+        "Python",
+        "PyTorch",
+        "Hugging Face Transformers",
+        "RoBERTa",
+        "IndicBERT",
+        "FastAPI",
+        "React.js",
+        "OCR",
+        "LIME",
+        "Docker"
+      ],
+      engineeringDecisions: [
         {
-          decision: "Locally Fine-Tuned Transformers vs Closed Cloud APIs",
-          tradeoff: "Fine-tuning RoBERTa and IndicBERT locally ensures deterministic classification thresholds, zero external per-token API costs, 120ms P95 latency, and absolute data confidentiality."
+          decision: "IndicBERT Fine-Tuning vs. Generic Multilingual BERT",
+          explanation: "Generic multilingual models underperform on low-resource and code-mixed regional text. IndicBERT was fine-tuned to capture phonetic transliterations, localized profanities, and regional hate-speech patterns."
         },
         {
-          decision: "LIME vs Raw Gradient Saliency Maps",
-          tradeoff: "LIME produces intuitive, word-level perturbation weights that human moderators can immediately interpret, whereas raw gradient saliency maps produce noisy, unintuitive token attributions."
+          decision: "LIME Token Attribution vs. Black-Box Scoring",
+          explanation: "Automated moderation requires human-in-the-loop review. LIME generates visual perturbation-based feature importance weights so moderators can instantly inspect the rationale behind flagged content."
         }
       ],
-      benchmarks: [
-        { metric: "Macro F1 Score", baseline: "81.2%", measured: "88.4%", impact: "+7.2% improvement across balanced multilingual categories" },
-        { metric: "Precision (Low False Positives)", baseline: "82.5%", measured: "89.1%", impact: "Minimizes false bans on sarcastic or controversial non-hateful speech" },
-        { metric: "Indic Cross-Lingual F1", baseline: "73.4%", measured: "85.9%", impact: "Strong performance on regional Indian linguistic nuances" },
-        { metric: "P95 Text Inference Latency", baseline: "240ms", measured: "120ms", impact: "FastAPI REST service with optimized PyTorch runtime" }
-      ],
-      deepDiveTitle: "Transformer Fine-Tuning & Explainability",
-      deepDiveItems: [
-        { label: "Training Procedure", detail: "Trained using PyTorch with AdamW optimizer, linear warmup, cross-entropy loss, and validation checkpointing across 80K+ multilingual samples." },
-        { label: "Multimodal Handling", detail: "Automatic mime-type routing: text passes directly to tokenizers; images and PDFs undergo adaptive thresholding and Tesseract OCR preprocessing." },
-        { label: "LIME Explainability", detail: "Generates localized feature importance scores by perturbing words, illustrating exact words triggering toxic classification." }
-      ],
-      limitations: {
-        limitation: "Sarcasm, culturally specific slang, and code-mixed vernacular (Hinglish) remain challenging edge cases.",
-        roadmap: "Active learning human-in-the-loop moderator feedback loops and joint multi-task emotion co-training to capture contextual sentiment."
-      }
+      githubUrl: "https://github.com/BharathReddyRamasani/Emotion-Aware-Hate-Speech-Detection-System"
     },
     {
       id: "nexus-commerce",
+      index: "04",
       title: "Nexus Commerce Suite",
-      domainBadge: "Enterprise Retail Analytics",
-      shortSummary: "Enterprise retail operations and analytics suite processing 900,000+ historical transaction rows across 500 SKUs with Pareto ABC classification, RFM segmentation, and sales forecasting.",
-      keyMetrics: [
-        { label: "Dataset Scale", value: "900K+ Rows", subtext: "10 stores × 500 SKUs" },
-        { label: "Forecast MAPE", value: "8.7%", subtext: "XGBoost / Prophet models" }
+      subtitle: "Transactional Operations & BI Analytics Suite",
+      positioningRole: "Data Science / Analytics / Software",
+      tagsSummary: "Data Science · Business Analytics · PostgreSQL · Forecasting",
+      shortSummary: "A full-stack business operations and analytics platform combining transactional commerce workflows with data-driven business intelligence.",
+      overview: "Nexus Commerce Suite focuses on the software and data engineering side of commerce, providing inventory and sales management together with analytical tools for understanding customers, products, and future demand.",
+      keyEngineering: [
+        "Developed a business operations platform supporting inventory management, sales processing, and transactional workflows.",
+        "Implemented ABC Analysis to classify products based on their contribution to business value.",
+        "Developed RFM customer segmentation to analyze purchasing behavior and identify customer groups.",
+        "Built sales analytics and visualization workflows using Pandas, NumPy, and Streamlit.",
+        "Integrated sales forecasting to support demand planning and data-driven business decisions.",
+        "Used PostgreSQL for structured transactional and analytical data management."
       ],
-      tags: ["Python", "SQL", "PostgreSQL", "Pandas", "NumPy", "Streamlit", "LightGBM", "Prophet", "Time-Series"],
-      keyBullets: [
-        "Architected an operational business intelligence platform backed by PostgreSQL with transactional integrity across inventory, orders, and sales.",
-        "Implemented quantitative algorithms including ABC Inventory Analysis (80/15/5 Pareto principle) and RFM Customer Segmentation.",
-        "Engineered predictive sales forecasting pipelines and an interactive Streamlit operations dashboard processing 900,000+ transaction rows."
+      architectureSteps: [
+        "Streamlit",
+        "Application Logic",
+        "PostgreSQL",
+        "Analytics / Forecasting",
+        "Business Insights"
       ],
-      githubUrl: "https://github.com/BharathReddyRamasani/Nexus-Commerce-Suite",
-      liveUrl: "https://bharathreddyramasani-nexus-commerce-suite-app-rbr.streamlit.app/",
-      problem: "Midsize retail operations often rely on fragmented spreadsheets without transactional validation, lacking visibility into high-revenue inventory (Pareto distribution) and demand trends to prevent stockouts.",
-      solution: "Engineered a PostgreSQL-backed data platform with an analytical computing layer built using vectorized Pandas/NumPy and an interactive Streamlit dashboard for real-time demand forecasting.",
-      diagramType: "nexus-commerce",
-      tradeoffs: [
+      techHighlights: [
+        { component: "Pareto ABC Engine", usage: "Calculates cumulative SKU revenue contributions to classify inventory into Tier A (80%), B (15%), and C (5%)." },
+        { component: "RFM Segmentation", usage: "Computes statistical quantile scoring across Recency, Frequency, and Monetary dimensions to segment customers." },
+        { component: "Time-Series Forecasting", usage: "Multi-horizon sales demand projection utilizing trend and seasonal decomposition with LightGBM and Prophet." },
+        { component: "PostgreSQL Database", usage: "Relational data schema with strict ACID transactional guarantees for inventory tracking and audit trails." }
+      ],
+      technologies: [
+        "Python",
+        "Streamlit",
+        "PostgreSQL",
+        "Pandas",
+        "NumPy",
+        "Data Analytics",
+        "RFM Analysis",
+        "ABC Analysis",
+        "Forecasting"
+      ],
+      engineeringDecisions: [
         {
-          decision: "Vectorized In-Memory Computing (Pandas/NumPy) vs Distributed Spark",
-          tradeoff: "For datasets under 5 million records (900K rows in production), single-node vectorized processing executes in <500ms with zero cluster orchestration overhead or cloud cluster bills."
+          decision: "Relational PostgreSQL Schema vs. NoSQL",
+          explanation: "Inventory decrements, point-of-sale receipts, and order statuses require strict transactional ACID compliance and foreign-key constraints to prevent stock discrepancies and race conditions."
         },
         {
-          decision: "PostgreSQL Relational Schema with Constraints vs NoSQL",
-          tradeoff: "Financial transactions and inventory movements demand strict ACID guarantees and foreign key constraints to eliminate stock discrepancies."
+          decision: "Vectorized Pandas & NumPy Analytics",
+          explanation: "Instead of row-by-row computations, vectorized transformations process 900K+ transactional records in sub-500ms for instantaneous Streamlit KPI dashboard recalculations."
         }
       ],
-      benchmarks: [
-        { metric: "Sales Demand Forecast MAPE", baseline: "17.8%", measured: "8.7%", impact: "High-accuracy demand projection minimizing overstock and stockouts" },
-        { metric: "Pareto ABC Classification", baseline: "Manual/Ad-hoc", measured: "100%", impact: "Automated classification of top 80% revenue drivers (A-tier SKUs)" },
-        { metric: "Data Processing Scale", baseline: "10K rows", measured: "900,000+ rows", impact: "Enterprise transaction history across 10 retail stores and 500 SKUs" },
-        { metric: "Analytical Query Latency", baseline: "2.8s", measured: "<500ms", impact: "Vectorized computation for instantaneous dashboard metric recalculations" }
-      ],
-      deepDiveTitle: "Quantitative Algorithms & Analytics Engine",
-      deepDiveItems: [
-        { label: "Pareto ABC Engine", detail: "Calculates cumulative SKU revenue contributions and deterministically maps items to Category A (top 80%), B (next 15%), or C (remaining 5%)." },
-        { label: "RFM Segmentation", detail: "Computes statistical quantile scoring across Recency, Frequency, and Monetary metrics to identify champion and churn-risk customer segments." },
-        { label: "Demand Forecasting", detail: "Multi-horizon sales forecasting leveraging trend and seasonal decomposition with LightGBM and Prophet models." }
-      ],
-      limitations: {
-        limitation: "Time-series forecasting on volatile promotional items currently requires manual tuning of holiday changepoint priors.",
-        roadmap: "Automating hyperparameter tuning with Optuna and establishing materialized PostgreSQL views with automated cron refreshes for sub-50ms dashboard responsiveness."
-      }
+      githubUrl: "https://github.com/BharathReddyRamasani/Nexus-Commerce-Suite"
     }
   ];
 
   return (
-    <section id="projects" className="relative py-12 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-16">
+    <section id="projects" className="relative pt-16 pb-12 sm:pt-20 sm:pb-16 px-4 sm:px-8 md:px-12 max-w-6xl mx-auto z-10 scroll-mt-20">
       <div className="space-y-6">
 
         {/* SECTION HEADER */}
@@ -277,262 +298,273 @@ export default function ProjectsSection() {
           </div>
         </div>
 
-        {/* PROJECTS LIST — All projects are equal level with verified benchmarks */}
-        <div className="space-y-6">
+        {/* PROJECTS LIST — Compact Cards with Deep Disclosure */}
+        <div className="space-y-5">
           {projects.map((project) => {
             const isExpanded = !!expandedProjects[project.id];
 
             return (
               <div
                 key={project.id}
-                className="bg-[#0e1614] rounded-xl border border-white/10 hover:border-primary/40 transition-all duration-300 shadow-lg"
+                className="bg-[#0e1614] rounded-xl border border-white/10 hover:border-primary/40 transition-all duration-300 shadow-lg overflow-hidden"
               >
-                {/* PROJECT CARD HEADER & SUMMARY */}
-                <div className="p-5 sm:p-6 space-y-4">
-                  {/* Top Badges & Title */}
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2">
+                {/* ━━━━━━━━ COMPACT PROJECT CARD (Always Visible) ━━━━━━━━ */}
+                <div className="p-5 sm:p-6 space-y-3.5">
+                  {/* Top Row: Index + Title + Positioning Role Label */}
+                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 border-b border-white/5 pb-3">
                     <div className="space-y-1">
-                      <div className="flex flex-wrap items-center gap-2">
-                        <span className="font-mono text-[10px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider border bg-primary/10 text-cyan-300 border-primary/30">
-                          {project.domainBadge}
+                      <div className="flex items-center gap-2">
+                        <span className="font-mono text-xs font-bold text-primary">
+                          {project.index} &mdash;
                         </span>
-                        <span className="font-mono text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 px-2 py-0.5 rounded">
-                          Verified Benchmarks
-                        </span>
+                        <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface">
+                          {project.title.split("—")[0].trim()}
+                        </h3>
                       </div>
-                      <h3 className="font-display text-lg sm:text-xl font-bold text-on-surface leading-snug">
-                        {project.title}
-                      </h3>
+                      <p className="font-sans text-xs text-secondary font-medium">
+                        {project.subtitle}
+                      </p>
                     </div>
 
-                    {/* Direct Links on Card */}
-                    <div className="flex items-center gap-2 shrink-0 pt-1 sm:pt-0">
+                    {/* Distinct Positioning Role Label */}
+                    <span className="inline-flex items-center font-mono text-[11px] font-bold px-3 py-1 rounded-full bg-primary/10 text-cyan-300 border border-primary/25 shadow-sm shrink-0">
+                      {project.positioningRole}
+                    </span>
+                  </div>
+
+                  {/* Tags Summary */}
+                  <div className="font-mono text-[11px] text-on-surface-variant/80 tracking-wide font-medium">
+                    {project.tagsSummary}
+                  </div>
+
+                  {/* Short 1-line Summary */}
+                  <p className="font-sans text-xs sm:text-[13px] text-on-surface-variant leading-relaxed">
+                    {project.shortSummary}
+                  </p>
+
+                  {/* Compact Action Bar */}
+                  <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+                    <button
+                      onClick={() => toggleProject(project.id)}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold font-display text-primary hover:text-cyan-300 transition-colors cursor-pointer group"
+                    >
+                      <span>{isExpanded ? "Collapse Details" : "View Project Details"}</span>
+                      {isExpanded ? (
+                        <ChevronUp className="w-3.5 h-3.5 group-hover:-translate-y-0.5 transition-transform" />
+                      ) : (
+                        <ChevronDown className="w-3.5 h-3.5 group-hover:translate-y-0.5 transition-transform" />
+                      )}
+                    </button>
+
+                    <div className="flex items-center gap-2">
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/25 text-xs font-mono font-semibold transition-all hover:scale-105"
+                        >
+                          <span>Live Demo</span>
+                          <ExternalLink className="w-3 h-3" />
+                        </a>
+                      )}
+
                       <a
                         href={project.githubUrl}
                         target="_blank"
                         rel="noreferrer"
-                        className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-on-surface-variant hover:text-white border border-white/10 transition-colors"
-                        title="GitHub Repository"
+                        className="inline-flex items-center gap-1 px-3 py-1 rounded-md bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 text-xs font-mono font-semibold transition-all hover:scale-105"
                       >
-                        <Github className="w-4 h-4" />
-                      </a>
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/25 text-xs font-mono font-semibold transition-all hover:scale-105"
-                      >
-                        <span>Live Demo</span>
-                        <ExternalLink className="w-3 h-3" />
+                        <Github className="w-3 h-3 text-primary" />
+                        <span>GitHub</span>
                       </a>
                     </div>
                   </div>
+                </div>
 
-                  {/* Summary & Key Metrics Grid */}
-                  <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-center">
-                    <div className="lg:col-span-8 space-y-2">
+                {/* ━━━━━━━━ DEEP DIVE EXPANSION (Recommended Exact Hierarchy) ━━━━━━━━ */}
+                {isExpanded && (
+                  <div className="border-t border-white/10 bg-[#0a100f] p-5 sm:p-7 space-y-6 animate-fadeIn">
+                    
+                    {/* Top Action Bar in Deep Dive */}
+                    <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-white/10">
+                      <div>
+                        <span className="font-mono text-[10px] text-primary uppercase tracking-widest font-bold block mb-0.5">
+                          Technical Case Study
+                        </span>
+                        <h4 className="font-display text-base sm:text-lg font-bold text-on-surface">
+                          {project.title}
+                        </h4>
+                      </div>
+
+                      <div className="flex items-center gap-2.5">
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-bold transition-all hover:scale-105 shadow-sm"
+                          >
+                            <span>Live Demo</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/30 text-xs font-mono font-bold transition-all hover:scale-105 shadow-sm"
+                        >
+                          <Github className="w-3.5 h-3.5 text-primary" />
+                          <span>GitHub</span>
+                        </a>
+                      </div>
+                    </div>
+
+                    {/* 1. OVERVIEW */}
+                    <div className="space-y-2">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold flex items-center gap-1.5">
+                        <span>Overview</span>
+                      </h5>
                       <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                        {project.shortSummary}
+                        {project.overview}
                       </p>
+                    </div>
 
-                      {/* 3 High-Impact Technical Bullets */}
-                      <ul className="space-y-1.5 pt-1 text-xs text-on-surface-variant">
-                        {project.keyBullets.map((bullet, bIdx) => (
-                          <li key={bIdx} className="flex items-start gap-2">
-                            <CheckCircle2 className="w-3.5 h-3.5 text-primary shrink-0 mt-0.5" />
-                            <span>{bullet}</span>
+                    {/* 2. KEY ENGINEERING */}
+                    <div className="space-y-2.5 pt-2 border-t border-white/5">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold">
+                        Key Engineering
+                      </h5>
+                      <ul className="space-y-2 text-xs sm:text-sm text-on-surface-variant leading-relaxed">
+                        {project.keyEngineering.map((item, kIdx) => (
+                          <li key={kIdx} className="flex items-start gap-2.5">
+                            <CheckCircle2 className="w-4 h-4 text-primary shrink-0 mt-0.5" />
+                            <span>{item}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    {/* 2 Strongest Metrics Box */}
-                    <div className="lg:col-span-4 bg-black/40 border border-white/10 rounded-xl p-3 sm:p-4 space-y-3">
-                      <span className="font-mono text-[10px] text-on-surface-variant/80 uppercase tracking-wider block font-semibold">
-                        Key Measured Results
-                      </span>
-                      <div className="grid grid-cols-2 gap-3">
-                        {project.keyMetrics.map((km, kmIdx) => (
-                          <div key={kmIdx} className="space-y-0.5">
-                            <span className="font-mono text-[10px] text-on-surface-variant block">
-                              {km.label}
-                            </span>
-                            <span className="font-display text-xl sm:text-2xl font-black text-primary block">
-                              {km.value}
-                            </span>
-                            <span className="font-mono text-[9px] text-on-surface-variant/70 block leading-tight">
-                              {km.subtext}
-                            </span>
-                          </div>
-                        ))}
+                    {/* 3. SYSTEM ARCHITECTURE */}
+                    <div className="space-y-2.5 pt-2 border-t border-white/5">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-secondary font-bold flex items-center gap-1.5">
+                        <Workflow className="w-3.5 h-3.5" />
+                        <span>System Architecture</span>
+                      </h5>
+
+                      {/* Interactive Pipeline Steps */}
+                      <div className="bg-[#050b0a] border border-white/10 rounded-xl p-3 sm:p-4 overflow-x-auto">
+                        <div className="flex items-center gap-2 min-w-max">
+                          {project.architectureSteps.map((step, sIdx) => (
+                            <div key={sIdx} className="flex items-center gap-2">
+                              <span className="font-mono text-xs font-bold px-3 py-1.5 rounded-lg bg-surface-container-high/80 border border-white/10 text-cyan-200 shadow-sm">
+                                {step}
+                              </span>
+                              {sIdx < project.architectureSteps.length - 1 && (
+                                <span className="text-primary font-black text-sm">→</span>
+                              )}
+                            </div>
+                          ))}
+                        </div>
+                        {project.architectureNote && (
+                          <p className="font-mono text-[10.5px] text-on-surface-variant/70 mt-2.5 pt-2 border-t border-white/5">
+                            {project.architectureNote}
+                          </p>
+                        )}
                       </div>
                     </div>
-                  </div>
 
-                  {/* Tech Stack Tags & Drawer Toggle Button */}
-                  <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 pt-2 border-t border-white/5">
-                    <div className="flex flex-wrap gap-1.5">
-                      {project.tags.map((tag, tIdx) => (
-                        <span
-                          key={tIdx}
-                          className="font-mono text-[10px] bg-white/5 text-on-surface-variant border border-white/10 px-2 py-0.5 rounded"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-
-                    <button
-                      onClick={() => toggleProject(project.id)}
-                      className="inline-flex items-center gap-1.5 font-mono text-xs font-semibold text-primary hover:text-cyan-300 transition-colors cursor-pointer py-1"
-                    >
-                      <span>{isExpanded ? "Collapse Case Study" : "Explore Architecture & Evals"}</span>
-                      {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
-                    </button>
-                  </div>
-                </div>
-
-                {/* EXPANDABLE CASE STUDY DRAWER (~7 FOCUSED TECHNICAL SECTIONS) */}
-                {isExpanded && (
-                  <div className="border-t border-white/10 bg-[#070d0c] p-5 sm:p-6 space-y-6">
-
-                    {/* 1. Problem & Context */}
-                    <div className="space-y-1.5">
-                      <span className="font-mono text-[10px] uppercase text-primary tracking-wider font-bold block">
-                        01 • Problem &amp; Engineering Challenge
-                      </span>
-                      <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                        {project.problem}
-                      </p>
-                    </div>
-
-                    {/* 2. Technical Solution */}
-                    <div className="space-y-1.5">
-                      <span className="font-mono text-[10px] uppercase text-primary tracking-wider font-bold block">
-                        02 • Technical Solution
-                      </span>
-                      <p className="font-sans text-xs sm:text-sm text-on-surface-variant leading-relaxed">
-                        {project.solution}
-                      </p>
-                    </div>
-
-                    {/* 3. Clean CSS-Rendered Architecture Diagram */}
-                    <div className="space-y-2">
-                      <span className="font-mono text-[10px] uppercase text-primary tracking-wider font-bold block">
-                        03 • System Architecture &amp; Data Flow
-                      </span>
-                      <ArchitectureDiagram type={project.diagramType} />
-                    </div>
-
-                    {/* 4. Key Engineering Decisions & Trade-offs */}
-                    <div className="space-y-2">
-                      <span className="font-mono text-[10px] uppercase text-primary tracking-wider font-bold block">
-                        04 • Key Engineering Decisions &amp; Trade-offs
-                      </span>
+                    {/* 4. TECHNICAL HIGHLIGHTS */}
+                    <div className="space-y-2.5 pt-2 border-t border-white/5">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-primary font-bold">
+                        Technical Highlights
+                      </h5>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                        {project.tradeoffs.map((to, toIdx) => (
-                          <div key={toIdx} className="bg-white/3 border border-white/10 rounded-lg p-3 space-y-1">
-                            <h4 className="font-mono text-xs font-bold text-on-surface text-cyan-300">
-                              {to.decision}
-                            </h4>
-                            <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
-                              {to.tradeoff}
-                            </p>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    {/* 5. Quantitative Evaluation & Benchmarks Table */}
-                    <div className="space-y-2">
-                      <span className="font-mono text-[10px] uppercase text-primary tracking-wider font-bold block">
-                        05 • Quantitative Benchmarks &amp; System Evaluation
-                      </span>
-                      <div className="overflow-x-auto">
-                        <table className="w-full text-left text-xs font-mono border border-white/10 rounded-lg overflow-hidden">
-                          <thead className="bg-white/5 text-on-surface-variant text-[10px] uppercase tracking-wider">
-                            <tr>
-                              <th className="p-2.5 border-b border-white/10">Metric</th>
-                              <th className="p-2.5 border-b border-white/10">Baseline</th>
-                              <th className="p-2.5 border-b border-white/10 text-primary">Measured</th>
-                              <th className="p-2.5 border-b border-white/10">Impact / Description</th>
-                            </tr>
-                          </thead>
-                          <tbody className="divide-y divide-white/5 text-on-surface-variant">
-                            {project.benchmarks.map((row, rIdx) => (
-                              <tr key={rIdx} className="hover:bg-white/2 transition-colors">
-                                <td className="p-2.5 font-bold text-on-surface">{row.metric}</td>
-                                <td className="p-2.5 text-on-surface-variant/70">{row.baseline}</td>
-                                <td className="p-2.5 font-bold text-emerald-400">{row.measured}</td>
-                                <td className="p-2.5 font-sans text-xs text-on-surface-variant">{row.impact}</td>
-                              </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                      </div>
-                    </div>
-
-                    {/* 6. Technical Deep Dive */}
-                    <div className="space-y-2">
-                      <span className="font-mono text-[10px] uppercase text-primary tracking-wider font-bold block">
-                        06 • {project.deepDiveTitle}
-                      </span>
-                      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-                        {project.deepDiveItems.map((item, itemIdx) => (
-                          <div key={itemIdx} className="bg-black/30 border border-white/10 p-3 rounded-lg space-y-1">
-                            <span className="font-mono text-[11px] font-bold text-secondary block">
-                              {item.label}
+                        {project.techHighlights.map((th, thIdx) => (
+                          <div
+                            key={thIdx}
+                            className="bg-[#070e0d] border border-white/10 p-3 rounded-lg space-y-1"
+                          >
+                            <span className="font-mono text-xs font-bold text-cyan-300 block">
+                              {th.component}
                             </span>
                             <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
-                              {item.detail}
+                              {th.usage}
                             </p>
                           </div>
                         ))}
                       </div>
                     </div>
 
-                    {/* 7. Limitations & Engineering Roadmap */}
-                    <div className="space-y-1.5 bg-black/40 border border-white/10 rounded-lg p-3.5">
-                      <span className="font-mono text-[10px] uppercase text-amber-400 tracking-wider font-bold block">
-                        07 • Limitations &amp; Future Engineering Roadmap
-                      </span>
-                      <div className="space-y-1 text-xs font-sans">
-                        <p className="text-on-surface-variant">
-                          <strong className="text-on-surface font-mono">Known Limitation: </strong>
-                          {project.limitations.limitation}
-                        </p>
-                        <p className="text-on-surface-variant">
-                          <strong className="text-primary font-mono">Engineering Roadmap: </strong>
-                          {project.limitations.roadmap}
-                        </p>
+                    {/* 5. TECH STACK */}
+                    <div className="space-y-2 pt-2 border-t border-white/5">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-on-surface-variant/80 font-bold">
+                        Tech Stack
+                      </h5>
+                      <div className="flex flex-wrap gap-1.5">
+                        {project.technologies.map((tech, tIdx) => (
+                          <span
+                            key={tIdx}
+                            className="font-mono text-[11px] bg-white/5 border border-white/10 px-2.5 py-1 rounded-md text-on-surface font-medium hover:border-primary/40 hover:text-cyan-300 transition-colors"
+                          >
+                            {tech}
+                          </span>
+                        ))}
                       </div>
                     </div>
 
-                    {/* Drawer Footer Actions */}
-                    <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-white/10">
+                    {/* 6. CHALLENGES / ENGINEERING DECISIONS */}
+                    <div className="space-y-2.5 pt-2 border-t border-white/5">
+                      <h5 className="font-mono text-[11px] uppercase tracking-widest text-emerald-400 font-bold">
+                        Challenges / Engineering Decisions
+                      </h5>
+                      <div className="space-y-2">
+                        {project.engineeringDecisions.map((ed, edIdx) => (
+                          <div
+                            key={edIdx}
+                            className="bg-[#070e0d] border border-white/10 p-3 rounded-lg space-y-1"
+                          >
+                            <span className="font-mono text-xs font-bold text-on-surface block">
+                              {ed.decision}
+                            </span>
+                            <p className="font-sans text-xs text-on-surface-variant leading-relaxed">
+                              {ed.explanation}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* 7. FOOTER ACTION BAR */}
+                    <div className="pt-4 border-t border-white/10 flex flex-wrap items-center justify-between gap-3">
                       <div className="flex items-center gap-2 text-xs font-mono text-on-surface-variant">
                         <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                        <span>Production Deployment Verified</span>
+                        <span>Verified Project Codebase &amp; Architecture</span>
                       </div>
 
-                      <div className="flex items-center gap-3">
+                      <div className="flex items-center gap-2.5">
+                        {project.liveUrl && (
+                          <a
+                            href={project.liveUrl}
+                            target="_blank"
+                            rel="noreferrer"
+                            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500/15 hover:bg-emerald-500/25 text-emerald-300 border border-emerald-500/30 text-xs font-mono font-bold transition-all hover:scale-105"
+                          >
+                            <span>Live Demo</span>
+                            <ExternalLink className="w-3.5 h-3.5" />
+                          </a>
+                        )}
+
                         <a
                           href={project.githubUrl}
                           target="_blank"
                           rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-on-surface border border-white/10 text-xs font-mono font-semibold transition-colors"
+                          className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-primary/10 hover:bg-primary/20 text-cyan-300 border border-primary/30 text-xs font-mono font-bold transition-all hover:scale-105"
                         >
-                          <Github className="w-3.5 h-3.5" />
-                          <span>Inspect Code</span>
-                        </a>
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-primary hover:bg-cyan-300 text-on-primary text-xs font-mono font-bold transition-all shadow-sm"
-                        >
-                          <span>Open Live Space</span>
-                          <ExternalLink className="w-3.5 h-3.5" />
+                          <Github className="w-3.5 h-3.5 text-primary" />
+                          <span>View GitHub</span>
                         </a>
                       </div>
                     </div>
@@ -543,202 +575,8 @@ export default function ProjectsSection() {
             );
           })}
         </div>
+
       </div>
     </section>
-  );
-}
-
-// CLEAN CSS-RENDERED ARCHITECTURE DIAGRAMS
-function ArchitectureDiagram({ type }: { type: string }) {
-  if (type === "corpus-ai") {
-    return (
-      <div className="bg-[#050a09] border border-white/10 rounded-xl p-4 sm:p-5 space-y-4">
-        {/* Step 1: Document Ingestion Pipeline */}
-        <div className="space-y-1.5">
-          <span className="font-mono text-[9.5px] uppercase tracking-wider text-on-surface-variant/70 block">
-            Phase 1: Ingestion &amp; Vector Store
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-center text-xs font-mono">
-            <div className="bg-white/5 border border-white/10 p-2 rounded-lg text-on-surface">
-              Research PDFs
-            </div>
-            <div className="bg-white/5 border border-white/10 p-2 rounded-lg text-on-surface">
-              OCR &amp; Chunking
-            </div>
-            <div className="bg-white/5 border border-white/10 p-2 rounded-lg text-on-surface">
-              all-MiniLM-L6-v2 (384-d)
-            </div>
-            <div className="bg-primary/10 border border-primary/30 p-2 rounded-lg text-primary font-bold">
-              ChromaDB Vector DB
-            </div>
-          </div>
-        </div>
-
-        {/* Step 2: Supervisor Multi-Agent Flow */}
-        <div className="space-y-1.5 pt-2 border-t border-white/5">
-          <span className="font-mono text-[9.5px] uppercase tracking-wider text-cyan-300 block">
-            Phase 2: Supervisor Intent Routing &amp; Multi-Agent State Machine
-          </span>
-          <div className="bg-[#0b1413] border border-primary/20 rounded-lg p-3 space-y-2">
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono">
-              <span className="text-on-surface font-semibold">User Query &rarr; FastAPI Backend</span>
-              <span className="text-primary font-bold">&rarr;</span>
-              <span className="bg-primary/20 text-cyan-300 border border-primary/40 px-3 py-1 rounded-md font-bold">
-                LangGraph Supervisor Node
-              </span>
-            </div>
-
-            {/* 7 Worker Agents */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 text-center text-[10.5px] font-mono pt-1">
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded text-on-surface">Paper Analysis</div>
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded text-on-surface">Multi-Paper Chat</div>
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded text-on-surface">Paper Comparison</div>
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded text-on-surface">Gap Detection</div>
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded text-on-surface">Synthesis Agent</div>
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded text-on-surface">Report Generator</div>
-              <div className="bg-black/40 border border-white/10 p-1.5 rounded text-on-surface col-span-2">Context Verification Loop</div>
-            </div>
-          </div>
-        </div>
-
-        {/* Step 3: Synthesis & Verification */}
-        <div className="space-y-1.5 pt-2 border-t border-white/5">
-          <span className="font-mono text-[9.5px] uppercase tracking-wider text-emerald-400 block">
-            Phase 3: Grounded Synthesis &amp; Citation Output
-          </span>
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center text-xs font-mono">
-            <div className="bg-secondary/10 border border-secondary/25 p-2 rounded-lg text-secondary">
-              ChromaDB Context Retrieval
-            </div>
-            <div className="bg-secondary/15 border border-secondary/30 p-2 rounded-lg text-secondary font-bold">
-              Groq Llama 3.1 Inference
-            </div>
-            <div className="bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-lg text-emerald-300 font-bold">
-              92.4% Faithful Citation Output
-            </div>
-          </div>
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "ai-commerce") {
-    return (
-      <div className="bg-[#050a09] border border-white/10 rounded-xl p-4 sm:p-5 space-y-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-mono">
-          {/* Track 1: Recommendation Engine */}
-          <div className="bg-[#0b1413] border border-secondary/20 rounded-lg p-3 space-y-2">
-            <span className="font-bold text-secondary uppercase text-[10px] block">
-              Track 1: Hybrid Recommendation Engine
-            </span>
-            <div className="space-y-1.5 text-center">
-              <div className="bg-black/40 border border-white/10 p-2 rounded text-on-surface">
-                User Browsing &amp; Cart Events (MongoDB)
-              </div>
-              <div className="text-secondary font-bold text-[10px]">&darr; Weighted Interaction Scoring</div>
-              <div className="bg-secondary/10 border border-secondary/30 p-2 rounded text-secondary font-semibold">
-                Collaborative + Content Cosine + Popularity
-              </div>
-              <div className="text-secondary font-bold text-[10px]">&darr; Top-N Scoring</div>
-              <div className="bg-emerald-500/10 border border-emerald-500/25 p-2 rounded text-emerald-300 font-bold">
-                0.84 NDCG@10 Personalized Feed
-              </div>
-            </div>
-          </div>
-
-          {/* Track 2: Conversational RAG */}
-          <div className="bg-[#0b1413] border border-primary/20 rounded-lg p-3 space-y-2">
-            <span className="font-bold text-primary uppercase text-[10px] block">
-              Track 2: Conversational RAG Shopping Agent
-            </span>
-            <div className="space-y-1.5 text-center">
-              <div className="bg-black/40 border border-white/10 p-2 rounded text-on-surface">
-                Natural-Language Query &rarr; ChromaDB
-              </div>
-              <div className="text-primary font-bold text-[10px]">&darr; Catalog Semantic Matching</div>
-              <div className="bg-primary/10 border border-primary/30 p-2 rounded text-primary font-semibold">
-                LangChain Context Formulation + Real-Time Stock
-              </div>
-              <div className="text-primary font-bold text-[10px]">&darr; Gemini LLM</div>
-              <div className="bg-emerald-500/10 border border-emerald-500/25 p-2 rounded text-emerald-300 font-bold">
-                94.1% Grounded Product Advice
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Backend & Deployment Bar */}
-        <div className="bg-white/3 border border-white/10 p-2.5 rounded-lg flex flex-wrap items-center justify-between gap-2 text-xs font-mono text-on-surface-variant">
-          <span>FastAPI REST Layer: Auth, Cart, Orders (45ms P95)</span>
-          <span className="text-primary">&bull;</span>
-          <span>Docker Container on Hugging Face Spaces</span>
-        </div>
-      </div>
-    );
-  }
-
-  if (type === "hate-speech") {
-    return (
-      <div className="bg-[#050a09] border border-white/10 rounded-xl p-4 sm:p-5 space-y-3 font-mono text-xs">
-        <span className="font-mono text-[9.5px] uppercase tracking-wider text-tertiary block">
-          Multimodal Extraction &amp; Transformer Pipeline
-        </span>
-        <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-center">
-          <div className="bg-white/5 border border-white/10 p-2 rounded-lg text-on-surface">
-            Text / Image / PDF
-          </div>
-          <div className="bg-white/5 border border-white/10 p-2 rounded-lg text-on-surface">
-            Tesseract OCR (94.2%)
-          </div>
-          <div className="bg-tertiary/10 border border-tertiary/30 p-2 rounded-lg text-tertiary font-bold">
-            RoBERTa + IndicBERT
-          </div>
-          <div className="bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-lg text-emerald-300 font-bold">
-            88.4% Macro F1 Score
-          </div>
-        </div>
-
-        <div className="bg-[#0b1413] border border-white/10 rounded-lg p-2.5 flex flex-col sm:flex-row items-center justify-between gap-2 text-[11px] text-on-surface-variant">
-          <span className="text-amber-300 font-semibold">LIME Explainability Engine</span>
-          <span>&rarr; Local perturbation testing &rarr; Token attribution heatmap output</span>
-          <span className="text-primary font-bold">120ms P95 Latency</span>
-        </div>
-      </div>
-    );
-  }
-
-  // nexus-commerce
-  return (
-    <div className="bg-[#050a09] border border-white/10 rounded-xl p-4 sm:p-5 space-y-3 font-mono text-xs">
-      <span className="font-mono text-[9.5px] uppercase tracking-wider text-primary block">
-        Transactional Storage &amp; Vectorized Computing Engine
-      </span>
-      <div className="grid grid-cols-1 sm:grid-cols-4 gap-2 text-center">
-        <div className="bg-white/5 border border-white/10 p-2 rounded-lg text-on-surface">
-          900K+ Sales Rows
-        </div>
-        <div className="bg-primary/10 border border-primary/30 p-2 rounded-lg text-primary font-bold">
-          PostgreSQL (ACID)
-        </div>
-        <div className="bg-secondary/10 border border-secondary/30 p-2 rounded-lg text-secondary font-bold">
-          Pandas / NumPy Engine
-        </div>
-        <div className="bg-emerald-500/10 border border-emerald-500/30 p-2 rounded-lg text-emerald-300 font-bold">
-          Streamlit BI Dashboard
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 text-center text-[10.5px]">
-        <div className="bg-black/40 border border-white/10 p-2 rounded text-on-surface">
-          Pareto ABC Analysis (80/15/5% Split)
-        </div>
-        <div className="bg-black/40 border border-white/10 p-2 rounded text-on-surface">
-          RFM Segmentation (Quantile Scoring)
-        </div>
-        <div className="bg-black/40 border border-white/10 p-2 rounded text-on-surface">
-          8.7% Forecast MAPE (LightGBM/Prophet)
-        </div>
-      </div>
-    </div>
   );
 }
