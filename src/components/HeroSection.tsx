@@ -164,7 +164,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
               Direct PDF Resumes:
             </span>
             <a
-              href="https://drive.google.com/file/d/1gTVsIZOMOwnpFQX5tOvQRn7jKDi4EtLc/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1I77AcGQ28YTF7xWDBq9XXa5ps9qG3TZ7/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 transition-all font-semibold shadow-xs"
@@ -174,7 +174,7 @@ export default function HeroSection({ onOpenResume }: HeroSectionProps) {
             </a>
             <span className="text-slate-300">•</span>
             <a
-              href="https://drive.google.com/file/d/13SRI9L4a9YpSkCKU9U3A2USuOFb1975g/view?usp=drive_link"
+              href="https://drive.google.com/file/d/1gha34FbT7xWl5l42e_sdaJUEZolhNVPi/view?usp=sharing"
               target="_blank"
               rel="noreferrer"
               className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-blue-50 hover:bg-blue-100 text-blue-700 border border-blue-200 transition-all font-semibold shadow-xs"
